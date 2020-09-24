@@ -1,0 +1,16 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background-color: rgb(46, 45, 43);
+}
+
+#game_canvas {
+    margin: auto;
+    margin-top: 1%;
+    display: block;
+    border: 2px solid wheat;
+    background-color: rgb(95, 84, 69);
+}
