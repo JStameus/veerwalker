@@ -1,4 +1,7 @@
 --24/9--
     - Canvas doesn't scale with screen, is that possible to do? Would be sweet. 
 
+--25/9--
+    - I can create new Character objects, but how will I store them later, and where?
+    
 
