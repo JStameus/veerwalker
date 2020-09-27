@@ -20,6 +20,9 @@ one part of the game, namely text-based dialogue and turn-based encounters. The 
 feature very little in the way of detailed graphics, focusing instead on mechanical and 
 narrative depth, inspired by tabletop roleplaying games such as Dungeons & Dragons. 
 
+That means NO FANCY GRAPHICS OR TYPICAL GAME MECHANICS, everything is meant to be purely 
+based on the user interface, more like a typical web page.
+
 The focus of this "module" will be on the most basic fundamental aspects of the game, in
 which the story is told through narrative text and dialogue, and some of that dialogue can 
 be influenced by player choices. All dialogue is saved in "dialogue trees" where each piece of dialogue
