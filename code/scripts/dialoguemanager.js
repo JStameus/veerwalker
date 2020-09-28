@@ -1,37 +1,33 @@
-let dialogueText = "Jiub: Stand up. There you go. You were dreaming...What's your name?"
+// let dialogueText = "Jiub: Stand up. There you go. You were dreaming...What's your name?"
 
-let dialogueChoice01 = "I don't remember. Everything's foggy."
-let dialogueChoice02 = "I am Lord Nerevar, of course! Don't you recognize me?"
-let dialogueChoice03 = "I'm not telling you my name. I'm not sure I trust you."
-let dialogueChoice04 = "My name is Joseph. Nice to meet you, mister...?"
+// function refreshDialogueWindow() {
+//     document.getElementById("dialogue_text_main").innerHTML = dialogueText;
+//     document.getElementById("dialogue_choice_text_01").innerHTML = dialogueChoice01;
+//     document.getElementById("dialogue_choice_text_02").innerHTML = dialogueChoice02;
+//     document.getElementById("dialogue_choice_text_03").innerHTML = dialogueChoice03;
+//     document.getElementById("dialogue_choice_text_04").innerHTML = dialogueChoice04;
+// }
 
-function refreshDialogueWindow() {
-    document.getElementById("dialogue_text_main").innerHTML = dialogueText;
-    document.getElementById("dialogue_choice_text_01").innerHTML = dialogueChoice01;
-    document.getElementById("dialogue_choice_text_02").innerHTML = dialogueChoice02;
-    document.getElementById("dialogue_choice_text_03").innerHTML = dialogueChoice03;
-    document.getElementById("dialogue_choice_text_04").innerHTML = dialogueChoice04;
+let dialogueChoice01 = {
+    text = "I'm not sure. Everything is a bit foggy.",
+    dialogueNode = dialogueNode02,
 }
 
-// let diagTxt01 = {
-//     choice01 = diag01Choice01,
-//     choice02 = diag01Choice02,
-//     choice03 = diag01Choice03,
-//     choice04 = diag01Choice04,
-// }
+let actorJiub = {
+    name = "Jiub",
+    //portrait reference here
+}
 
-// let diag01Choice01 = {
-//     text = "I don't remember. Everything's foggy."
-// }
+let dialogueNode01 = {
+    location = "Prison Boat",
+    actor = actorJiub,
+    text = "Stand up. There you go. You were dreaming. What's your name?",
+    choices = [dialogueChoice01, dialogueChoice02, dialogueChoice03, dialogueChoice04] 
+}
 
-// let diag01Choice02 = {
-//     text = "I am Lord Nerevar, of course! Don't you recognize me?"
-// }
-
-// let diag01Choice03 = {
-//     text = "I'm not telling you my name. I'm not sure I trust you."
-// }
-
-// let diag01Choice04 = {
-//     text = "My name is Joseph. Nice to meet you, mister...?"
-// }
+let dialogueNode02 = {
+    location = "Prison Boat",
+    actor = actorJiub,
+    text = "Well, not even last night's storm could wake you. I heard them say we've reached Morrowind, I'm sure they'll let us go.",
+    choices = [23, 1, 6],
+}

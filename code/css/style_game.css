@@ -21,7 +21,6 @@ p {
 }
 
 #dialogue_text_main {
-    overflow: scroll;
     height: 540px;
 }
 
