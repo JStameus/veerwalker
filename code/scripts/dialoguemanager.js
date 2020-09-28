@@ -1,25 +1,27 @@
-let playerName = "Big Jobo";
+var playerName = "Big Jobo";
 
-let actorJiub = {
+var actorJiub = {
     actorName: 'Jiub',
     //portrait reference here
 }
 
-let dialogueChoice01 = {
+var dialogueChoice01 = {
     text: "I'm not sure. Everything is a bit foggy.",
+    nextNode: dialogueNode02,
 }
 
-let dialogueChoice02 = {
+var dialogueChoice02 = {
     text: "Me? I am Lord Nerevar, of course! Don't you recognize me?",
 }
 
-let dialogueChoice03 = {
+var dialogueChoice03 = {
     text: "I'm not telling you my name. I'm not sure I can trust you.",
 }
 
-let dialogueChoice04 = {
+var dialogueChoice04 = {
     text: "My name is " + playerName + ". And you are...?",
 }
+
 
 function refreshDialogueNode(dialogueNode) {
     document.getElementById("dialogue_text_main").innerHTML = dialogueNode.text;
@@ -30,7 +32,12 @@ function refreshDialogueNode(dialogueNode) {
     document.getElementById("choice_button_04").innerHTML = dialogueNode.choices[3].text;
 }
 
-let dialogueNode01 = {
+function refreshDialogueChoice(dialogueChoice, newText, newNextNode) {
+    dialogueChoice.text = newText;
+    dialogueChoice.newText = newNextNode;
+}
+
+var dialogueNode01 = {
     responseTo: null,
     location: "Prison Boat",
     actor: actorJiub,
@@ -38,7 +45,7 @@ let dialogueNode01 = {
     choices: [dialogueChoice01, dialogueChoice02, dialogueChoice03, dialogueChoice04]
 }
 
-let dialogueNode02 = {
+var dialogueNode02 = {
     responseTo: dialogueChoice02,
     location: "Prison Boat",
     actor: actorJiub,

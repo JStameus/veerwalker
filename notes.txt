@@ -20,3 +20,7 @@ there is one problem: dialogueNodes and dialogueChoices are trying to access pro
 one another before they are initialized. If I move one further up in the code, something else breaks.
 How do I get around this?
 
+[Changing let to var]
+Changing the "nodes" and dialogue options to use var instead of let at their declaration fixed the issue,
+but I'm not sure if it is the optimal solution? 
+
