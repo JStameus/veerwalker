@@ -1,7 +1,15 @@
---24/9--
-    - Canvas doesn't scale with screen, is that possible to do? Would be sweet. 
+----24/9, 2020----
+[Canvas]
+Canvas doesn't scale with screen, is that possible to do? Would be sweet. 
 
---25/9--
-    - I can create new Character objects, but how will I store them later, and where?
-    
+----25/9, 2020----
+[Characters]
+I can create new Character objects, but how will I store them later, and where?
+
+----27/9, 2020----
+[Getting Started]
+I'll try the dialogues first. I'll leave the encounters for now and just focus
+on making simple dialogues. I just need to figure out how to switch between dialogues
+and encounters later on, without having to reload the page.
+
 
