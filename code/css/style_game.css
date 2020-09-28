@@ -56,5 +56,12 @@ p {
 }
 
 .dialogue_choice_button {
-    display: inline-block;
+    width: 100%;
+    margin: 2px 0px;
+    padding: 6px;
+    font-size: 24px;
+    color: wheat;
+    background-color: rgb(66, 60, 51);
+    border: 1px solid wheat;
+    border-radius: 6px;
 }
