@@ -12,4 +12,11 @@ I'll try the dialogues first. I'll leave the encounters for now and just focus
 on making simple dialogues. I just need to figure out how to switch between dialogues
 and encounters later on, without having to reload the page.
 
+----28/9, 2020----
+[Making Progress & dialogueNodes]
+I'm starting to make sense of things. I have objects called dialogueNode(s) that contain
+some text and scene information, as well as references to possible responses. However,
+there is one problem: dialogueNodes and dialogueChoices are trying to access properties of
+one another before they are initialized. If I move one further up in the code, something else breaks.
+How do I get around this?
 
