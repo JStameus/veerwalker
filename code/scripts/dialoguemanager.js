@@ -21,6 +21,14 @@ let dialogueChoice04 = {
     text: "My name is " + playerName + ". And you are...?",
 }
 
+let dialogueChoice05 = {
+    text: "O shit o fuk",
+}
+
+let dialogueChoice06 = {
+    text: "Come on then bruv lez go",
+}
+
 function refreshDialogueNode(dialogueNode) {
     document.getElementById("dialogue_text_main").innerHTML = dialogueNode.text;
     document.getElementById("dialogue_eventlabel").innerHTML = dialogueNode.location;
@@ -43,7 +51,8 @@ let dialogueNode02 = {
     location: "Prison Boat",
     actor: actorJiub,
     text: "Well, not even last night's storm could wake you. I heard them say we've reached Morrowind, I'm sure they'll let us go...Quiet, here comes the guard.",
-    choices: [0],
+    choices: [dialogueChoice05, dialogueChoice06, dialogueChoice01, dialogueChoice02],
 }
+
 
 document.onload = refreshDialogueNode(dialogueNode01);
