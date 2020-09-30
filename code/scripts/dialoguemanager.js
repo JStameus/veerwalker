@@ -22,7 +22,6 @@ var dialogueChoice04 = {
     text: "My name is " + playerName + ". And you are...?",
 }
 
-<<<<<<< HEAD
 let dialogueChoice05 = {
     text: "O shit o fuk",
 }
@@ -30,8 +29,6 @@ let dialogueChoice05 = {
 let dialogueChoice06 = {
     text: "Come on then bruv lez go",
 }
-=======
->>>>>>> 0b35f9439be8e01a71fe88472b8859e838f9abf5
 
 function refreshDialogueNode(dialogueNode) {
     document.getElementById("dialogue_text_main").innerHTML = dialogueNode.text;
