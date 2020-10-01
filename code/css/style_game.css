@@ -1,3 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+
+:root {
+    --custom-darkgray: rgb(46,45,43);
+    --custom-darkbrown: rgb(95,84,69);
+}
+
 * {
     margin: 0px;
     padding: 0px;
@@ -13,6 +21,7 @@ h2 {
     margin-bottom: 1%;
     text-align: center;
     color: wheat;
+    font-family: 'Cinzel';
 }
 
 p {
@@ -21,17 +30,13 @@ p {
     color: wheat;
 }
 
+p, h3, button {
+    font-family: 'Raleway';
+}
+
 #dialogue_text_main {
     height: 540px;
 }
-
-/* #game_canvas {
-    margin: auto;
-    margin-top: 1%;
-    display: block;
-    border: 2px solid wheat;
-    background-color: rgb(95, 84, 69);
-} */
 
 #game_div {
     width: 1600px;
