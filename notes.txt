@@ -18,7 +18,7 @@ I'm starting to make sense of things. I have objects called dialogueNode(s) that
 some text and scene information, as well as references to possible responses. However,
 there is one problem: dialogueNodes and dialogueChoices are trying to access properties of
 one another before they are initialized. If I move one further up in the code, something else breaks.
-How do I get around this?
+How do I get around this? 
 
 [Changing let to var]
 Changing the "nodes" and dialogue options to use var instead of let at their declaration fixed the issue,
@@ -34,3 +34,6 @@ won't clutter up my code and I won't have to keep track of the parent nodes, not
 to mention how much easier it will be to name them since they'll be confined
 within the individual dialogue nodes.
 
+[Script Communicaition]
+How do I ensure that all my scripts can communicate with one another? I want to be able to divide
+all my scripts as much as possible to avoid cluttered code. 
