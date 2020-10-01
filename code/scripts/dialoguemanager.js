@@ -8,37 +8,21 @@ function DialogueNode(nodeID, text, location, responses, description) {
     this.description = description;
 }
 
-function DialogueResponse(parentNode, text, nextNode) {
-    this.parentNode = parentNode;
+function DialogueResponse(text, nextNode) {
     this.text = text;
     this.nextNode = nextNode;
 }
 
-var diagResponseS101R01 = new DialogueResponse();
-diagResponseS101R01.parentNode = diagNodeS101;
-diagResponseS101R01.text = "I'm not sure. Everything is...foggy.";
-diagResponseS101R01.nextNode = null;
-
-var diagResponseS101R02 = new DialogueResponse();
-diagResponseS101R02.parentNode = diagNodeS101;
-diagResponseS101R02.text = "My name is " + playerName + ". And you are?";
-diagResponseS101R02.nextNode = null;
-
-var diagResponseS101R03 = new DialogueResponse();
-diagResponseS101R03.parentNode = diagNodeS101;
-diagResponseS101R03.text = "I'm not telling you anything. I'm not sure I trust you.";
-diagResponseS101R03.nextNode = null;
-
-var diagResponseS101R04 = new DialogueResponse();
-diagResponseS101R04.parentNode = diagNodeS101;
-diagResponseS101R04.text = "Why, I'm Lord Nerevar, of course! Don't you recognize me?";
-diagResponseS101R04.nextNode = null;
-
 var diagNodeS101 = new DialogueNode();
-diagNodeS101.nodeID = 0101;
+diagNodeS101.nodeID = 101;
 diagNodeS101.location = "Prison Boat";
 diagNodeS101.text = "Jiub: Stand up. There you go. You were dreaming. What's your name?";
-diagNodeS101.responses = [diagResponseS101R01,diagResponseS101R02,diagResponseS101R03,diagResponseS101R04];
+diagNodeS101.responses = [
+    response01 = new DialogueResponse("I'm not sure. Everything is...foggy.", null),
+    response02 = new DialogueResponse("My name is " + playerName + ". And you are...?", null),
+    response03 = new DialogueResponse("I'm not telling you anything. I'm not sure I trust you.", null),
+    response04 = new DialogueResponse("Why, I'm Lord Nerevar, of course! Don't you recognize me?", null),
+];
 diagNodeS101.description = "Jiub greets the player when they wake up on the boat."
 
 function loadDialogueNode(dialogueNode) {
