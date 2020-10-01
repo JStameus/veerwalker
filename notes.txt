@@ -37,3 +37,8 @@ within the individual dialogue nodes.
 [Script Communicaition]
 How do I ensure that all my scripts can communicate with one another? I want to be able to divide
 all my scripts as much as possible to avoid cluttered code. 
+
+[Tips From Anders]
+    - Look up how to use json files to store large amounts of data.
+    - Try other ways to construct objects and save them(json!).
+
