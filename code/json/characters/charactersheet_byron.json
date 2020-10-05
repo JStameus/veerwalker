@@ -1,0 +1,15 @@
+{
+    "characterName": "Byron Ortomna",
+    "characterRace": "Phamanca",
+    "characterProfession": "Freelancer",
+    "characterLevel": 27,
+    "primarySkills": [
+        "Piloting",
+        "Scavenging",
+        "Firearms"
+    ],
+    "secondarySkills": [
+        "Engineering",
+        "Negotiation"
+    ]
+}

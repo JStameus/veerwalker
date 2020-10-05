@@ -1,0 +1,71 @@
+{
+    "dialogueTreeDescription": "The player wakes up on the prison boat and speaks to Juib for the first time.",
+    "dialogueNodes": [
+        {
+            "nodeID": 101,
+            "text": "Jiub: Stand up. There you go. You were dreaming. What's your name?",
+            "location": "Prison Boat",
+            "responses": [
+                {
+                    "text": "I'm not sure. Everything is...foggy."
+                },
+                {
+                    "text": "My name is Sadrayn. And you are...?",
+                    "nextNode": null
+                },
+                {
+                    "text": "I'm not telling you anything. I'm not sure I trust you.",
+                    "nextNode": null
+                },
+                {
+                    "text": "Why, I'm Lord Nerevar, of course! Don't you recognize me?"
+                }
+            ],
+            "description": "Jiub greets the player when they wake up on the boat."
+        },
+        {
+            "nodeID": 102,
+            "text": "Jiub: Well, not even last night's storm could wake you. I heard them say we've reached Morrowind, I'm sure they'll let us go.",
+            "location": "Prison Boat",
+            "responses": [
+                {
+                    "text": "Morrowind? I see. But why here, of all places?",
+                    "nextNode": null
+                },
+                {
+                    "text": "Don't be so sure. If they can lock us up without a fair trial I see no reason for them to go easy on us.",
+                    "nextNode": null
+                },
+                {
+                    "text": "Good. The sooner, the better.",
+                    "nextNode": null
+                }
+            ],
+            "description": "Jiub tells the player they slept heavily last night, and that they've reached Morrowind."
+        },
+        {
+            "nodeID": 103,
+            "text": "Hit your head on the way over here, hmm? Very well, Lord Nerevar, you'll be pleased to know we've reached Morrowind. Welcome home...s'wit.",
+            "location": "Prison Boat",
+            "responses": [
+                {
+                    "text": "Watch your language, peasant, or I'll have you in jail!",
+                    "nextNode": null
+                },
+                {
+                    "text": "Just kidding. I'm Sadrayn. And you are?",
+                    "nextNode": null
+                },
+                {
+                    "text": "Hey, no need for that attitude. Jeez, you really have no sense of humor, do you?",
+                    "nextNode": null
+                },
+                {
+                    "text": "(Glare at him and sigh)",
+                    "nextNode": null
+                }
+            ],
+            "description": "The player has just told Jiub that they are Lord Nerevar, and he's not amused."
+        }
+    ]
+}

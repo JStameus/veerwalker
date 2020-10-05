@@ -64,6 +64,24 @@ document.onload = loadDialogueNode(diagNodeS101);
 
 var choiceButton01 = document.querySelector("#choice_button_01");
 choiceButton01.addEventListener("click",function(){
-    console.log("Clicked!");
-    loadDialogueNode(currentDialogueNode.responses[0]);
-})
+    console.log("Clicked Button 1");
+    //loadDialogueNode(currentDialogueNode.responses[0]);
+});
+
+var choiceButton02 = document.querySelector("#choice_button_02");
+choiceButton02.addEventListener("click", function() {
+    console.log("Clicked Button 2");
+    //loadDialogueNode(currentDialogueNode.responses[1]);
+});
+
+var choiceButton03 = document.querySelector("#choice_button_03");
+choiceButton03.addEventListener("click", function() {
+    console.log("Clicked Button 3");
+    //loadDialogueNode(currentDialogueNode.responses[2]);
+});
+
+var choiceButton04 = document.querySelector("#choice_button_04");
+choiceButton04.addEventListener("click", function() {
+    console.log("Clicked Button 4");
+    //loadDialogueNode(currentDialogueNode.responses[3]);
+});
