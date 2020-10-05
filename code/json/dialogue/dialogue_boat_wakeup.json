@@ -1,71 +1,91 @@
 {
-    "dialogueTreeDescription": "The player wakes up on the prison boat and speaks to Juib for the first time.",
+    "sceneDescription": "The player wakes up on the boat and meets Jiub for the first time.",
     "dialogueNodes": [
         {
             "nodeID": 101,
-            "text": "Jiub: Stand up. There you go. You were dreaming. What's your name?",
             "location": "Prison Boat",
+            "description": "Jiub greets the player when they wake up on the boat.",
+            "paragraphs": [
+                {
+                    "narration": true,
+                    "speaker": null,
+                    "text": "You are dreaming. Visions of a far away land and silhouettes of strange creatures flicker before your mind's eye. Falling into the deepest sleep, the uneasy silence is broken by a mysterious voice, speaking as if a million miles away yet right by your side."
+                },
+                {
+                    "narration": false,
+                    "speaker": "Mysterious Voice",
+                    "text": "They have taken you from the Imperial City's prison, first by carriage, and now by boat. To the east, to Morrowind. Fear not, for I am watchful. You have been chosen."
+                },
+                {
+                    "narration": true,
+                    "speaker": null,
+                    "text": "As you begin to regain consciousness, you can feel your body aching. Your bare elbows are bruised, and you find yourself lying half bent over a wooden crate, which is probably where you spent the night. The room around you seems to rock back and forth, and you can hear the sound of water breaking against the walls. As you open your eyes, the grovelly voice of a stranger beckons to you."
+                },
+                {
+                    "narration": false,
+                    "speaker": "Jiub",
+                    "text": "Wake Up. We're Here. Why are you shaking? Are you ok? Wake up. Stand up. There you go. You were dreaming. What's your name?"
+                }
+            ],
             "responses": [
                 {
-                    "text": "I'm not sure. Everything is...foggy."
+                    "text": "I'm not sure. Everything is...foggy.",
+                    "nextNode": null
                 },
                 {
                     "text": "My name is Sadrayn. And you are...?",
                     "nextNode": null
                 },
                 {
-                    "text": "I'm not telling you anything. I'm not sure I trust you.",
+                    "text": "I'm not telling you my name. I'm not sure I can trust you.",
                     "nextNode": null
                 },
                 {
-                    "text": "Why, I'm Lord Nerevar, of course! Don't you recognize me?"
+                    "text": "Why, I'm Lord Nerevar, of course! Don't you recognize me?",
+                    "nextNode": null
                 }
-            ],
-            "description": "Jiub greets the player when they wake up on the boat."
+            ]
         },
         {
             "nodeID": 102,
-            "text": "Jiub: Well, not even last night's storm could wake you. I heard them say we've reached Morrowind, I'm sure they'll let us go.",
             "location": "Prison Boat",
-            "responses": [
+            "description": "The player has been acquainted with Jiub, who informs them they've reached Morrowind.",
+            "paragraphs": [
                 {
-                    "text": "Morrowind? I see. But why here, of all places?",
-                    "nextNode": null
+                    "narration": false,
+                    "speaker": "Jiub",
+                    "text": "Well, not even last night's storm could wake you. I heard them say we've reached Morrowind, I'm sure they'll let us go..."
                 },
                 {
-                    "text": "Don't be so sure. If they can lock us up without a fair trial I see no reason for them to go easy on us.",
-                    "nextNode": null
+                    "narration": true,
+                    "speaker": null,
+                    "text": "The man looks over his shoulder, and sees a prison guard coming down the hall, with one hand on his key ring and the other on the pommel of a dagger in his belt."
                 },
                 {
-                    "text": "Good. The sooner, the better.",
-                    "nextNode": null
+                    "narration": false,
+                    "speaker": "Prison Guard",
+                    "text": "This is where you get off. Come with me."
+                },
+                {
+                    "narration": true,
+                    "speaker": null,
+                    "text": "The guard brushes past your fellow traveller, barely acknowledging his presence, and grabs you by the handcuffs."
                 }
             ],
-            "description": "Jiub tells the player they slept heavily last night, and that they've reached Morrowind."
-        },
-        {
-            "nodeID": 103,
-            "text": "Hit your head on the way over here, hmm? Very well, Lord Nerevar, you'll be pleased to know we've reached Morrowind. Welcome home...s'wit.",
-            "location": "Prison Boat",
             "responses": [
                 {
-                    "text": "Watch your language, peasant, or I'll have you in jail!",
+                    "text": "Where are you taking me?",
                     "nextNode": null
                 },
                 {
-                    "text": "Just kidding. I'm Sadrayn. And you are?",
+                    "text": "Finally. I can't wait to get out of this hellhole.",
                     "nextNode": null
                 },
                 {
-                    "text": "Hey, no need for that attitude. Jeez, you really have no sense of humor, do you?",
-                    "nextNode": null
-                },
-                {
-                    "text": "(Glare at him and sigh)",
+                    "text": "What about him? Is he free to go as well?",
                     "nextNode": null
                 }
-            ],
-            "description": "The player has just told Jiub that they are Lord Nerevar, and he's not amused."
+            ]
         }
     ]
 }

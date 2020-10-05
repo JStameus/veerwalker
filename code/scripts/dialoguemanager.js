@@ -15,6 +15,99 @@ function DialogueResponse(text, nextNode) {
 
 var currentDialogueNode = null;
 
+var dialogueTree = {
+    dialogueNodes: 
+    [
+        nodeN101 = {
+            nodeID: 101,
+            location: "Prison Boat",
+            description: "Jiub greets the player when they wake up on the boat.",
+            paragraphs: [
+                p01 = {
+                    narration: true,
+                    speaker: null,
+                    text: "You are dreaming. Visions of a far away land and silhouettes of strange creatures flicker before your mind's eye. Falling into the deepest sleep, the uneasy silence is broken by a mysterious voice, speaking as if a million miles away yet right by your side."
+                },
+                p02 = {
+                    narration: false,
+                    speaker: "Mysterious Voice",
+                    text: "They have taken you from the Imperial City's prison, first by carriage, and now by boat. To the east, to Morrowind. Fear not, for I am watchful. You have been chosen."
+                },
+                p03 = {
+                    narration: true,
+                    speaker: null,
+                    text: "As you begin to regain consciousness, you can feel your body aching. Your bare elbows are bruised, and you find yourself lying half bent over a wooden crate, which is probably where you spent the night. The room around you seems to rock back and forth, and you can hear the sound of water breaking against the walls. As you open your eyes, the grovelly voice of a stranger beckons to you."
+                },
+                p04 = {
+                    narration: false,
+                    speaker: "Jiub",
+                    text: "Wake Up. We're Here. Why are you shaking? Are you ok? Wake up. Stand up. There you go. You were dreaming. What's your name?",
+                }
+            ],
+            responses: 
+            [
+                r01 = {
+                    text: "I'm not sure. Everything is...foggy.",
+                    nextNode: null,
+                },
+                r02 = {
+                    text: "My name is " + playerName + ". And you are...?",
+                    nextNode: null,
+                },
+                r03 = {
+                    text: "I'm not telling you my name. I'm not sure I can trust you.",
+                    nextNode: null,
+                },
+                r04 = {
+                    text: "Why, I'm Lord Nerevar, of course! Don't you recognize me?",
+                    nextNode: null,
+                }
+            ],
+        },
+        nodeN102 = {
+            nodeID: 102,
+            location: "Prison Boat",
+            description: "The player has been acquainted with Jiub, who informs them they've reached Morrowind.",
+            paragraphs: [
+                p01 = {
+                    narration: false,
+                    speaker: "Jiub",
+                    text: "Well, not even last night's storm could wake you. I heard them say we've reached Morrowind, I'm sure they'll let us go...",
+                },
+                p02 = {
+                    narration: true,
+                    speaker: null,
+                    text: "The man looks over his shoulder, and sees a prison guard coming down the hall, with one hand on his key ring and the other on the pommel of a dagger in his belt.",
+                },
+                p03 = {
+                    narration: false,
+                    speaker: "Prison Guard",
+                    text: "This is where you get off. Come with me.",
+                },
+                p04 = {
+                    narration: true,
+                    speaker: null,
+                    text: "The guard brushes past your fellow traveller, barely acknowledging his presence, and grabs you by the handcuffs."
+                }
+            ],
+            responses: [
+                r01 = {
+                    text: "Where are you taking me?",
+                    nextNode: null,
+                },
+                r02 = {
+                    text: "Finally. I can't wait to get out of this hellhole.",
+                    nextNode: null,
+                },
+                r03 = {
+                    text: "What about him? Is he free to go as well?",
+                    nextNode: null,
+                },
+            ]
+        },
+    ]
+}
+
 var diagNodeS101 = new DialogueNode();
 diagNodeS101.nodeID = 101;
 diagNodeS101.location = "Prison Boat";
