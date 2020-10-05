@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500&display=swap');
+
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+h1 {
+    font-family: 'Cinzel';
+    text-align: center;
+}
+
+header {
+    border: 2px solid black;
+}
+
+#header_image {
+    background-color: orange;
+}
+
+nav {
+    background-color: darkcyan;
+}
+
+#main_cards {
+    background-color: indianred;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 24px;
+    height: 500px;
+}
+
+.card_profession {
+    border: 1px dotted wheat;
+    margin: 12px;
+    padding: 18px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.card_profession p {
+    text-align: center;
+}
+
+#main_info_section {
+    background-color: orange;
+}
+
+#main_info_aside {
+    background-color: darkcyan;
+}

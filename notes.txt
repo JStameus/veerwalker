@@ -42,3 +42,5 @@ all my scripts as much as possible to avoid cluttered code.
     - Look up how to use json files to store large amounts of data.
     - Try other ways to construct objects and save them(json!).
 
+----3/10, 2020----
+
