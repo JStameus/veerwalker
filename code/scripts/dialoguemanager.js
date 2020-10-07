@@ -1,6 +1,11 @@
 //Which dialogue tree and node is currently active
 var dialogueTree = null;
 var currentDialogueNode =  null;
+//Variables for storing the index of each responses next node
+var response01NextNode = null;
+var response02NextNode = null;
+var response03NextNode = null;
+var response04NextNode = null;
 
 //functions for loading new trees and nodes
 function loadDialogueTree(fileURL) {
@@ -17,6 +22,10 @@ function loadDialogueNode(dialogueNode) {
         choiceButton03.innerHTML = dialogueNode.responses[2].text;
         choiceButton04.innerHTML = dialogueNode.responses[3].text;
         currentDialogueNode = dialogueNode;
+        response01NextNode = dialogueNode.responses[0].nextNode;
+        response02NextNode = dialogueNode.responses[1].nextNode;
+        response03NextNode = dialogueNode.responses[2].nextNode;
+        response04NextNode = dialogueNode.responses[3].nextNode;
     }
     else 
     {
@@ -36,25 +45,22 @@ var dialogueText = document.getElementById("dialogue_text_main");
 var choiceButton01 = document.querySelector("#choice_button_01");
 choiceButton01.addEventListener("click",function(){
     console.log("Clicked Button 1");
-    //loadDialogueNode(currentDialogueNode.responses[0].nextNode);
+    loadDialogueNode(dialogueTree.nodes[response01NextNode]);
 });
 
 var choiceButton02 = document.querySelector("#choice_button_02");
 choiceButton02.addEventListener("click", function() {
     console.log("Clicked Button 2");
-    //loadDialogueNode(currentDialogueNode.responses[1].nextNode);
 });
 
 var choiceButton03 = document.querySelector("#choice_button_03");
 choiceButton03.addEventListener("click", function() {
     console.log("Clicked Button 3");
-    //loadDialogueNode(currentDialogueNode.responses[2].nextNode);
 });
 
 var choiceButton04 = document.querySelector("#choice_button_04");
 choiceButton04.addEventListener("click", function() {
     console.log("Clicked Button 4");
-    //loadDialogueNode(currentDialogueNode.responses[3].nextNode);
 });
 
 document.onload = loadDialogueTree('/code/json/dialogue/dialogue_boat_wakeup.json');

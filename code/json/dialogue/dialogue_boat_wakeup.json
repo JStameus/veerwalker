@@ -1,6 +1,6 @@
 {
     "sceneDescription": "The player wakes up on the boat and meets Jiub for the first time.",
-    "dialogueNodes": [
+    "nodes": [
         {
             "nodeID": 101,
             "location": "Prison Boat",
@@ -30,19 +30,19 @@
             "responses": [
                 {
                     "text": "I'm not sure. Everything is...foggy.",
-                    "nextNode": null
+                    "nextNode": 1
                 },
                 {
                     "text": "My name is Sadrayn. And you are...?",
-                    "nextNode": null
+                    "nextNode": 1
                 },
                 {
                     "text": "I'm not telling you my name. I'm not sure I can trust you.",
-                    "nextNode": null
+                    "nextNode": 1
                 },
                 {
                     "text": "Why, I'm Lord Nerevar, of course! Don't you recognize me?",
-                    "nextNode": null
+                    "nextNode": 1
                 }
             ]
         },
