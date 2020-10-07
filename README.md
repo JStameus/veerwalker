@@ -1,14 +1,14 @@
------VEERWALKER-----
+# Veerwalker
 
---Table Of Contents--
+## Table of Contents
 
   1. Project Overview
   2. Tools
   3. Documentation
 
----------------------
+---
   
-----Project Overview----
+### Project Overview
 
 Veerwalker is meant to be a casual, browser-based sandbox RPG/Strategy game where the player
 travels around a world map, trading, fighting, exploring, and gathering resources to
@@ -37,7 +37,9 @@ As a part of this project, I should create decent tools, or at least customizeab
 will allow me to easily create new content abiding by these simple design principles. The full game should 
 contain a lot more content than this, and I'll need a way to easily create that content in the future.
 
-----Tools----
+---
+
+### Tools
 
 I'll try to design the game in a way that enables me to use as few external programs as possible, 
 so I'll be using a code editor for HTML, CSS and JavaScript, as well as Photoshop(maybe illustrator) for
@@ -46,7 +48,9 @@ art assets when needed.
 Later on, I might use Blender for simple 3d models that I can paint over to create sprites, and depending 
 on the scope of the future game, I'll figure out which tools to use then. But for now, I'll keep it VERY simple.
 
-----Documentation----
+---
+
+### Documentation
 
 TEACHERS, LOOK HERE!
 
