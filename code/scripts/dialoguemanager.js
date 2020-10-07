@@ -64,14 +64,23 @@ choiceButton04.addEventListener("click", function() {
     console.log("Clicked Button 4");
 });
 
-//function updateChoiceButtons() {
-    //var i;
-    //for (i = 0; i < currentDialogueNode.responses.length; i++)
-    //{
-        //var newDiv = document.createElement('div');
-        //var newButton = document.createElement('button');
-        //currentDialogueNode.responses[i]
-    //}
+function updateChoiceButtons() {
+
+
+    //Creates new buttons based on the responses of the dialogue node
+    for (var i = 0; i < currentDialogueNode.responses.length; i++)
+    {
+        const newDiv = document.createElement('div');
+        const newButton = document.createElement('button');
+        newDiv.className = "dialogue_choice_container";
+        newButton.className = "dialogue_choice_button";
+        const newButtonText = document.createTextNode(currentDialogueNode.responses[i].text);
+        newButton.appendChild(newButtonText);
+        newDiv.appendChild(newButton);
+        const responsesWindow = document.getElementById("dialogue_choices");
+        responsesWindow.appendChild(newDiv);
+        console.log("Created a new Response Button!");
+    }
     //for each response in currentDialogueNode
         //create a new div with the class 'dialogue_choice_container'
         //create a new button with the class 'dialogue_choice_button'
@@ -80,7 +89,7 @@ choiceButton04.addEventListener("click", function() {
         //append the whole thingamajig to the div 
     //for each new div created
         //append the divs to .dialogue_choices
-//}
+}
 
 document.onload = loadDialogueTree('/code/json/dialogue/dialogue_boat_wakeup.json');
 
