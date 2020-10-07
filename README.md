@@ -52,9 +52,15 @@ on the scope of the future game, I'll figure out which tools to use then. But fo
 
 ### Documentation
 
-TEACHERS, LOOK HERE!
+**TEACHERS, LOOK HERE!**
 
 I'll keep a development journal(in Swedish) for my teachers to keep track of my progress. Everything that they
 need to keep up with my progress will be stored in my git repository at: 
   https://github.com/JStameus/veerwalker/tree/master/documentation
+  
+For the benefit of myself and my teachers, I will also keep track of my current tasks here on GitHub in the Projects tab.
+That way, if I am stuck on a task or don't know how to proceed, it'll be easier for my teachers to get an overview of what 
+I'm doing.
+
+---
 
