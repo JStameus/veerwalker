@@ -75,3 +75,4 @@ function updateChoiceButtons() {
 }
 
 document.onload = loadDialogueTree('/code/json/dialogue/dialogue_boat_wakeup.json');
+
