@@ -12,20 +12,21 @@ function loadDialogueTree(fileURL) {
     fetch(fileURL).then(response => response.json()).then(json => {dialogueTree = json});
 }
 
-function loadDialogueNode(dialogueNode) {
+function loadDialogueNode(nodeIndex) {
     if(dialogueTree != null)
     {
-        locationText.innerHTML = dialogueNode.location;
-        dialogueText.innerHTML = dialogueNode.paragraphs[0].text;
-        choiceButton01.innerHTML = dialogueNode.responses[0].text;
-        choiceButton02.innerHTML = dialogueNode.responses[1].text;
-        choiceButton03.innerHTML = dialogueNode.responses[2].text;
-        choiceButton04.innerHTML = dialogueNode.responses[3].text;
-        currentDialogueNode = dialogueNode;
-        response01NextNode = dialogueNode.responses[0].nextNode;
-        response02NextNode = dialogueNode.responses[1].nextNode;
-        response03NextNode = dialogueNode.responses[2].nextNode;
-        response04NextNode = dialogueNode.responses[3].nextNode;
+        locationText.innerHTML = dialogueTree.nodes[nodeIndex].location;
+        dialogueText.innerHTML = dialogueTree.nodes[nodeIndex].paragraphs[0].text;
+        choiceButton01.innerHTML = dialogueTree.nodes[nodeIndex].responses[0].text;
+        choiceButton02.innerHTML = dialogueTree.nodes[nodeIndex].responses[1].text;
+        choiceButton03.innerHTML = dialogueTree.nodes[nodeIndex].responses[2].text;
+        choiceButton04.innerHTML = dialogueTree.nodes[nodeIndex].responses[3].text;
+        currentDialogueNode = dialogueTree.nodes[nodeIndex];
+        response01NextNode = dialogueTree.nodes[nodeIndex].responses[0].nextNode;
+        response02NextNode = dialogueTree.nodes[nodeIndex].responses[1].nextNode;
+        response03NextNode = dialogueTree.nodes[nodeIndex].responses[2].nextNode;
+        response04NextNode = dialogueTree.nodes[nodeIndex].responses[3].nextNode;
+        
     }
     else 
     {
