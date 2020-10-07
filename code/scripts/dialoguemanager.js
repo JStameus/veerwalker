@@ -65,7 +65,7 @@ choiceButton04.addEventListener("click", function() {
 });
 
 function updateChoiceButtons() {
-
+    
 
     //Creates new buttons based on the responses of the dialogue node
     for (var i = 0; i < currentDialogueNode.responses.length; i++)
