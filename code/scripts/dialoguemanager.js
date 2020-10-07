@@ -63,4 +63,15 @@ choiceButton04.addEventListener("click", function() {
     console.log("Clicked Button 4");
 });
 
+function updateChoiceButtons() {
+    //for each response in currentDialogueNode
+        //create a new div with the class 'dialogue_choice_container'
+        //create a new button with the class 'dialogue_choice_button'
+        //assign the innerText on the new button to the text of the response
+        //assign the nextNode of the corresponding choice button 
+        //append the whole thingamajig to the div 
+    //for each new div created
+        //append the divs to .dialogue_choices
+}
+
 document.onload = loadDialogueTree('/code/json/dialogue/dialogue_boat_wakeup.json');
