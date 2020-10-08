@@ -140,6 +140,7 @@ document.onload = loadDialogueTree('/code/json/dialogue/dialogue_boat_wakeup.jso
 
 var resetButton = document.getElementById("reset_button");
 resetButton.addEventListener("click", function() {
+    clearAllDialogueElements();
     loadDialogueNode(0);
 });
 
