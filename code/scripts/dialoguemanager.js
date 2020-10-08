@@ -5,11 +5,6 @@ var playerName = 'Morrowind Guy';
 var dialogueTree = null;
 var currentDialogueNode =  null;
 
-//All of the HTML elements that the node uses
-var locationText = document.getElementById("dialogue_locationlabel");
-var dialogueText = document.getElementById("dialogue_text_main");
-
-
 //functions for loading new trees and nodes
 function loadDialogueTree(fileURL) {
     fetch(fileURL).then(response => response.json()).then(json => {dialogueTree = json});
@@ -19,6 +14,7 @@ function loadDialogueNode(nodeIndex) {
     if(dialogueTree != null)
     {
         currentDialogueNode = dialogueTree.nodes[nodeIndex];
+        let locationText = document.getElementById('dialogue_locationlabel');
         locationText.innerHTML = dialogueTree.nodes[nodeIndex].location;
         addDialogueParagraphs();
         updateChoiceButtons();
@@ -100,6 +96,17 @@ function clearChoiceButtons() {
     document.querySelectorAll('.dialogue_choice_container').forEach(function(a){a.remove()});
 }
 
+function clearLocationLabel() {
+    let locationText = document.getElementById('dialogue_locationlabel');
+    locationText.innerHTML = 'EVENT/LOCATION';
+}
+
+function clearAllDialogueElements() {
+    clearLocationLabel();
+    clearDialogueParagraphs();
+    clearChoiceButtons();
+}
+
 function updateChoiceButtons() {
     if(currentDialogueNode != null)
     {
@@ -138,5 +145,5 @@ resetButton.addEventListener("click", function() {
 
 var clearButton = document.getElementById('clear_button');
 clearButton.addEventListener('click', function() {
-    clearDialogueParagraphs();
+    clearAllDialogueElements();
 })
