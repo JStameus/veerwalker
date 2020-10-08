@@ -4,8 +4,8 @@
 :root {
     --custom-darkgray: rgb(46,45,43);
     --custom-darkbrown: rgb(95,84,69);
-    --textbox-dark: rgba(0, 0, 0, 0.25);
-    --textbox-light: rgb(0, 0, 0, 0.1);
+    --paragraph-dark: rgba(0, 0, 0, 0.25);
+    --paragraph-light: rgb(0, 0, 0, 0.1);
     --name-blue: rgb(158, 192, 212);
     --name-orange: rgb(223, 165, 126);
 }
@@ -77,7 +77,7 @@ p, h3, button {
 }
 
 .paragraph_narration {
-    background-color: var(--textbox-dark);
+    background-color: var(--paragraph-dark);
 }
 
 .paragraph_narration p {
@@ -85,7 +85,7 @@ p, h3, button {
 }
 
 .paragraph_dialogue, .paragraph_response {
-    background-color: var(--textbox-light);
+    background-color: var(--paragraph-light);
 }
 
 .paragraph_dialogue h3 {
