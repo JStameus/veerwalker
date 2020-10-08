@@ -4,6 +4,8 @@
 :root {
     --custom-darkgray: rgb(46,45,43);
     --custom-darkbrown: rgb(95,84,69);
+    --textbox-dark: rgba(0, 0, 0, 0.25);
+    --textbox-light: rgb(0, 0, 0, 0.1);
 }
 
 * {
@@ -66,4 +68,16 @@ p, h3, button {
     background-color: rgb(66, 60, 51);
     border: 1px solid wheat;
     border-radius: 6px;
+}
+
+.dialogue_paragraph {
+    border: 1px solid rgba(245, 222, 179, 0.11);
+}
+
+.paragraph_narration {
+    background-color: var(--textbox-dark);
+}
+
+.paragraph_dialogue {
+    background-color: var(--textbox-light);
 }

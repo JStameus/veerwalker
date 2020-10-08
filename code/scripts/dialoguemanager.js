@@ -38,6 +38,7 @@ function addResponseParagraph(responseIndex) {
             let newLabelText = document.createTextNode(playerName);
             let newParagraph = document.createElement('p');
             let newParagraphText = document.createTextNode(currentDialogueNode.responses[responseIndex].text);
+            newDiv.className = "dialogue_paragraph paragraph_dialogue";
 
             newLabel.appendChild(newLabelText);
             newParagraph.appendChild(newParagraphText);
@@ -76,11 +77,13 @@ function addDialogueParagraphs() {
         {
             newLabel.appendChild(newLabelText);
             newDiv.appendChild(newLabel);
+            newDiv.className = "dialogue_paragraph paragraph_dialogue"
         }
         else 
         {
             newLabelText.remove;
             newLabel.remove;
+            newDiv.className = "dialogue_paragraph paragraph_narration"
         }
         newParagraph.appendChild(newParagraphText);
         newDiv.appendChild(newParagraph);
