@@ -3,7 +3,8 @@
 
 :root {
     --custom-darkgray: rgb(46,45,43);
-    --custom-darkbrown: rgb(95,84,69);
+    --custom-lightbrown: rgb(95,84,69);
+    --custom-darkbrown: rgb(66, 61, 53);
     --paragraph-dark: rgba(0, 0, 0, 0.25);
     --paragraph-light: rgb(0, 0, 0, 0.1);
     --name-blue: rgb(158, 192, 212);
@@ -16,63 +17,105 @@
 }
 
 body {
-    background-color: rgb(46, 45, 43);
+    background-color: black;
 }
 
-h2 {
-    margin: auto;
-    margin-top: 1%;
-    margin-bottom: 1%;
-    text-align: center;
+h1, h2, h3, p {
     color: wheat;
-    font-family: 'Cinzel';
-}
-
-p {
-    font-size: 22px;
-    margin: 12px;
-    color: wheat;
-}
-
-p, h3, button {
     font-family: 'Raleway';
 }
 
+.borderglow_default {
+    box-shadow: 0 0 12px 4px indianred;
+}
+
+/* Game windows and divs */
 #gamewindow {
-    width: 1600px;
-    height: 900px;
-    margin: auto;
-    margin-top: 1%;
-    display: block;
     border: 2px solid wheat;
-    background-color: rgb(95,84,69);
+    margin: 1.4rem;
+    background-color: var(--custom-lightbrown);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#dialogue_locationlabel {
+    text-align: center;
+    margin: 0.6rem 0;
 }
 
 #dialogue_textwindow {
-    width: 1400px;
-    height: 600px;
-    border: 2px solid wheat;
-    background-color: rgb(66, 60, 51);
-    margin: auto;
+    background-color: var(--custom-darkbrown);
+    border: 1px solid wheat;
+    display: block;
+    width: 98%;
+    flex: 6;
+    margin: 0 0.5rem;
+    overflow-y: scroll;
+    padding: 1rem;
+}
+
+#game_controlpanel {
+    background-color: var(--custom-darkbrown);
+    display: block;
+    width: 100%;
+    flex: 2;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.controlpanel_item {
+    border: 1px solid wheat;
+    border-radius: 5px;
+    background-color: var(--paragraph-dark);
+}
+
+#controlpanel_choices {
+    flex: 4;
     overflow-y: scroll;
 }
 
-#dialogue_choices {
-    margin: auto;
+#controlpanel_party, #controlpanel_enemies {
+    flex: 2;
 }
 
+#controlpanel_menus {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.menubutton {
+    flex: 1;
+    border: 2px solid var(--custom-darkbrown)
+}
+
+/* Dialogue paragraphs and buttons*/
 .dialogue_choice_button {
     width: 100%;
-    margin: 2px 0px;
-    padding: 6px;
-    font-size: 24px;
+    margin: 0.1rem 0;
+    padding: 0.7rem;
+    font-size: 18px;
     color: wheat;
     background-color: rgb(66, 60, 51);
     border: 1px solid wheat;
     border-radius: 6px;
+    text-align: start;
+}
+
+.dialogue_choice_button:hover {
+    background-color: rgb(54, 51, 44);
+    border: 1px solid rgb(255, 245, 227);
 }
 
 .dialogue_paragraph_container {
+    margin: 0.1rem 0;
     border: 1px solid rgba(245, 222, 179, 0.11);
 }
 
@@ -86,6 +129,10 @@ p, h3, button {
 
 .paragraph_dialogue, .paragraph_response {
     background-color: var(--paragraph-light);
+}
+
+.paragraph_dialogue h3, .paragraph_response h3, .dialogue_paragraph_text {
+    font-size: 18px;
 }
 
 .paragraph_dialogue h3 {

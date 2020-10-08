@@ -39,6 +39,7 @@ function addResponseParagraph(responseIndex) {
             let newParagraph = document.createElement('p');
             let newParagraphText = document.createTextNode(currentDialogueNode.responses[responseIndex].text);
             newDiv.className = "dialogue_paragraph_container paragraph_response";
+            newParagraph.className = "dialogue_paragraph_text";
 
             newLabel.appendChild(newLabelText);
             newParagraph.appendChild(newParagraphText);
@@ -130,7 +131,7 @@ function updateChoiceButtons() {
             });
             newButton.appendChild(newButtonText);
             newDiv.appendChild(newButton);
-            let responsesWindow = document.getElementById("dialogue_choices");
+            let responsesWindow = document.getElementById("controlpanel_choices");
             responsesWindow.appendChild(newDiv);
         }
     }
