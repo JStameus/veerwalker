@@ -25,6 +25,7 @@ function loadDialogueNode(nodeIndex) {
     }
 }
 
+//functions for manipulating HTML content
 function addResponseParagraph(responseIndex) {
     if(currentDialogueNode != null)
     {
@@ -115,7 +116,7 @@ function updateChoiceButtons() {
         {
             let newDiv = document.createElement('div');
             let newButton = document.createElement('button');
-            let newButtonText = document.createTextNode(currentDialogueNode.responses[i].text);
+            let newButtonText = document.createTextNode((i + 1) + ". " + currentDialogueNode.responses[i].text);
             newDiv.className = "dialogue_choice_container";
             newButton.className = "dialogue_choice_button";
             newButton.id = "choice_button_" + (i + 1);
@@ -138,6 +139,7 @@ function updateChoiceButtons() {
 
 document.onload = loadDialogueTree('/code/json/dialogue/dialogue_boat_wakeup.json');
 
+//buttons for testing purposes, these are only temporary
 var resetButton = document.getElementById("reset_button");
 resetButton.addEventListener("click", function() {
     clearAllDialogueElements();
