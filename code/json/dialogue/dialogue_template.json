@@ -1,0 +1,35 @@
+{
+    "sceneDescription": "A brief description of everything going on in this scene.",
+    "nodes": 
+    [
+        {
+            "nodeID": 101,
+            "location": "Scene Location",
+            "description": "What is being said, what is happening, what it is a response to.",
+            "paragraphs":
+            [
+                {
+                    "narration": true,
+                    "speaker": null,
+                    "text": "This is some text that describes that is happening, as it is marked as narration, and has no speaker."
+                },
+                {
+                    "narration": false,
+                    "speaker": "Speaker Name",
+                    "text": "This is some dialogue text, something the 'speaker' is saying."
+                }
+            ],
+            "responses": 
+            [
+                {
+                    "text": "Yes, I agree!",
+                    "nextNode": 1
+                },
+                {
+                    "text": "No, I don't think so.",
+                    "nextNode": null
+                }
+            ]
+        }
+    ]
+}

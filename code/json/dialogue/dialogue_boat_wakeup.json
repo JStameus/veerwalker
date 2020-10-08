@@ -1,11 +1,13 @@
 {
     "sceneDescription": "The player wakes up on the boat and meets Jiub for the first time.",
-    "nodes": [
+    "nodes": 
+    [
         {
             "nodeID": 101,
             "location": "Prison Boat",
             "description": "Jiub greets the player when they wake up on the boat.",
-            "paragraphs": [
+            "paragraphs": 
+            [
                 {
                     "narration": true,
                     "speaker": null,
@@ -27,7 +29,8 @@
                     "text": "Wake Up. We're Here. Why are you shaking? Are you ok? Wake up. Stand up. There you go. You were dreaming. What's your name?"
                 }
             ],
-            "responses": [
+            "responses": 
+            [
                 {
                     "text": "I'm not sure. Everything is...foggy.",
                     "nextNode": 1
@@ -66,7 +69,8 @@
             "nodeID": 102,
             "location": "Prison Boat",
             "description": "The player has been acquainted with Jiub, who informs them they've reached Morrowind.",
-            "paragraphs": [
+            "paragraphs": 
+            [
                 {
                     "narration": false,
                     "speaker": "Jiub",
@@ -88,7 +92,8 @@
                     "text": "The guard brushes past your fellow traveller, barely acknowledging his presence, and grabs you by the handcuffs."
                 }
             ],
-            "responses": [
+            "responses": 
+            [
                 {
                     "text": "Where are you taking me?",
                     "nextNode": null
@@ -107,14 +112,16 @@
             "nodeID": 103,
             "location":"Prison Boat",
             "description": "Jiub greets the player and tells him his name.",
-            "paragraphs":[
+            "paragraphs":
+            [
                 {
                     "narration": false,
                     "speaker": "Jiub",
                     "text": "I'm Jiub. I came here from the mainland, same as you. Although, I'd prefer not to talk about what for."
                 }
             ],
-            "responses": [
+            "responses": 
+            [
                 {
                     "text": "I see. Well, it's all in the past now, I won't try to pry. But speaking of the present...do you know where we are?",
                     "nextNode": null
@@ -125,14 +132,16 @@
             "nodeID": 104,
             "location":"Prison Boat",
             "description": "The player tells Jiub that they don't trust him yet, and won't tell him their name.",
-            "paragraphs": [
+            "paragraphs": 
+            [
                 {
                     "narration": false,
                     "speaker": "Jiub",
                     "text": "That's fair enough. I'd forgive you for suspecting you're not in good company. You have my word that I won't try to steal your rations in your sleep, but then again, my word might not mean a lot to you."
                 }
             ],
-            "responses": [
+            "responses": 
+            [
                 {
                     "text": "You sound like the decent enough sort. Sorry if I came off a little...hostile. It hasn't been an easy trip, and I'm a little on the edge.",
                     "nextNode": null
@@ -151,14 +160,16 @@
             "nodeID": 105,
             "location": "Prison Boat",
             "description": "The player has just informed Jiub that they are Lord Nerevar, and Jiub is not amused.",
-            "paragraphs": [
+            "paragraphs": 
+            [
                 {
                     "narration": false,
                     "speaker": "Jiub",
                     "text": "Hit your head on the way here, did you? I'm not in the mood for your delusional rambling. Keep it to yourself."
                 }
             ],
-            "responses": [
+            "responses": 
+            [
                 {
                     "text": "How dare you? I'll have your tongue for disrespecting me like that!",
                     "nextNode": null
