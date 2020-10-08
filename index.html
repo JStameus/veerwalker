@@ -1,38 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Veerwalker: Game</title>
     <link rel="stylesheet" href="/code/css/style_game.css">
 </head>
+
 <body>
-    <div id="game_container">
+    <div id="site_container">
         <!-- <canvas id="game_canvas" width="1600" height="900"></canvas> -->
-        <div id="game_div">
+        <div id="gamewindow" class="borderglow_default">
             <h2 id="dialogue_locationlabel">EVENT/LOCATION</h2>
             <button id="reset_button">Reset</button>
             <button id="clear_button">Clear</button>
-            <div id="dialogue_window">
-                
+            <div id="dialogue_textwindow">
+
             </div>
-            <div id="dialogue_choices">
-                <div id="dialogue_choice_01" class="dialogue_choice_container">
-                    <button class="dialogue_choice_button" id="choice_button_01">Button</button>
+            <div id="game_controlpanel">
+                <div id="controlpanel_party" class="controlpanel_item">
+                    <div>
+                        <h3>Player Party</h3>
+                    </div>
                 </div>
-                <div id="dialogue_choice_02" class="dialogue_choice_container">
-                    <button class="dialogue_choice_button" id="choice_button_02">Button</button>
+                <div id="controlpanel_menus" class="controlpanel_item">
+                    <div id="menubutton_inventory" class="menubutton">
+                        <h3>Inventory</h3>
+                    </div>
+                    <div id="menubutton_charactersheet" class="menubutton">
+                        <h3>Character Sheet</h3>
+                    </div>
+                    <div id="menubutton_journal" class="menubutton">
+                        <h3>Journal</h3>
+                    </div>
+                    <div id="menubutton_map" class="menubutton">
+                        <h3>Map</h3>
+                    </div>
                 </div>
-                <div id="dialogue_choice_03" class="dialogue_choice_container">
-                    <button class="dialogue_choice_button" id="choice_button_03">Button</button>
+                <div id="controlpanel_choices" class="controlpanel_item">
+             
                 </div>
-                <div id="dialogue_choice_04" class="dialogue_choice_container">
-                    <button class="dialogue_choice_button" id="choice_button_04">Button</button>
+                <div id="controlpanel_enemies" class="controlpanel_item">
+                        <div>
+                            <h3>Enemy Party</h3>
+                        </div>
                 </div>
-                <div></div>
             </div>
         </div>
     </div>
     <script src="/code/scripts/dialoguemanager.js"></script>
 </body>
+
 </html>

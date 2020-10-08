@@ -1,5 +1,5 @@
 //this is temporary, should be stored somewhere else later
-var playerName = 'Morrowind Guy';
+var playerName = 'Player';
 
 //Which dialogue tree and node is currently active
 var dialogueTree = null;
@@ -31,14 +31,15 @@ function addResponseParagraph(responseIndex) {
     {
         if (playerName != null)
         {
-            let dialogueWindow = document.getElementById('dialogue_window');
+            let dialogueWindow = document.getElementById('dialogue_textwindow');
 
             let newDiv = document.createElement('div');
             let newLabel = document.createElement('h3');
             let newLabelText = document.createTextNode(playerName);
             let newParagraph = document.createElement('p');
             let newParagraphText = document.createTextNode(currentDialogueNode.responses[responseIndex].text);
-            newDiv.className = "dialogue_paragraph paragraph_response";
+            newDiv.className = "dialogue_paragraph_container paragraph_response";
+            newParagraph.className = "dialogue_paragraph_text";
 
             newLabel.appendChild(newLabelText);
             newParagraph.appendChild(newParagraphText);
@@ -61,7 +62,7 @@ function addResponseParagraph(responseIndex) {
 function addDialogueParagraphs() {
     for(let i = 0; i < currentDialogueNode.paragraphs.length; i++)
     {
-        let dialogueWindow = document.getElementById('dialogue_window');
+        let dialogueWindow = document.getElementById('dialogue_textwindow');
 
         let newDiv = document.createElement('div');
         let newLabel = document.createElement('h3');
@@ -69,7 +70,7 @@ function addDialogueParagraphs() {
         let newParagraph = document.createElement('p');
         let newParagraphText = document.createTextNode(currentDialogueNode.paragraphs[i].text);
 
-        newDiv.className = "dialogue_paragraph";
+        newDiv.className = "dialogue_paragraph_container";
         newDiv.id = "paragraph_" + (i) + "_node_" + currentDialogueNode.nodeID;
         newParagraph.className = "dialogue_paragraph_text";
         //This solution is not optimal, look over it again
@@ -77,13 +78,13 @@ function addDialogueParagraphs() {
         {
             newLabel.appendChild(newLabelText);
             newDiv.appendChild(newLabel);
-            newDiv.className = "dialogue_paragraph paragraph_dialogue"
+            newDiv.className = "dialogue_paragraph_container paragraph_dialogue"
         }
         else 
         {
             newLabelText.remove;
             newLabel.remove;
-            newDiv.className = "dialogue_paragraph paragraph_narration"
+            newDiv.className = "dialogue_paragraph_container paragraph_narration"
         }
         newParagraph.appendChild(newParagraphText);
         newDiv.appendChild(newParagraph);
@@ -92,7 +93,7 @@ function addDialogueParagraphs() {
 }
 
 function clearDialogueParagraphs () {
-    let dialogueWindow = document.getElementById('dialogue_window');
+    let dialogueWindow = document.getElementById('dialogue_textwindow');
     dialogueWindow.innerHTML = '';
 }
 
@@ -130,7 +131,7 @@ function updateChoiceButtons() {
             });
             newButton.appendChild(newButtonText);
             newDiv.appendChild(newButton);
-            let responsesWindow = document.getElementById("dialogue_choices");
+            let responsesWindow = document.getElementById("controlpanel_choices");
             responsesWindow.appendChild(newDiv);
         }
     }
