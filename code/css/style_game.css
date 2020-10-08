@@ -6,6 +6,8 @@
     --custom-darkbrown: rgb(95,84,69);
     --textbox-dark: rgba(0, 0, 0, 0.25);
     --textbox-light: rgb(0, 0, 0, 0.1);
+    --name-blue: rgb(158, 192, 212);
+    --name-orange: rgb(223, 165, 126);
 }
 
 * {
@@ -84,4 +86,12 @@ p, h3, button {
 
 .paragraph_dialogue {
     background-color: var(--textbox-light);
+}
+
+.paragraph_dialogue h3 {
+    color: var(--name-orange);
+}
+
+.paragraph_response h3 {
+    color: var(--name-blue);
 }

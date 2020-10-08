@@ -38,7 +38,7 @@ function addResponseParagraph(responseIndex) {
             let newLabelText = document.createTextNode(playerName);
             let newParagraph = document.createElement('p');
             let newParagraphText = document.createTextNode(currentDialogueNode.responses[responseIndex].text);
-            newDiv.className = "dialogue_paragraph paragraph_dialogue";
+            newDiv.className = "dialogue_paragraph paragraph_response";
 
             newLabel.appendChild(newLabelText);
             newParagraph.appendChild(newParagraphText);
