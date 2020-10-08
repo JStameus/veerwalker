@@ -43,6 +43,22 @@
                 {
                     "text": "Why, I'm Lord Nerevar, of course! Don't you recognize me?",
                     "nextNode": 4
+                },
+                {
+                    "text": "I don't have a name. At least I don't think I do.",
+                    "nextNode": 1
+                },
+                {
+                    "text": "YEEEEHAW PARDNER",
+                    "nextNode": 1
+                },
+                {
+                    "text": "Hey have you seen Cars 2?",
+                    "nextNode": 1
+                },
+                {
+                    "text": "My name is not important. What is important, is that the mitochondria is the powerhouse of the cell. Also, I would like to inform you that there are at least five different animals on planet Earth. However, don't let this distract you from the fact that in 1998, The Undertaker threw Mankind off Hell In A Cell, and plummeted 16 ft through an announcer's table. Also, I am Lord Nerevar.",
+                    "nextNode": 4
                 }
             ]
         },
