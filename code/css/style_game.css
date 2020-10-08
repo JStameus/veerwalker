@@ -4,6 +4,10 @@
 :root {
     --custom-darkgray: rgb(46,45,43);
     --custom-darkbrown: rgb(95,84,69);
+    --textbox-dark: rgba(0, 0, 0, 0.25);
+    --textbox-light: rgb(0, 0, 0, 0.1);
+    --name-blue: rgb(158, 192, 212);
+    --name-orange: rgb(223, 165, 126);
 }
 
 * {
@@ -66,4 +70,28 @@ p, h3, button {
     background-color: rgb(66, 60, 51);
     border: 1px solid wheat;
     border-radius: 6px;
+}
+
+.dialogue_paragraph {
+    border: 1px solid rgba(245, 222, 179, 0.11);
+}
+
+.paragraph_narration {
+    background-color: var(--textbox-dark);
+}
+
+.paragraph_narration p {
+    font-style: italic;
+}
+
+.paragraph_dialogue {
+    background-color: var(--textbox-light);
+}
+
+.paragraph_dialogue h3 {
+    color: var(--name-orange);
+}
+
+.paragraph_response h3 {
+    color: var(--name-blue);
 }
