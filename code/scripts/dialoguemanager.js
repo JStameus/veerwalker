@@ -66,21 +66,39 @@ function clearChoiceButtons() {
 }
 
 function updateChoiceButtons() {
-    clearChoiceButtons();
     //Creates new buttons based on the responses of the dialogue node
-    for (var i = 0; i < currentDialogueNode.responses.length; i++)
+    if(currentDialogueNode != null)
     {
-        const newDiv = document.createElement('div');
-        const newButton = document.createElement('button');
-        newDiv.className = "dialogue_choice_container";
-        newButton.className = "dialogue_choice_button";
-        const newButtonText = document.createTextNode(currentDialogueNode.responses[i].text);
-        newButton.appendChild(newButtonText);
-        newDiv.appendChild(newButton);
-        const responsesWindow = document.getElementById("dialogue_choices");
-        responsesWindow.appendChild(newDiv);
-        console.log("Created a new Response Button!");
+        clearChoiceButtons();
+        for (var i = 0; i < currentDialogueNode.responses.length; i++)
+        {
+            //Create new elements
+            console.log("i = " + i);
+            const newDiv = document.createElement('div');
+            const newButton = document.createElement('button');
+            const newButtonText = document.createTextNode(currentDialogueNode.responses[i].text);
+            //Set properties of new elements
+            newDiv.className = "dialogue_choice_container";
+            newButton.className = "dialogue_choice_button";
+            newButton.id = "choice_button_" + (i + 1);
+            //Make buttons clickable and assign their nextNode index
+            const nextNodeIndex = currentDialogueNode.responses[i].nextNode;
+            newButton.addEventListener("click", function() {
+                console.log("Clicked: " + newButton.id);
+                loadDialogueNode(nextNodeIndex);
+            });
+            newButton.appendChild(newButtonText);
+            newDiv.appendChild(newButton);
+            const responsesWindow = document.getElementById("dialogue_choices");
+            responsesWindow.appendChild(newDiv);
+            //console.log("Created a new Response Button with id " + newButton.id);
+        }
     }
+    else 
+    {
+        console.warn("Cannot update Choice Buttons: No currentDialogueNode has been loaded!");
+    }
+    
     //make the buttons clickable!
 }
 
