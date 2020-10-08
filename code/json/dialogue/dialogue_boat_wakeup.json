@@ -34,15 +34,15 @@
                 },
                 {
                     "text": "My name is Sadrayn. And you are...?",
-                    "nextNode": 1
+                    "nextNode": 2
                 },
                 {
                     "text": "I'm not telling you my name. I'm not sure I can trust you.",
-                    "nextNode": 1
+                    "nextNode": 3
                 },
                 {
                     "text": "Why, I'm Lord Nerevar, of course! Don't you recognize me?",
-                    "nextNode": 1
+                    "nextNode": 4
                 }
             ]
         },
@@ -83,6 +83,76 @@
                 },
                 {
                     "text": "What about him? Is he free to go as well?",
+                    "nextNode": null
+                }
+            ]
+        },
+        {
+            "nodeID": 103,
+            "location":"Prison Boat",
+            "description": "Jiub greets the player and tells him his name.",
+            "paragraphs":[
+                {
+                    "narration": false,
+                    "speaker": "Jiub",
+                    "text": "I'm Jiub. I came here from the mainland, same as you. Although, I'd prefer not to talk about what for."
+                }
+            ],
+            "responses": [
+                {
+                    "text": "I see. Well, it's all in the past now, I won't try to pry. But speaking of the present...do you know where we are?",
+                    "nextNode": null
+                }
+            ]
+        },
+        {
+            "nodeID": 104,
+            "location":"Prison Boat",
+            "description": "The player tells Jiub that they don't trust him yet, and won't tell him their name.",
+            "paragraphs": [
+                {
+                    "narration": false,
+                    "speaker": "Jiub",
+                    "text": "That's fair enough. I'd forgive you for suspecting you're not in good company. You have my word that I won't try to steal your rations in your sleep, but then again, my word might not mean a lot to you."
+                }
+            ],
+            "responses": [
+                {
+                    "text": "You sound like the decent enough sort. Sorry if I came off a little...hostile. It hasn't been an easy trip, and I'm a little on the edge.",
+                    "nextNode": null
+                },
+                {
+                    "text": "Fair enough, but I'm watching you. Don't try anything funny.",
+                    "nextNode": null
+                },
+                {
+                    "text": "Nothing personal, I just don't feel like getting too well acquainted seeing as we'll probably hang tomorrow.",
+                    "nextNode": null
+                }
+            ]
+        },
+        {
+            "nodeID": 105,
+            "location": "Prison Boat",
+            "description": "The player has just informed Jiub that they are Lord Nerevar, and Jiub is not amused.",
+            "paragraphs": [
+                {
+                    "narration": false,
+                    "speaker": "Jiub",
+                    "text": "Hit your head on the way here, did you? I'm not in the mood for your delusional rambling. Keep it to yourself."
+                }
+            ],
+            "responses": [
+                {
+                    "text": "How dare you? I'll have your tongue for disrespecting me like that!",
+                    "nextNode": null
+                },
+                {
+                    "text": "Relax, I'm kidding. My head is just fine, thank you.",
+                    "nextNode": null
+                },
+                {
+                    "text": "Damn, did someone piss in your coffee this morning? You're crankier than a road lizard.",
                     "nextNode": null
                 }
             ]
