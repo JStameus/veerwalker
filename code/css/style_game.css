@@ -34,10 +34,6 @@ p, h3, button {
     font-family: 'Raleway';
 }
 
-#dialogue_text_main {
-    height: 540px;
-}
-
 #game_div {
     width: 1600px;
     height: 900px;
