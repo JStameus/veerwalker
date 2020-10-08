@@ -26,6 +26,22 @@ function loadDialogueNode(nodeIndex) {
     }
 }
 
+function addDialogueParagraphs() {
+    //after dialogue node is loaded
+    //for each paragraph in node
+        //create a div 
+        //create a h3 
+        //create a paragraph
+        //set h3 to speaker name
+        //set paragraph to text
+        //append all to div
+        //append div to dialogue window
+}
+
+function clearDialogueParagraphs () {
+    
+}
+
 function clearChoiceButtons() {
     document.querySelectorAll('.dialogue_choice_container').forEach(function(a){a.remove()});
 }
