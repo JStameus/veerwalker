@@ -78,6 +78,10 @@ p, h3, button {
     background-color: var(--textbox-dark);
 }
 
+.paragraph_narration p {
+    font-style: italic;
+}
+
 .paragraph_dialogue {
     background-color: var(--textbox-light);
 }
