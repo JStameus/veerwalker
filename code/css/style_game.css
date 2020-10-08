@@ -38,7 +38,7 @@ p, h3, button {
     font-family: 'Raleway';
 }
 
-#game_div {
+#gamewindow {
     width: 1600px;
     height: 900px;
     margin: auto;
@@ -48,7 +48,7 @@ p, h3, button {
     background-color: rgb(95,84,69);
 }
 
-#dialogue_window {
+#dialogue_textwindow {
     width: 1400px;
     height: 600px;
     border: 2px solid wheat;
@@ -72,7 +72,7 @@ p, h3, button {
     border-radius: 6px;
 }
 
-.dialogue_paragraph {
+.dialogue_paragraph_container {
     border: 1px solid rgba(245, 222, 179, 0.11);
 }
 
@@ -84,7 +84,7 @@ p, h3, button {
     font-style: italic;
 }
 
-.paragraph_dialogue {
+.paragraph_dialogue, .paragraph_response {
     background-color: var(--textbox-light);
 }
 
