@@ -50,6 +50,7 @@ p, h3, button {
     border: 2px solid wheat;
     background-color: rgb(66, 60, 51);
     margin: auto;
+    overflow-y: scroll;
 }
 
 #dialogue_choices {

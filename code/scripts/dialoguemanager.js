@@ -39,7 +39,6 @@ function addDialogueParagraphs() {
         //assign classes and id
         newDiv.className = "dialogue_paragraph";
         newDiv.id = "paragraph_" + (i) + "_node_" + currentDialogueNode.nodeID;
-        console.log("Created " + newDiv.id);
         newParagraph.className = "dialogue_paragraph_text";
         //This solution is not optimal, look over it again
         if(currentDialogueNode.paragraphs[i].narration == false)
