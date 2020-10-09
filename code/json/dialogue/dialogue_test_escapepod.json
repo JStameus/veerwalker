@@ -2,7 +2,7 @@
     "sceneDescription": "The player wakes up inside some kind of pod without any memory of how they got there.",
     "nodes": 
     [
-        {
+        { "nodeIndex": 0,
             "nodeID": 100,
             "location": "Unknown",
             "description": "The player is dreaming a strange dream about a pitch black void.",
@@ -22,7 +22,7 @@
                 }
             ]
         },
-        {
+        { "nodeIndex": 1,
             "nodeID": 101,
             "location": "Unknown: Storage Room",
             "description": "The player wakes up inside a small storage room in the escape pod.",
@@ -31,9 +31,136 @@
                 {
                     "narration": true,
                     "speaker": null,
-                    "text": "You find yourself in a small storage room of some kind. It is dimly lit, and quite claustrophobic. "
+                    "text": "You find yourself in a small storage room of some kind. It is dimly lit, and quite claustrophobic. The whole room is shaped like a cylinder, with metal walls and thick metal bulkheads stretching from the floor to the ceiling. You can hear nothing but the faint humming of some kind of machine, and dripping liquid."
+                },
+                {
+                    "narration": true,
+                    "speaker": null,
+                    "text": "In front of you is a metal door with a wheel-like handle. You can't tell if it's locked or not, but it looks heavy."
+                }
+            ],
+            "responses": 
+            [
+                {
+                    "text": "Hello? Where am I? Is there someone out there?",
+                    "nextNode": 2
+                },
+                {
+                    "text": "[Examine the room]",
+                    "nextNode": 3
+                },
+                {
+                    "text": "[Try to open the door]",
+                    "nextNode": 4
                 }
             ]
+        },
+        { "nodeIndex": 2,
+            "nodeID": 102,
+            "location":"Unknown: Storage Room",
+            "description": "The player calls out from inside the storage room, but there is no response.",
+            "paragraphs": 
+            [
+                {
+                    "narration": true,
+                    "speaker": null,
+                    "text": "There is no response."
+                }
+            ],
+            "responses": 
+            [
+                {
+                    "text": "Can anyone here me? Please, I don't know where I am! Answer me!",
+                    "nextNode": null
+                },
+                {
+                    "text":"[Examine the room]",
+                    "nextNode": 3
+                },
+                {
+                    "text":"[Try to open the door]",
+                    "nextNode": 4
+                }
+            ]
+        },
+        { "nodeIndex": 3,
+            "nodeID": 103,
+            "location":"Unknown: Storage Room",
+            "description": "The player examines the storage room.",
+            "paragraphs": 
+            [
+                {
+                    "narration": true,
+                    "speaker": null,
+                    "text": "You examine the storage room."
+                }
+            ],
+            "responses": 
+            [
+                {
+                    "text": "[Examine the hose on the floor]",
+                    "nextNode": null
+                },
+                {
+                    "text": "[Search the storage containers]",
+                    "nextNode": null
+                },
+                {
+                    "text": "[Go back]",
+                    "nextNode": 5
+                }
+            ]
+        },
+        { "nodeIndex": 4,
+            "nodeID": 104,
+            "location":"Unknown: Storage Room",
+            "description": "The player tries to open the door in the storage room.",
+            "paragraphs": 
+            [
+                {
+                    "narration": true,
+                    "speaker": null,
+                    "text": "You open the bloody door instead of whining like a baby."
+                }
+            ],
+            "responses": 
+            [
+                {
+                    "text": "add response",
+                    "nextNode": null
+                }
+            ]
+        },
+        {
+            "nodeIndex": 5,
+            "nodeID": 105,
+            "location":"Unknown: Storage Room",
+            "description": "Generic storage room node, with the door closed.",
+            "paragraphs": 
+            [
+                {
+                    "narration": true,
+                    "speaker": null,
+                    "text": "You are standing in the storage room. In front of you is a metal door, and there are various metal containers and odd items strewn about."
+                }
+            ],
+            "responses":
+            [
+                {
+                    "text":"[Examine the room]",
+                    "nextNode": 3
+                },
+                {
+                    "text": "[Try to open the door]",
+                    "nextNode": 4
+                }
+            ]
+        },
+        {
+            "nodeIndex": 6,
+            "nodeID": 106,
+            "location":"Unknown: Storage Room",
+            "description": "The player calls out in the storage room a second time."
         }
     ]
 }
