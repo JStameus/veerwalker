@@ -1,0 +1,39 @@
+{
+    "sceneDescription": "The player wakes up inside some kind of pod without any memory of how they got there.",
+    "nodes": 
+    [
+        {
+            "nodeID": 100,
+            "location": "Unknown",
+            "description": "The player is dreaming a strange dream about a pitch black void.",
+            "paragraphs":
+            [
+                {
+                    "narration": true,
+                    "speaker": null,
+                    "text": "You are dreaming about a pitch black void. At the edge of consciousness, you can feel a faint aching in the back of your head."
+                }
+            ],
+            "responses": 
+            [
+                {
+                    "text": "[Awaken]",
+                    "nextNode": 1
+                }
+            ]
+        },
+        {
+            "nodeID": 101,
+            "location": "Unknown: Storage Room",
+            "description": "The player wakes up inside a small storage room in the escape pod.",
+            "paragraphs": 
+            [
+                {
+                    "narration": true,
+                    "speaker": null,
+                    "text": "You find yourself in a small storage room of some kind. It is dimly lit, and quite claustrophobic. "
+                }
+            ]
+        }
+    ]
+}
