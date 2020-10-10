@@ -70,8 +70,8 @@
             "responses": 
             [
                 {
-                    "text": "Can anyone here me? Please, I don't know where I am! Answer me!",
-                    "nextNode": null
+                    "text": "Can anyone hear me? Please, I don't know where I am! Answer me!",
+                    "nextNode": 6
                 },
                 {
                     "text":"[Examine the room]",
@@ -99,11 +99,11 @@
             [
                 {
                     "text": "[Examine the hose on the floor]",
-                    "nextNode": null
+                    "nextNode": 7
                 },
                 {
                     "text": "[Search the storage containers]",
-                    "nextNode": null
+                    "nextNode": 8
                 },
                 {
                     "text": "[Go back]",
@@ -135,7 +135,7 @@
             "nodeIndex": 5,
             "nodeID": 105,
             "location":"Unknown: Storage Room",
-            "description": "Generic storage room node, with the door closed.",
+            "description": "Generic storage room node, with the machine still on.",
             "paragraphs": 
             [
                 {
@@ -160,7 +160,140 @@
             "nodeIndex": 6,
             "nodeID": 106,
             "location":"Unknown: Storage Room",
-            "description": "The player calls out in the storage room a second time."
+            "description": "The player calls out in the storage room a second time.",
+            "paragraphs": 
+            [
+                {
+                    "narration": true,
+                    "speaker": null,
+                    "text": "Your voice echoes in the hollow metal shell, but there is no one to hear you. You are alone."
+                }
+            ],
+            "responses": 
+            [
+                {
+                    "text": "[Continue]",
+                    "nextNode": 5
+                }
+            ]
+        },
+        {
+            "nodeIndex": 7,
+            "nodeID": 107,
+            "location":"Unknown: Storage Room",
+            "description": "The player examines the hose on the floor of the storage room.",
+            "paragraphs": 
+            [
+                {
+                    "narration": true,
+                    "speaker": null,
+                    "text": "The hose on the floor is lying in a puddle of some dark liquid. At it's tip is a metal spike, with more of that same liquid dripping from the edge of it. Following the hose along the floor, you notice that it is attached to a small barrel-like machine of some kind."
+                },
+                {
+                    "narration": true,
+                    "speaker": null,
+                    "text": "The machine hums faintly. Next to where the hose connects to it, there is a small switch pointing upwards."
+                }
+            ],
+            "responses": 
+            [
+                {
+                    "text": "[Turn the switch]",
+                    "nextNode": 9
+                },
+                {
+                    "text": "[Step back from the machine]",
+                    "nextNode": 3
+                    
+                }
+            ]
+        },
+        {
+            "nodeIndex": 8,
+            "nodeID": 108,
+            "location":"Unknown: Storage Room",
+            "description": "The player searches the containers in the storage room.",
+            "paragraphs": 
+            [
+                {
+                    "narration": true,
+                    "speaker": null,
+                    "text": "You examine the containers strewn around the room. Most of them seem to be locked, but a few of the smaller cylindrical ones are still open."
+                },
+                {
+                    "narration": true,
+                    "speaker": null,
+                    "text": "Rifling through the containers, you find nothing but strange-looking effigies, incense, bags of herbs and a large amount of what appears to be batteries. It all seems to have been packed in a hurry, without much care for sorting or stacking properly."
+                }
+            ],
+            "responses": 
+            [
+                {
+                    "text": "[Go back]",
+                    "nextNode": 3
+                }
+            ]
+        },
+        {
+            "nodeIndex": 9,
+            "nodeID": 109,
+            "location":"Unknown: Storage Room",
+            "description": "The player switches off the machine in the storage room.",
+            "paragraphs": 
+            [
+                {
+                    "narration": true,
+                    "speaker": null,
+                    "text": "You flip the switch on the machine, and for a short while, it keeps going, until it powers down and its low, droning hum quiets down completely."
+                },
+                {
+                    "narration": true,
+                    "speaker": null,
+                    "text": "Behind you, you can hear the dripping from the hose subside. There doesn't seem to have been much left of that strange liquid in this container, but at least it's not spilling out onto the floor anymore."
+                }
+            ],
+            "responses": 
+            [
+                {
+                    "text": "[Go back]",
+                    "nextNode": 10
+                }
+            ]
+        },
+        {
+            "nodeIndex": 10,
+            "nodeID": 1010,
+            "location":"Unknown: Storage Room",
+            "description": "Generic storage room node, with the machine turned off.",
+            "paragraphs": 
+            [
+                {
+                    "narration": true,
+                    "speaker": null,
+                    "text": "You are standing in the storage room. With the machine turned off, the low humming has stopped. In front of you is a metal door, and there are various metal containers and odd items strewn about."
+                }
+            ],
+            "responses": 
+            [
+                {
+                    "text": "[Try to open the door]",
+                    "nextNode": 4
+                },
+                {
+                    "text": "[Search the storage containers]",
+                    "nextNode": null
+                }
+            ]
+        },
+        {
+            "nodeIndex": 11,
+            "nodeID": 1011,
+            "location":"Unknown: Storage Room",
+            "description": "The player searches the containers, and the machine is turned off.",
+            "paragraphs": 
+            [
+                
+            ]
         }
     ]
 }

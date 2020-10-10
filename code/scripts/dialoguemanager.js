@@ -160,14 +160,28 @@ function checkNullNextNodes() {
     }
 }
 
+function checkAdjacentNodes(nodeIndex) {
+    console.log("--Node: " + dialogueTree.nodes[nodeIndex].nodeIndex + " ID: " + dialogueTree.nodes[nodeIndex].nodeID + "--");
+    console.log("Points to: ");
+    for(let i = 0; i < dialogueTree.nodes[nodeIndex].responses.length; i++)
+    {
+        console.log(dialogueTree.nodes[nodeIndex].responses[i].nextNode);
+    }
+}
+
+function checkNodeDescription(nodeIndex) {
+    console.log("--Node: " + dialogueTree.nodes[nodeIndex].nodeIndex + " ID: " + dialogueTree.nodes[nodeIndex].nodeID + "--");
+    console.log(dialogueTree.nodes[nodeIndex].description);
+}
+
 function checkParagraphCount(nodeIndex) {
-    console.log("--Node: " + dialogueTree.nodes[nodeIndex] + " ID: " + dialogueTree.nodes[nodeIndex].nodeID + "--");
-    console.log("Has " + dialogueTree.nodes[nodeIndex].responses.length + " paragraphs.");
+    console.log("--Node: " + dialogueTree.nodes[nodeIndex].nodeIndex + " ID: " + dialogueTree.nodes[nodeIndex].nodeID + "--");
+    console.log("Has " + dialogueTree.nodes[nodeIndex].paragraphs.length + " paragraphs.");
 }
 
 function checkResponseCount(nodeIndex) {
-    console.log("--Node: " + dialogueTree.nodes[nodeIndex] + " ID: " + dialogueTree.nodes[nodeIndex].nodeID + "--");
-    console.log("Has " + dialogueTree.nodes[nodeIndex].paragraphs.length + " responses.");
+    console.log("--Node: " + dialogueTree.nodes[nodeIndex].nodeIndex + " ID: " + dialogueTree.nodes[nodeIndex].nodeID + "--");
+    console.log("Has " + dialogueTree.nodes[nodeIndex].responses.length + " responses.");
 }
 
 //buttons for testing purposes, these are only temporary
