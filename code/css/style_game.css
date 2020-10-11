@@ -2,13 +2,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
 
 :root {
-    --custom-darkgray: rgb(46,45,43);
-    --custom-lightbrown: rgb(95,84,69);
-    --custom-darkbrown: rgb(66, 61, 53);
-    --paragraph-dark: rgba(0, 0, 0, 0.25);
-    --paragraph-light: rgb(0, 0, 0, 0.1);
-    --name-blue: rgb(158, 192, 212);
-    --name-orange: rgb(223, 165, 126);
+    --background-dark: rgb(46,45,43);
+    --background-mid: rgb(66, 61, 53);
+    --background-light: rgb(95,84,69);
+    --foreground-dark: rgb(0,0,0);
+    --foreground-light: rgb(245,222,179);
+    --overlay-dark: rgba(0, 0, 0, 0.25);
+    --overlay-light: rgb(0, 0, 0, 0.1);
+    --highlight-blue: rgb(158, 192, 212);
+    --highlight-orange: rgb(223, 165, 126);
 }
 
 * {
@@ -21,7 +23,7 @@ body {
 }
 
 h1, h2, h3, p {
-    color: wheat;
+    color: var(--foreground-light);
     font-family: 'Raleway';
 }
 
@@ -40,9 +42,9 @@ h1, h2, h3, p {
 
 /* Game windows and divs */
 #gamewindow {
-    border: 2px solid wheat;
+    border: 2px solid var(--foreground-light);
     margin: 1.4rem;
-    background-color: var(--custom-lightbrown);
+    background-color: var(--background-light);
     position: absolute;
     top: 0;
     bottom: 0;
@@ -59,8 +61,8 @@ h1, h2, h3, p {
 }
 
 #dialogue_textwindow {
-    background-color: var(--custom-darkbrown);
-    border: 1px solid wheat;
+    background-color: var(--background-mid);
+    border: 1px solid var(--foreground-light);
     display: block;
     width: 98%;
     flex: 6;
@@ -70,7 +72,7 @@ h1, h2, h3, p {
 }
 
 #game_controlpanel {
-    background-color: var(--custom-darkbrown);
+    background-color: var(--background-mid);
     display: block;
     width: 100%;
     height: 13em;
@@ -81,9 +83,9 @@ h1, h2, h3, p {
 }
 
 .controlpanel_item {
-    border: 1px solid wheat;
+    border: 1px solid var(--foreground-light);
     border-radius: 5px;
-    background-color: var(--paragraph-dark);
+    background-color: var(--overlay-dark);
 }
 
 #controlpanel_choices {
@@ -103,7 +105,7 @@ h1, h2, h3, p {
 
 .menubutton {
     flex: 1;
-    border: 2px solid var(--custom-darkbrown)
+    border: 2px solid var(--background-mid)
 }
 
 /* Dialogue paragraphs and buttons*/
@@ -111,9 +113,9 @@ h1, h2, h3, p {
     width: 100%;
     padding: 0.7rem;
     font-size: 18px;
-    color: wheat;
+    color: var(--foreground-light);
     background-color: rgb(66, 60, 51);
-    border: 1px solid wheat;
+    border: 1px solid var(--foreground-light);
     border-radius: 6px;
     text-align: start;
 }
@@ -130,7 +132,7 @@ h1, h2, h3, p {
 }
 
 .paragraph_narration {
-    background-color: var(--paragraph-dark);
+    background-color: var(--overlay-dark);
 }
 
 .paragraph_narration p {
@@ -138,7 +140,7 @@ h1, h2, h3, p {
 }
 
 .paragraph_dialogue, .paragraph_response {
-    background-color: var(--paragraph-light);
+    background-color: var(--overlay-light);
 }
 
 .paragraph_dialogue h3, .paragraph_response h3, .dialogue_paragraph_text {
