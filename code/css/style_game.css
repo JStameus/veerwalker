@@ -2,18 +2,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
 
 :root {
-    --background-dark: rgb(46,45,43);
-    --background-mid: rgb(66, 61, 53);
-    --background-light: rgb(95,84,69);
+    --background-dark: rgb(43, 46, 45);
+    --background-mid: rgb(57, 65, 63);
+    --background-light: rgb(80, 97, 93);
     --foreground-dark: rgb(122, 122, 122);
-    --foreground-light: rgb(245, 222, 179);
+    --foreground-light: rgb(239, 255, 254);
     --overlay-dark: rgba(0, 0, 0, 0.25);
     --overlay-mid: rgb(0, 0, 0, 0.1);
-    --overlay-light:  rgba(245, 222, 179, 0.11);
+    --overlay-light:  rgba(215, 241, 237, 0.11);
     --highlight-blue: rgb(158, 192, 212);
     --highlight-orange: rgb(223, 165, 126);
     --highlight-silver: rgb(183, 203, 206);
-    --highlight-faded: 
 }
 
 * {
@@ -31,7 +30,7 @@ h1, h2, h3, p {
 }
 
 .borderglow_default {
-    box-shadow: 0 0 12px 4px indianred;
+    box-shadow: 0 0 34px 8px indianred;
 }
 
 #devbuttons {
@@ -151,9 +150,9 @@ h1, h2, h3, p {
 }
 
 .paragraph_dialogue h3 {
-    color: var(--name-orange);
+    color: var(--highlight-orange);
 }
 
 .paragraph_response h3 {
-    color: var(--name-blue);
+    color: var(--highlight-blue);
 }
