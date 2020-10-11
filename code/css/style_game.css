@@ -5,12 +5,15 @@
     --background-dark: rgb(46,45,43);
     --background-mid: rgb(66, 61, 53);
     --background-light: rgb(95,84,69);
-    --foreground-dark: rgb(0,0,0);
-    --foreground-light: rgb(245,222,179);
+    --foreground-dark: rgb(122, 122, 122);
+    --foreground-light: rgb(245, 222, 179);
     --overlay-dark: rgba(0, 0, 0, 0.25);
-    --overlay-light: rgb(0, 0, 0, 0.1);
+    --overlay-mid: rgb(0, 0, 0, 0.1);
+    --overlay-light:  rgba(245, 222, 179, 0.11);
     --highlight-blue: rgb(158, 192, 212);
     --highlight-orange: rgb(223, 165, 126);
+    --highlight-silver: rgb(183, 203, 206);
+    --highlight-faded: 
 }
 
 * {
@@ -114,21 +117,21 @@ h1, h2, h3, p {
     padding: 0.7rem;
     font-size: 18px;
     color: var(--foreground-light);
-    background-color: rgb(66, 60, 51);
+    background-color: var(--overlay-mid);
     border: 1px solid var(--foreground-light);
     border-radius: 6px;
     text-align: start;
 }
 
 .dialogue_choice_button:hover {
-    background-color: rgb(54, 51, 44);
-    border: 1px solid rgb(255, 245, 227);
+    background-color: var(--background-mid);
+    border: 1px solid var(--highlight-silver);
 }
 
 .dialogue_paragraph_container {
     margin: 0.1rem 0;
     padding: 0.4rem;
-    border: 1px solid rgba(245, 222, 179, 0.11);
+    border: 1px solid var(--overlay-mid);
 }
 
 .paragraph_narration {
@@ -140,7 +143,7 @@ h1, h2, h3, p {
 }
 
 .paragraph_dialogue, .paragraph_response {
-    background-color: var(--overlay-light);
+    background-color: var(--overlay-mid);
 }
 
 .paragraph_dialogue h3, .paragraph_response h3, .dialogue_paragraph_text {
