@@ -30,7 +30,7 @@ h1, h2, h3, p {
 }
 
 .borderglow_default {
-    box-shadow: 0 0 34px 8px indianred;
+    box-shadow: 0 0 34px 8px rgb(205, 118, 92);
 }
 
 #devbuttons {
