@@ -1,6 +1,6 @@
 //this is temporary, should be stored somewhere else later
 var playerName = 'Player';
-var checkPointNode = 0;
+var checkPointNode = 12;
 
 //Which dialogue tree and node is currently active
 var dialogueTree = null;

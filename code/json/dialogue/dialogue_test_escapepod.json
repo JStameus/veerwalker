@@ -131,8 +131,7 @@
                 }
             ]
         },
-        {
-            "nodeIndex": 5,
+        { "nodeIndex": 5,
             "nodeID": 105,
             "location":"Unknown: Storage Room",
             "description": "Generic storage room node, with the machine still on.",
@@ -156,8 +155,7 @@
                 }
             ]
         },
-        {
-            "nodeIndex": 6,
+        { "nodeIndex": 6,
             "nodeID": 106,
             "location":"Unknown: Storage Room",
             "description": "The player calls out in the storage room a second time.",
@@ -177,8 +175,7 @@
                 }
             ]
         },
-        {
-            "nodeIndex": 7,
+        { "nodeIndex": 7,
             "nodeID": 107,
             "location":"Unknown: Storage Room",
             "description": "The player examines the hose on the floor of the storage room.",
@@ -208,8 +205,7 @@
                 }
             ]
         },
-        {
-            "nodeIndex": 8,
+        { "nodeIndex": 8,
             "nodeID": 108,
             "location":"Unknown: Storage Room",
             "description": "The player searches the containers in the storage room.",
@@ -234,8 +230,7 @@
                 }
             ]
         },
-        {
-            "nodeIndex": 9,
+        { "nodeIndex": 9,
             "nodeID": 109,
             "location":"Unknown: Storage Room",
             "description": "The player switches off the machine in the storage room.",
@@ -260,8 +255,7 @@
                 }
             ]
         },
-        {
-            "nodeIndex": 10,
+        { "nodeIndex": 10,
             "nodeID": 1010,
             "location":"Unknown: Storage Room",
             "description": "Generic storage room node, with the machine turned off.",
@@ -285,8 +279,7 @@
                 }
             ]
         },
-        {
-            "nodeIndex": 11,
+        { "nodeIndex": 11,
             "nodeID": 1011,
             "location":"Unknown: Storage Room",
             "description": "The player searches the containers, and the machine is turned off.",
@@ -306,29 +299,60 @@
                 }
             ]
         },
-        {
-            "nodeIndex": 12,
+        { "nodeIndex": 12,
             "nodeID": 110,
-            "location":"Unknown: Pod",
+            "location": "Life Pod",
             "description": "The player steps out of the storage room and into the main room of the pod.",
             "paragraphs": 
             [
                 {
                     "narration": true,
                     "speaker": null,
-                    "text": "You step through the door. On the other side is a much larger room."
+                    "text": "You step through the door. On the other side is a much larger room. You appear to be in some kind of life pod. In the room, there is a desk with a small booklet on it, a toolbox, some wall panels with levers and buttons, and a locker marked 'Emergency Equipment'. At the end of the room, there is a door like the one you just walked through."
                 }
             ],
             "responses": 
             [
                 {
-                    "text": "Add Response",
+                    "text": "Hello? Anyone in here?",
+                    "nextNode": null
+                },
+                {
+                    "text": "[Examine the locker]",
+                    "nextNode": null
+                },
+                {
+                    "text": "[Examine the desk]",
+                    "nextNode": null
+                },
+                {
+                    "text": "[Examine the toolbox]",
+                    "nextNode": null
+                },
+                {
+                    "text": "[Examine the wall panel]",
+                    "nextNode": null
+                },
+                {
+                    "text": "[Try to open the door]",
                     "nextNode": null
                 }
             ]
         },
-        {
-            "nodeIndex": 999,
+        { "nodeIndex": 13,
+            "nodeID": 111,
+            "location": "Life Pod",
+            "description": "The player is in the main room, and the power is off.",
+            "paragraphs": 
+            [
+                {
+                    "narration": true,
+                    "speaker": null,
+                    "text": "You are in the life pod. The power is OFF."
+                }
+            ]
+        },
+        { "nodeIndex": 999,
             "nodeID": 999,
             "location": "Veerwalker",
             "description": "Intro tutorial message.",
