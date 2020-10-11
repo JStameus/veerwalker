@@ -1,5 +1,6 @@
 //this is temporary, should be stored somewhere else later
 var playerName = 'Player';
+var checkPointNode = 0;
 
 //Which dialogue tree and node is currently active
 var dialogueTree = null;
@@ -141,13 +142,53 @@ function updateChoiceButtons() {
     }
 }
 
-document.onload = loadDialogueTree('/code/json/dialogue/dialogue_boat_wakeup.json');
+document.onload = loadDialogueTree('/code/json/dialogue/dialogue_test_escapepod.json');
+
+function checkNullNextNodes() {
+    let a = 0;
+    let b = 0;
+    for(a = 0; a < dialogueTree.nodes.length; a++)
+    {
+        console.log("--Node: " + dialogueTree.nodes[a].nodeIndex + " " + "ID: " + dialogueTree.nodes[a].nodeID + "--");
+        for(b = 0; b < dialogueTree.nodes[a].responses.length; b++)
+        {
+            if(dialogueTree.nodes[a].responses[b].nextNode == null)
+            {
+                console.warn("Response " + b + " has a NULL nextNode!");
+            }
+        }
+    }
+}
+
+function checkAdjacentNodes(nodeIndex) {
+    console.log("--Node: " + dialogueTree.nodes[nodeIndex].nodeIndex + " ID: " + dialogueTree.nodes[nodeIndex].nodeID + "--");
+    console.log("Points to: ");
+    for(let i = 0; i < dialogueTree.nodes[nodeIndex].responses.length; i++)
+    {
+        console.log(dialogueTree.nodes[nodeIndex].responses[i].nextNode);
+    }
+}
+
+function checkNodeDescription(nodeIndex) {
+    console.log("--Node: " + dialogueTree.nodes[nodeIndex].nodeIndex + " ID: " + dialogueTree.nodes[nodeIndex].nodeID + "--");
+    console.log(dialogueTree.nodes[nodeIndex].description);
+}
+
+function checkParagraphCount(nodeIndex) {
+    console.log("--Node: " + dialogueTree.nodes[nodeIndex].nodeIndex + " ID: " + dialogueTree.nodes[nodeIndex].nodeID + "--");
+    console.log("Has " + dialogueTree.nodes[nodeIndex].paragraphs.length + " paragraphs.");
+}
+
+function checkResponseCount(nodeIndex) {
+    console.log("--Node: " + dialogueTree.nodes[nodeIndex].nodeIndex + " ID: " + dialogueTree.nodes[nodeIndex].nodeID + "--");
+    console.log("Has " + dialogueTree.nodes[nodeIndex].responses.length + " responses.");
+}
 
 //buttons for testing purposes, these are only temporary
 var resetButton = document.getElementById("reset_button");
 resetButton.addEventListener("click", function() {
     clearAllDialogueElements();
-    loadDialogueNode(0);
+    loadDialogueNode(checkPointNode);
 });
 
 var clearButton = document.getElementById('clear_button');

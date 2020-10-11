@@ -29,6 +29,15 @@ h1, h2, h3, p {
     box-shadow: 0 0 12px 4px indianred;
 }
 
+#devbuttons {
+    display: flex;
+    flex-direction: row;
+}
+
+#devbuttons button {
+    margin: 0px 5px;
+}
+
 /* Game windows and divs */
 #gamewindow {
     border: 2px solid wheat;
