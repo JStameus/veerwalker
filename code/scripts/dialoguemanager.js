@@ -154,7 +154,7 @@ function checkNullNextNodes() {
         {
             if(dialogueTree.nodes[a].responses[b].nextNode == null)
             {
-                console.warn("Response: " + b + " has a NULL nextNode!");
+                console.warn("Response " + b + " has a NULL nextNode!");
             }
         }
     }

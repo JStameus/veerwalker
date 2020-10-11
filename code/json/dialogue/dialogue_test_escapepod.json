@@ -92,7 +92,7 @@
                 {
                     "narration": true,
                     "speaker": null,
-                    "text": "You examine the storage room."
+                    "text": "You take a look around the room. There's not much here, except for a variety of metal containers, and a strange-looking rubber hose on the floor. There are also a few sheets of parchment scattered about, but whatever has been written on them has either been ruined by moisture, or is written in a language you don't recognize."
                 }
             ],
             "responses": 
@@ -120,14 +120,14 @@
                 {
                     "narration": true,
                     "speaker": null,
-                    "text": "You open the bloody door instead of whining like a baby."
+                    "text": "You grab the wheel on the door with both hands, and with a bit of effort, you manage to turn it. As you begin to push the door open, you notice that the edges of the door frame are covered in frost. Giving the door a final push, you can hear the hinges crackling."
                 }
             ],
             "responses": 
             [
                 {
-                    "text": "add response",
-                    "nextNode": null
+                    "text": "[Continue]",
+                    "nextNode": 12
                 }
             ]
         },
@@ -249,7 +249,7 @@
                 {
                     "narration": true,
                     "speaker": null,
-                    "text": "Behind you, you can hear the dripping from the hose subside. There doesn't seem to have been much left of that strange liquid in this container, but at least it's not spilling out onto the floor anymore."
+                    "text": "Behind you, you can hear the dripping from the hose subside. There doesn't seem to have been much left of that substance in this container, but at least it's not spilling out onto the floor anymore."
                 }
             ],
             "responses": 
@@ -281,7 +281,7 @@
                 },
                 {
                     "text": "[Search the storage containers]",
-                    "nextNode": null
+                    "nextNode": 11
                 }
             ]
         },
@@ -292,7 +292,39 @@
             "description": "The player searches the containers, and the machine is turned off.",
             "paragraphs": 
             [
-                
+                {
+                    "narration": true,
+                    "speaker": null,
+                    "text": "Rifling through the containers, you find nothing but strange-looking effigies, incense, bags of herbs and a large amount of what appears to be batteries. It all seems to have been packed in a hurry, without much care for sorting or stacking properly."
+                }
+            ],
+            "responses": 
+            [
+                {
+                    "text":"[Go back]",
+                    "nextNode": 10
+                }
+            ]
+        },
+        {
+            "nodeIndex": 12,
+            "nodeID": 110,
+            "location":"Unknown: Pod",
+            "description": "The player steps out of the storage room and into the main room of the pod.",
+            "paragraphs": 
+            [
+                {
+                    "narration": true,
+                    "speaker": null,
+                    "text": "You step through the door. On the other side is a much larger room."
+                }
+            ],
+            "responses": 
+            [
+                {
+                    "text": "Add Response",
+                    "nextNode": null
+                }
             ]
         }
     ]
