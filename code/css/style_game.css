@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Unica+One&display=swap');
 
 :root {
     --background-dark: rgb(46, 45, 43);
@@ -24,7 +24,13 @@ body {
     background-color: black;
 }
 
-h1, h2, h3, p {
+h1, h2 {
+    color: var(--foreground-light);
+    font-family: 'Unica One';
+    font-size: 2rem;
+}
+
+h3, p {
     color: var(--foreground-light);
     font-family: 'Raleway';
 }
