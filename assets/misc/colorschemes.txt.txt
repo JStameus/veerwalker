@@ -1,0 +1,57 @@
+"Neutral Olive"
+    --background-dark: rgb(46, 46, 43);
+    --background-mid: rgb(64, 65, 57);
+    --background-light: rgb(94, 97, 80);
+    --foreground-dark: rgb(122, 122, 122);
+    --foreground-light: rgb(211, 207, 195);
+    --overlay-dark: rgba(0, 0, 0, 0.25);
+    --overlay-mid: rgb(0, 0, 0, 0.1);
+    --overlay-light:  rgba(238, 241, 215, 0.11);
+    --highlight-blue: rgb(158, 192, 212);
+    --highlight-orange: rgb(223, 165, 126);
+    --highlight-silver: rgb(183, 203, 206);
+
+-------------------------------------------------
+
+"Tarvanite Steel"
+    --background-dark: rgb(43, 45, 46);
+    --background-mid: rgb(57, 64, 65);
+    --background-light: rgb(80, 94, 97);
+    --foreground-dark: rgb(122, 122, 122);
+    --foreground-light: rgb(195, 208, 211);
+    --overlay-dark: rgba(0, 0, 0, 0.25);
+    --overlay-mid: rgb(0, 0, 0, 0.1);
+    --overlay-light:  rgba(215, 240, 241, 0.11);
+    --highlight-blue: rgb(158, 192, 212);
+    --highlight-orange: rgb(223, 165, 126);
+    --highlight-silver: rgb(183, 203, 206);
+
+-------------------------------------------------
+
+"Sandstone"
+    --background-dark: rgb(51, 51, 46);
+    --background-mid: rgb(75, 72, 62);
+    --background-light: rgb(97, 92, 80);
+    --foreground-dark: rgb(122, 122, 122);
+    --foreground-light: rgb(231, 231, 188);
+    --overlay-dark: rgba(0, 0, 0, 0.25);
+    --overlay-mid: rgb(0, 0, 0, 0.1);
+    --overlay-light:  rgba(241, 237, 215, 0.11);
+    --highlight-blue: rgb(158, 192, 212);
+    --highlight-orange: rgb(223, 165, 126);
+    --highlight-silver: rgb(183, 203, 206);
+
+-------------------------------------------------
+
+"Fusion"
+    --background-dark: rgb(46, 45, 43);
+    --background-mid: rgb(57, 65, 61);
+    --background-light: rgb(80, 94, 97);
+    --foreground-dark: rgb(122, 122, 122);
+    --foreground-light: rgb(226, 203, 177);
+    --overlay-dark: rgba(0, 0, 0, 0.25);
+    --overlay-mid: rgb(0, 0, 0, 0.1);
+    --overlay-light:  rgba(241, 232, 215, 0.11);
+    --highlight-blue: rgb(158, 192, 212);
+    --highlight-orange: rgb(223, 165, 126);
+    --highlight-silver: rgb(183, 203, 206);
