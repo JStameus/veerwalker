@@ -72,9 +72,9 @@ h3, p {
     background-color: var(--background-mid);
     border: 1px solid var(--foreground-light);
     display: block;
-    width: 98%;
+    width: 60%;
     flex: 6;
-    margin: 0 0.5rem;
+    margin: 0.5rem 0.5rem;
     overflow-y: scroll;
     padding: 1rem;
 }
