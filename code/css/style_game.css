@@ -39,7 +39,7 @@ h3, p {
     box-shadow: 0 0 34px 8px rgb(205, 118, 92);
 }
 
-#devbuttons {
+#devmenu {
     display: flex;
     flex-direction: row;
 }
