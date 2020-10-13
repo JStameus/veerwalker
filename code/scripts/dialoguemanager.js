@@ -120,6 +120,11 @@ function clearAllDialogueElements() {
     clearChoiceButtons();
 }
 
+function setCheckpointNode() {
+    checkPointNode = currentDialogueNode.nodeIndex;
+    checkPointNodeDisplay.innerText = ("Checkpoint: " + currentDialogueNode.nodeIndex + ", ID: " + currentDialogueNode.nodeID);
+}
+
 function updateChoiceButtons() {
     if(currentDialogueNode != null)
     {
@@ -162,7 +167,16 @@ function updateChoiceButtons() {
             newDiv.appendChild(newCreateNextNodeButton);
             newDiv.appendChild(newNextNodeIndexDisplay);
             newCreateNextNodeButton.addEventListener("click", function() {
-                addNewDialogueNode(null, "NextNode created from Node: " + currentDialogueNode.nodeIndex);
+                if(currentDialogueNode.responses[i].nextNode == null)
+                {
+                    currentDialogueNode.responses[i].nextNode = createNewNodeIndex();
+                    addNewDialogueNode(null, "NextNode created from Node: " + currentDialogueNode.nodeIndex);
+                    refreshDialogueNode();
+                }
+                else 
+                {
+                    console.warn("Cannot create new nextNode: " + currentDialogueNode.nodeID + ", ID: " + currentDialogueNode.nodeID + ": Response " + i + " already has a nextNode! Please assign it manually.");
+                }
             })
 
             //Adding everything to the control panel
@@ -225,8 +239,6 @@ function checkLastNodeInfo() {
     console.log("Last Node: --" + lastNode.nodeIndex + ", ID: " + lastNode.nodeID + "--");
 }
 
-
-
 //dev menu buttons
 function toggleDevTools() {
     let menuElement = document.getElementById('devmenu');
@@ -251,9 +263,17 @@ function toggleDevTools() {
 var currentNodeDisplay = document.getElementById('devmenu_currentnodedisplay');
 currentNodeDisplay.innerText = ("Current Node: " + currentDialogueNode);
 
+var checkPointNodeDisplay = document.getElementById('devmenu_checkpointnodedisplay');
+checkPointNodeDisplay.innerText = ("Checkpoint: " + checkPointNode);
+
 const toggleDevMenuButton = document.getElementById('toggle_devmenu_button');
 toggleDevMenuButton.addEventListener("click", function() {
     toggleDevTools();
+})
+
+const checkpointButton = document.getElementById('checkpoint_button');
+checkpointButton.addEventListener('click', function() {
+    setCheckpointNode();
 })
 
 const resetButton = document.getElementById('reset_button');
@@ -276,8 +296,6 @@ const saveTreeButton = document.getElementById('save_tree_button');
 saveTreeButton.addEventListener("click", function() {
     saveDialogueTree();
 })
-
-
 
 //adding and editing nodes
 function createNewNodeIndex() {

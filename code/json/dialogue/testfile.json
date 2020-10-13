@@ -71,58 +71,6 @@
                     "nextNode": null
                 }
             ]
-        },
-        {
-            "nodeIndex": 3,
-            "nodeID": 103,
-            "location": "The hecking void",
-            "description": "This is a new node. Anything could happen here.",
-            "paragraphs": [
-                {
-                    "narration": true,
-                    "speaker": null,
-                    "text": "I AM THE NEW NODE. FEAR ME."
-                }
-            ],
-            "responses": []
-        },
-        {
-            "nodeIndex": 4,
-            "nodeID": 104,
-            "location": "Prison Boat",
-            "description": "This place again?",
-            "paragraphs": [
-                {
-                    "narration": true,
-                    "speaker": null,
-                    "text": "New Node Paragraph"
-                }
-            ],
-            "responses": [
-                {
-                    "text": "New Node Response",
-                    "nextNode": null
-                }
-            ]
-        },
-        {
-            "nodeIndex": 5,
-            "nodeID": 105,
-            "location": "Literally Hell",
-            "description": "Whoops, I took a wrong turn!",
-            "paragraphs": [
-                {
-                    "narration": true,
-                    "speaker": null,
-                    "text": "New Node Paragraph"
-                }
-            ],
-            "responses": [
-                {
-                    "text": "New Node Response",
-                    "nextNode": null
-                }
-            ]
         }
     ]
 }
