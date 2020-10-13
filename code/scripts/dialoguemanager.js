@@ -255,6 +255,11 @@ clearButton.addEventListener('click', function() {
     clearAllDialogueElements();
 })
 
+const saveTreeButton = document.getElementById('save_tree_button');
+saveTreeButton.addEventListener("click", function() {
+    saveDialogueTree();
+})
+
 
 
 //adding and editing nodes
