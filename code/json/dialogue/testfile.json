@@ -1,0 +1,81 @@
+{
+    "sceneDescription": "A brief description of everything going on in this scene.",
+    "nodes": 
+    [
+        {
+            "nodeID": 100,
+            "location": "Test Scene: Room 1",
+            "description": "A scene for testing different functions without messing up my main files.",
+            "paragraphs":
+            [
+                {
+                    "narration": true,
+                    "speaker": null,
+                    "text": "This is the first message of the test scene."
+                },
+                {
+                    "narration": false,
+                    "speaker": "Big Steffe",
+                    "text": "This is some dialogue. Hello, Joseph! Let's go find the story, shall we?"
+                }
+            ],
+            "responses": 
+            [
+                {
+                    "text": "Yes, I agree. Let's go to Room 2. I think the story is in there somewhere.",
+                    "nextNode": 1
+                },
+                {
+                    "text": "No, I don't think so. I want to stay in this room.",
+                    "nextNode": 2
+                }
+            ]
+        },
+        {
+            "nodeID": 101,
+            "location": "Test Scene: Room 2",
+            "description": "You went to Room 2, whatever that is.",
+            "paragraphs": 
+            [
+                {
+                    "narration": false,
+                    "speaker": "Big Steffe",
+                    "text": "Well, here we are. Room 2. There's...nothing here. You need to write more dialogue, Joseph."
+                }
+            ],
+            "responses": 
+            [
+                {
+                    "text": "I'm trying, Steffe. Gimme a minute.",
+                    "nextNode": null
+                }
+            ]
+        },
+        {
+            "nodeID": 102,
+            "location":"Test Scene: Room 1",
+            "description": "You remained in Room 1.",
+            "paragraphs": 
+            [
+                {
+                    "narration": true,
+                    "speaker": null,
+                    "text": "Big Steffe looks around, and shrugs."
+                },
+                {
+                    "narration": false,
+                    "speaker": "Big Steffe",
+                    "text": "Whatever, maybe there's a story in this room, too? Assuming you're going to write it?"
+                }
+            ],
+            "responses": 
+            [
+                {
+                    "text": "Of course I am! I just need to figure out how to do it without messing up all my code. Be patient.",
+                    "nextNode": null
+                }
+            ]
+        }
+        
+    ]
+}

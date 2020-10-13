@@ -1,6 +1,6 @@
 //this is temporary, should be stored somewhere else later
-var playerName = 'Player';
-var checkPointNode = 12;
+var playerName = 'Joseph';
+var checkPointNode = 0;
 
 //Which dialogue tree and node is currently active
 var dialogueTree = null;
@@ -17,6 +17,7 @@ function loadDialogueNode(nodeIndex) {
         currentDialogueNode = dialogueTree.nodes[nodeIndex];
         let locationText = document.getElementById('dialogue_locationlabel');
         locationText.innerHTML = dialogueTree.nodes[nodeIndex].location;
+        currentNodeDisplay.innerText = ("Current Node: " + nodeIndex);
         addDialogueParagraphs();
         updateChoiceButtons();
     }
@@ -142,8 +143,9 @@ function updateChoiceButtons() {
     }
 }
 
-document.onload = loadDialogueTree('/code/json/dialogue/dialogue_test_escapepod.json');
+document.onload = loadDialogueTree('/code/json/dialogue/testfile.json');
 
+//debugging functions 
 function checkNullNextNodes() {
     let a = 0;
     let b = 0;
@@ -184,8 +186,26 @@ function checkResponseCount(nodeIndex) {
     console.log("Has " + dialogueTree.nodes[nodeIndex].responses.length + " responses.");
 }
 
-//buttons for testing purposes, these are only temporary
-var resetButton = document.getElementById("reset_button");
+function toggleDevMenu() {
+    let element = document.getElementById('devmenu');
+    if(element.style.display == "none") {
+        element.style.display = "flex";
+    }
+    else {
+        element.style.display = "none";
+    }
+}
+
+var currentNodeDisplay = document.getElementById('devmenu_currentnodedisplay');
+currentNodeDisplay.innerText = ("Current Node: " + currentDialogueNode);
+
+//dev menu buttons
+var toggleDevMenuButton = document.getElementById('toggle_devmenu_button');
+toggleDevMenuButton.addEventListener("click", function() {
+    toggleDevMenu();
+})
+
+var resetButton = document.getElementById('reset_button');
 resetButton.addEventListener("click", function() {
     clearAllDialogueElements();
     loadDialogueNode(checkPointNode);
