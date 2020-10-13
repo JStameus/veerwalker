@@ -28,6 +28,11 @@ function loadDialogueNode(nodeIndex) {
     }
 }
 
+function refreshDialogueNode() {
+    clearAllDialogueElements();
+    loadDialogueNode(currentDialogueNode.nodeIndex);
+}
+
 //functions for manipulating HTML content
 function addResponseParagraph(responseIndex) {
     if(currentDialogueNode != null)
@@ -147,10 +152,15 @@ function updateChoiceButtons() {
             let newCreateNextNodeButtonText = document.createTextNode('Create new nextNode');
             newCreateNextNodeButton.appendChild(newCreateNextNodeButtonText);
             newCreateNextNodeButton.className = ('devtools_responsebuttons');
+            let newNextNodeIndexDisplay = document.createElement('p');
+            let newNextNodeIndexText = document.createTextNode('nextNode: ' + currentDialogueNode.responses[i].nextNode);
+            newNextNodeIndexDisplay.appendChild(newNextNodeIndexText);
+            newNextNodeIndexDisplay.className = ('devtools_responsebuttons');
 
             //setting up the dev tools
             newDiv.appendChild(newAssignNextNodeButton);
             newDiv.appendChild(newCreateNextNodeButton);
+            newDiv.appendChild(newNextNodeIndexDisplay);
             newCreateNextNodeButton.addEventListener("click", function() {
                 addNewDialogueNode(null, "NextNode created from Node: " + currentDialogueNode.nodeIndex);
             })
@@ -215,6 +225,8 @@ function checkLastNodeInfo() {
     console.log("Last Node: --" + lastNode.nodeIndex + ", ID: " + lastNode.nodeID + "--");
 }
 
+
+
 //dev menu buttons
 function toggleDevTools() {
     let menuElement = document.getElementById('devmenu');
@@ -248,6 +260,11 @@ const resetButton = document.getElementById('reset_button');
 resetButton.addEventListener("click", function() {
     clearAllDialogueElements();
     loadDialogueNode(checkPointNode);
+})
+
+const refreshButton = document.getElementById('refresh_button');
+refreshButton.addEventListener('click', function() {
+    refreshDialogueNode();
 })
 
 const clearButton = document.getElementById('clear_button');
@@ -327,7 +344,6 @@ function addNewNextNode() {
     //addNewDialogueNode()
     //assign nextNode to the index of the new node
 }
-
 
 function saveDialogueTree() {
     newDialogueTree = JSON.stringify(dialogueTree);
