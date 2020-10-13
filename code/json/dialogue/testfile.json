@@ -1,13 +1,12 @@
 {
     "sceneDescription": "A brief description of everything going on in this scene.",
-    "nodes": 
-    [
-        { "nodeIndex": 0,
+    "nodes": [
+        {
+            "nodeIndex": 0,
             "nodeID": 100,
             "location": "Test Scene: Room 1",
             "description": "A scene for testing different functions without messing up my main files.",
-            "paragraphs":
-            [
+            "paragraphs": [
                 {
                     "narration": true,
                     "speaker": null,
@@ -19,8 +18,7 @@
                     "text": "This is some dialogue. Hello, Joseph! Let's go find the story, shall we?"
                 }
             ],
-            "responses": 
-            [
+            "responses": [
                 {
                     "text": "Yes, I agree. Let's go to Room 2. I think the story is in there somewhere.",
                     "nextNode": 1
@@ -31,32 +29,31 @@
                 }
             ]
         },
-        { "nodeIndex": 1,
+        {
+            "nodeIndex": 1,
             "nodeID": 101,
             "location": "Test Scene: Room 2",
             "description": "You went to Room 2, whatever that is.",
-            "paragraphs": 
-            [
+            "paragraphs": [
                 {
                     "narration": false,
                     "speaker": "Big Steffe",
                     "text": "Well, here we are. Room 2. There's...nothing here. You need to write more dialogue, Joseph."
                 }
             ],
-            "responses": 
-            [
+            "responses": [
                 {
                     "text": "I'm trying, Steffe. Gimme a minute.",
                     "nextNode": null
                 }
             ]
         },
-        { "nodeIndex": 2,
+        {
+            "nodeIndex": 2,
             "nodeID": 102,
-            "location":"Test Scene: Room 1",
+            "location": "Test Scene: Room 1",
             "description": "You remained in Room 1.",
-            "paragraphs": 
-            [
+            "paragraphs": [
                 {
                     "narration": true,
                     "speaker": null,
@@ -68,29 +65,63 @@
                     "text": "Whatever, maybe there's a story in this room, too? Assuming you're going to write it?"
                 }
             ],
-            "responses": 
-            [
+            "responses": [
                 {
                     "text": "Of course I am! I just need to figure out how to do it without messing up all my code. Be patient.",
                     "nextNode": null
                 }
             ]
         },
-        { "nodeIndex": 3,
+        {
+            "nodeIndex": 3,
             "nodeID": 103,
             "location": "The hecking void",
             "description": "This is a new node. Anything could happen here.",
-            "paragraphs": 
-            [
+            "paragraphs": [
                 {
-                    "narration":true,
+                    "narration": true,
                     "speaker": null,
                     "text": "I AM THE NEW NODE. FEAR ME."
                 }
             ],
-            "responses": 
-            [
-               
+            "responses": []
+        },
+        {
+            "nodeIndex": 4,
+            "nodeID": 104,
+            "location": "Prison Boat",
+            "description": "This place again?",
+            "paragraphs": [
+                {
+                    "narration": true,
+                    "speaker": null,
+                    "text": "New Node Paragraph"
+                }
+            ],
+            "responses": [
+                {
+                    "text": "New Node Response",
+                    "nextNode": null
+                }
+            ]
+        },
+        {
+            "nodeIndex": 5,
+            "nodeID": 105,
+            "location": "Literally Hell",
+            "description": "Whoops, I took a wrong turn!",
+            "paragraphs": [
+                {
+                    "narration": true,
+                    "speaker": null,
+                    "text": "New Node Paragraph"
+                }
+            ],
+            "responses": [
+                {
+                    "text": "New Node Response",
+                    "nextNode": null
+                }
             ]
         }
     ]

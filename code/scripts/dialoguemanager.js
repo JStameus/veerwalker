@@ -3,6 +3,7 @@ var playerName = 'Joseph';
 var checkPointNode = 0;
 
 //Which dialogue tree and node is currently active
+var dialogueTreeURL = '/code/json/dialogue/testfile.json';
 var dialogueTree = null;
 var currentDialogueNode =  null;
 
@@ -17,8 +18,8 @@ function loadDialogueNode(nodeIndex) {
         currentDialogueNode = dialogueTree.nodes[nodeIndex];
         let locationText = document.getElementById('dialogue_locationlabel');
         locationText.innerHTML = dialogueTree.nodes[nodeIndex].location;
-        currentNodeDisplay.innerText = ("Current Node: " + nodeIndex);
-        addDialogueParagraphs();
+        currentNodeDisplay.innerText = ("Current Node: " + nodeIndex + ", ID: " + dialogueTree.nodes[nodeIndex].nodeID);
+        displayDialogueParagraphs();
         updateChoiceButtons();
     }
     else 
@@ -61,7 +62,7 @@ function addResponseParagraph(responseIndex) {
     
 }
 
-function addDialogueParagraphs() {
+function displayDialogueParagraphs() {
     for(let i = 0; i < currentDialogueNode.paragraphs.length; i++)
     {
         let dialogueWindow = document.getElementById('dialogue_textwindow');
@@ -120,9 +121,12 @@ function updateChoiceButtons() {
         clearChoiceButtons();
         for (let i = 0; i < currentDialogueNode.responses.length; i++)
         {
+            //Creating the dialogue choice
             let newDiv = document.createElement('div');
             let newButton = document.createElement('button');
             let newButtonText = document.createTextNode((i + 1) + ". " + currentDialogueNode.responses[i].text);
+
+            //setting up the div and dialogue choice button
             newDiv.className = "dialogue_choice_container";
             newButton.className = "dialogue_choice_button";
             newButton.id = "choice_button_" + (i + 1);
@@ -133,6 +137,25 @@ function updateChoiceButtons() {
             });
             newButton.appendChild(newButtonText);
             newDiv.appendChild(newButton);
+
+            //Creating the dev tools
+            let newAssignNextNodeButton = document.createElement('button');
+            let newAssignNextNodeButtonText = document.createTextNode("Assign nextNode");
+            newAssignNextNodeButton.appendChild(newAssignNextNodeButtonText);
+            newAssignNextNodeButton.className = ('devtools_responsebuttons');
+            let newCreateNextNodeButton = document.createElement('button');
+            let newCreateNextNodeButtonText = document.createTextNode('Create new nextNode');
+            newCreateNextNodeButton.appendChild(newCreateNextNodeButtonText);
+            newCreateNextNodeButton.className = ('devtools_responsebuttons');
+
+            //setting up the dev tools
+            newDiv.appendChild(newAssignNextNodeButton);
+            newDiv.appendChild(newCreateNextNodeButton);
+            newCreateNextNodeButton.addEventListener("click", function() {
+                addNewDialogueNode(null, "NextNode created from Node: " + currentDialogueNode.nodeIndex);
+            })
+
+            //Adding everything to the control panel
             let responsesWindow = document.getElementById("controlpanel_choices");
             responsesWindow.appendChild(newDiv);
         }
@@ -186,37 +209,55 @@ function checkResponseCount(nodeIndex) {
     console.log("Has " + dialogueTree.nodes[nodeIndex].responses.length + " responses.");
 }
 
-function toggleDevMenu() {
-    let element = document.getElementById('devmenu');
-    if(element.style.display == "none") {
-        element.style.display = "flex";
+function checkLastNodeInfo() {
+    let lastNode = dialogueTree.nodes[dialogueTree.nodes.length - 1];
+    console.log("Amount of nodes: " + dialogueTree.nodes.length);
+    console.log("Last Node: --" + lastNode.nodeIndex + ", ID: " + lastNode.nodeID + "--");
+}
+
+//dev menu buttons
+function toggleDevTools() {
+    let menuElement = document.getElementById('devmenu');
+    if(menuElement.style.display == "none") {
+        menuElement.style.display = "flex";
     }
     else {
-        element.style.display = "none";
+        menuElement.style.display = "none";
+    }
+    let responseToolElements = document.querySelectorAll('.devtools_responsebuttons');
+    for(let i = 0; i < responseToolElements.length; i++)
+    {
+        if(responseToolElements[i].style.display == "none") {
+            responseToolElements[i].style.display = "inline-block";
+        }
+        else {
+            responseToolElements[i].style.display = "none";
+        }
     }
 }
 
 var currentNodeDisplay = document.getElementById('devmenu_currentnodedisplay');
 currentNodeDisplay.innerText = ("Current Node: " + currentDialogueNode);
 
-//dev menu buttons
-var toggleDevMenuButton = document.getElementById('toggle_devmenu_button');
+const toggleDevMenuButton = document.getElementById('toggle_devmenu_button');
 toggleDevMenuButton.addEventListener("click", function() {
-    toggleDevMenu();
+    toggleDevTools();
 })
 
-var resetButton = document.getElementById('reset_button');
+const resetButton = document.getElementById('reset_button');
 resetButton.addEventListener("click", function() {
     clearAllDialogueElements();
     loadDialogueNode(checkPointNode);
-});
+})
 
-var clearButton = document.getElementById('clear_button');
+const clearButton = document.getElementById('clear_button');
 clearButton.addEventListener('click', function() {
     clearAllDialogueElements();
 })
 
 
+
+//adding and editing nodes
 function createNewNodeIndex() {
     let newIndex = (dialogueTree.nodes[dialogueTree.nodes.length - 1].nodeIndex + 1);
     return newIndex;
@@ -227,16 +268,32 @@ function createNewNodeID() {
     return newID;
 }
 
-//adding stuff to json file
-function getLastNodeInfo() {
-    let lastNode = dialogueTree.nodes[dialogueTree.nodes.length - 1];
-    console.log("Amount of nodes: " + dialogueTree.nodes.length);
-    console.log("Last Node: --" + lastNode.nodeIndex + ", ID: " + lastNode.nodeID + "--");
+function createDialogueParagraph(narrationBool, speakerName, textContent) {
+    var newParagraph = {
+        narration: narrationBool,
+        speaker: speakerName,
+        text: textContent
+    }
+    currentDialogueNode.paragraphs.push(newParagraph);
 }
 
+function createDialogueResponse(textContent, nextNodeIndex) {
+    var newResponse = {
+        text: textContent,
+        nextNode: nextNodeIndex
+    }
+    currentDialogueNode.responses.push(newResponse);
+}
 
-
-function addDialogueNode(location, description) {
+function addNewDialogueNode(location, description) {
+    if(location == null)
+    {
+        location = "New Node Location";
+    }
+    if(description == null)
+    {
+        description = "New Node Description";
+    }
     var newNode = { nodeIndex: createNewNodeIndex(),
         nodeID: createNewNodeID(),
         location: location,
@@ -246,13 +303,13 @@ function addDialogueNode(location, description) {
             {
                 narration: true,
                 speaker: null,
-                text: "New Node Paragraph 0"
+                text: "New Node Paragraph"
             }
         ],
         responses:
         [
             {
-                text: "New Node Response 0",
+                text: "New Node Response",
                 nextNode: null
             }
         ]
@@ -261,9 +318,17 @@ function addDialogueNode(location, description) {
     dialogueTree.nodes.push(newNode);
 }
 
+function addNewNextNode() {
+    //addNewDialogueNode()
+    //assign nextNode to the index of the new node
+}
 
-function updateDialogueTree() {
-    //take the tree as it is after being loaded and modified
-    //overwrite the file with new stuff added
-    //display a console message confirming the overwrite was successful
+
+function saveDialogueTree() {
+    newDialogueTree = JSON.stringify(dialogueTree);
+    var newWindow = window.open();
+    newWindow.document.title = dialogueTreeURL;
+    var newWindowBody = newWindow.document.body;
+    var newDataText = document.createTextNode(newDialogueTree);
+    newWindowBody.appendChild(newDataText);
 }
