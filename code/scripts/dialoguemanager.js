@@ -215,3 +215,55 @@ var clearButton = document.getElementById('clear_button');
 clearButton.addEventListener('click', function() {
     clearAllDialogueElements();
 })
+
+
+function createNewNodeIndex() {
+    let newIndex = (dialogueTree.nodes[dialogueTree.nodes.length - 1].nodeIndex + 1);
+    return newIndex;
+}
+
+function createNewNodeID() {
+    let newID = (dialogueTree.nodes[dialogueTree.nodes.length - 1].nodeID + 1);
+    return newID;
+}
+
+//adding stuff to json file
+function getLastNodeInfo() {
+    let lastNode = dialogueTree.nodes[dialogueTree.nodes.length - 1];
+    console.log("Amount of nodes: " + dialogueTree.nodes.length);
+    console.log("Last Node: --" + lastNode.nodeIndex + ", ID: " + lastNode.nodeID + "--");
+}
+
+
+
+function addDialogueNode(location, description) {
+    var newNode = { nodeIndex: createNewNodeIndex(),
+        nodeID: createNewNodeID(),
+        location: location,
+        description: description,
+        paragraphs: 
+        [
+            {
+                narration: true,
+                speaker: null,
+                text: "New Node Paragraph 0"
+            }
+        ],
+        responses:
+        [
+            {
+                text: "New Node Response 0",
+                nextNode: null
+            }
+        ]
+    }
+    console.log("Created new Node: " + newNode.nodeIndex + ", ID: " + newNode.nodeID);
+    dialogueTree.nodes.push(newNode);
+}
+
+
+function updateDialogueTree() {
+    //take the tree as it is after being loaded and modified
+    //overwrite the file with new stuff added
+    //display a console message confirming the overwrite was successful
+}

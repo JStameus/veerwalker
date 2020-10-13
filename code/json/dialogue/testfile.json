@@ -2,7 +2,7 @@
     "sceneDescription": "A brief description of everything going on in this scene.",
     "nodes": 
     [
-        {
+        { "nodeIndex": 0,
             "nodeID": 100,
             "location": "Test Scene: Room 1",
             "description": "A scene for testing different functions without messing up my main files.",
@@ -31,7 +31,7 @@
                 }
             ]
         },
-        {
+        { "nodeIndex": 1,
             "nodeID": 101,
             "location": "Test Scene: Room 2",
             "description": "You went to Room 2, whatever that is.",
@@ -51,7 +51,7 @@
                 }
             ]
         },
-        {
+        { "nodeIndex": 2,
             "nodeID": 102,
             "location":"Test Scene: Room 1",
             "description": "You remained in Room 1.",
@@ -75,7 +75,23 @@
                     "nextNode": null
                 }
             ]
+        },
+        { "nodeIndex": 3,
+            "nodeID": 103,
+            "location": "The hecking void",
+            "description": "This is a new node. Anything could happen here.",
+            "paragraphs": 
+            [
+                {
+                    "narration":true,
+                    "speaker": null,
+                    "text": "I AM THE NEW NODE. FEAR ME."
+                }
+            ],
+            "responses": 
+            [
+               
+            ]
         }
-        
     ]
 }
