@@ -169,8 +169,9 @@ function updateChoiceButtons() {
             newCreateNextNodeButton.addEventListener("click", function() {
                 if(currentDialogueNode.responses[i].nextNode == null)
                 {
-                    currentDialogueNode.responses[i].nextNode = createNewNodeIndex();
-                    addNewDialogueNode(null, "NextNode created from Node: " + currentDialogueNode.nodeIndex);
+                    let newNodeIndex = createNewNodeIndex();
+                    currentDialogueNode.responses[i].nextNode = newNodeIndex;
+                    addNewDialogueNode("Node " + newNodeIndex, "NextNode created from Node: " + currentDialogueNode.nodeIndex);
                     refreshDialogueNode();
                 }
                 else 
