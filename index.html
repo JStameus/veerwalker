@@ -39,14 +39,24 @@
                 <form action="GET" id="form_editparagraph">
                     <label for="form_paragraph_index">Selected Paragraph: </label><br>
                     <input type="number" id="form_paragraph_index"><br>
-                    <label for="narrationbool">Is narration: </label>
-                    <input type="checkbox" id="narrationbool"><br>
+                    <label for="form_paragraph_narrationbool">Is narration: </label>
+                    <input type="checkbox" id="form_paragraph_narrationbool"><br>
                     <label for="form_paragraph_speakername">Speaker Name: </label><br>
                     <input type="text" id="form_paragraph_speakername"><br>
                     <label for="form_paragraph_text">Text: </label><br> 
                     <input type="text" id="form_paragraph_text"><br>
-                    <input type="submit">
                 </form>
+                <button id="update_paragraph_button">Update Paragraph</button>
+                <hr>
+                <form action="GET" id="form_editresponse">
+                    <label for="form_response_index">Selected Response: </label><br>
+                    <input type="number" id="form_response_index"><br>
+                    <label for="form_response_text">Text: </label><br>
+                    <input type="text" id="form_response_text"><br>
+                    <label for="form_response_nextnode">Next Node: </label><br>
+                    <input type="number" id="form_response_nextnode">
+                </form>
+                <button id="update_response_button">Update Response</button>
             </div>
             <div id="dialogue_textwindow">
 

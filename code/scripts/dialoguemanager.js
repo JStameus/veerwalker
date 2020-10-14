@@ -319,6 +319,17 @@ addResponseButton.addEventListener('click', function() {
     createDialogueResponse(currentDialogueNode.responses.length + ": New Response", null);
 })
 
+const updateParagraphButton = document.getElementById('update_paragraph_button');
+updateParagraphButton.addEventListener('click', function() {
+    editDialogueParagraph();
+})
+
+const updateResponseButton = document.getElementById('update_response_button');
+updateResponseButton.addEventListener('click', function() {
+    editDialogueResponse();
+    refreshDialogueNode();
+})
+
 //adding and editing nodes
 function createNewNodeIndex() {
     let newIndex = (dialogueTree.nodes[dialogueTree.nodes.length - 1].nodeIndex + 1);
@@ -350,15 +361,35 @@ function createDialogueResponse(textContent, nextNodeIndex) {
 }
 
 function editDialogueParagraph(index, narrationBool, speakerName, textContent) {
-    currentDialogueNode.paragraphs[index].narration = narrationBool;
-    currentDialogueNode.paragraphs[index].speaker = speakerName;
-    currentDialogueNode.paragraphs[index].text = textContent;
+    let indexField = document.getElementById('form_paragraph_index').value;
+    //let narrationBox = document.getElementById('form_paragraph_narrationbool').value;
+    let nameField = document.getElementById('form_paragraph_speakername').value;
+    let textField = document.getElementById('form_paragraph_text').value;
+    
+    if(indexField != null) {
+        index = indexField;
+    }
+    if(nameField != '')
+    {
+        speakerName = nameField;
+        currentDialogueNode.paragraphs[index].speaker = speakerName;
+    }
+
+    if(textField != '')
+    {
+        textContent = textField;
+        currentDialogueNode.paragraphs[index].text = textContent;
+    } 
+    
     refreshDialogueNode();
+    console.log("---UPDATED---");
+    console.log("Narration: " + narrationBoxValue);
 }
 
 function editDialogueResponse(index, textContent) {
-    currentDialogueNode.responses[index].text = textContent;
-    refreshDialogueNode();
+    // currentDialogueNode.responses[index].text = textContent;
+    // refreshDialogueNode();
+    console.log("Placeholder: Updating Response...");
 }
 
 function editNextNode(responseIndex, nextNodeIndex) {
@@ -405,4 +436,17 @@ function saveDialogueTree() {
     var newWindowBody = newWindow.document.body;
     var newDataText = document.createTextNode(newDialogueTree);
     newWindowBody.appendChild(newDataText);
+}
+
+function displayFormValues() {
+    let indexField = document.getElementById('form_paragraph_index').value;
+    let narrationBox = document.getElementById('form_paragraph_narrationbool').value;
+    let nameField = document.getElementById('form_paragraph_speakername').value;
+    let textField = document.getElementById('form_paragraph_text').value;
+
+    console.log("---FORM VALUES---");
+    console.log("Index: " + indexField);
+    console.log("Narration: " + narrationBox);
+    console.log("Name: " + nameField);
+    console.log("Text: " + textField);
 }
