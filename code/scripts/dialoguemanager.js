@@ -1,11 +1,11 @@
 //this is temporary, should be stored somewhere else later
 var playerName = 'Joseph';
-var checkPointNode = 0;
 
 //Which dialogue tree and node is currently active
 var dialogueTreeURL = '/code/json/dialogue/testfile.json';
 var dialogueTree = null;
 var currentDialogueNode =  null;
+var checkPointNode = 0;
 
 //functions for loading new trees and nodes
 function loadDialogueTree(fileURL) {
@@ -20,7 +20,7 @@ function loadDialogueNode(nodeIndex) {
         locationText.innerHTML = dialogueTree.nodes[nodeIndex].location;
         currentNodeDisplay.innerText = ("Current Node: " + nodeIndex + ", ID: " + dialogueTree.nodes[nodeIndex].nodeID);
         displayDialogueParagraphs();
-        updateChoiceButtons();
+        displayResponseButtons();
     }
     else 
     {
@@ -34,7 +34,7 @@ function refreshDialogueNode() {
 }
 
 //functions for manipulating HTML content
-function addResponseParagraph(responseIndex) {
+function displayResponseParagraphs(responseIndex) {
     if(currentDialogueNode != null)
     {
         if (playerName != null)
@@ -105,7 +105,7 @@ function clearDialogueParagraphs () {
     dialogueWindow.innerHTML = '';
 }
 
-function clearChoiceButtons() {
+function clearResponseButtons() {
     document.querySelectorAll('.dialogue_choice_container').forEach(function(a){a.remove()});
 }
 
@@ -117,7 +117,7 @@ function clearLocationLabel() {
 function clearAllDialogueElements() {
     clearLocationLabel();
     clearDialogueParagraphs();
-    clearChoiceButtons();
+    clearResponseButtons();
 }
 
 function setCheckpointNode() {
@@ -125,10 +125,10 @@ function setCheckpointNode() {
     checkPointNodeDisplay.innerText = ("Checkpoint: " + currentDialogueNode.nodeIndex + ", ID: " + currentDialogueNode.nodeID);
 }
 
-function updateChoiceButtons() {
+function displayResponseButtons() {
     if(currentDialogueNode != null)
     {
-        clearChoiceButtons();
+        clearResponseButtons();
         for (let i = 0; i < currentDialogueNode.responses.length; i++)
         {
             //Creating the dialogue choice
@@ -142,7 +142,7 @@ function updateChoiceButtons() {
             newButton.id = "choice_button_" + (i + 1);
             let nextNodeIndex = currentDialogueNode.responses[i].nextNode;
             newButton.addEventListener("click", function() {
-                addResponseParagraph(i);
+                displayResponseParagraphs(i);
                 loadDialogueNode(nextNodeIndex);
             });
             newButton.appendChild(newButtonText);
@@ -171,12 +171,12 @@ function updateChoiceButtons() {
                 {
                     let newNodeIndex = createNewNodeIndex();
                     currentDialogueNode.responses[i].nextNode = newNodeIndex;
-                    addNewDialogueNode("Node " + newNodeIndex, "NextNode created from Node: " + currentDialogueNode.nodeIndex);
+                    createNewDialogueNode("Node " + newNodeIndex, "NextNode created from Node: " + currentDialogueNode.nodeIndex);
                     refreshDialogueNode();
                 }
                 else 
                 {
-                    console.warn("Cannot create new nextNode: " + currentDialogueNode.nodeID + ", ID: " + currentDialogueNode.nodeID + ": Response " + i + " already has a nextNode! Please assign it manually.");
+                    console.warn("Cannot create new nextNode: " + currentDialogueNode.nodeIndex + ", ID: " + currentDialogueNode.nodeID + ": Response " + i + " already has a nextNode! Please assign it manually.");
                 }
             })
 
@@ -242,12 +242,15 @@ function checkLastNodeInfo() {
 
 //dev menu buttons
 function toggleDevTools() {
-    let menuElement = document.getElementById('devmenu');
-    if(menuElement.style.display == "none") {
-        menuElement.style.display = "flex";
-    }
-    else {
-        menuElement.style.display = "none";
+    let menuElements = document.querySelectorAll(".devmenu");
+    for(let i = 0; i < menuElements.length; i++)
+    {
+        if(menuElements[i].style.display == "none") {
+            menuElements[i].style.display = "flex";
+        }
+        else {
+            menuElements[i].style.display = "none";
+        }
     }
     let responseToolElements = document.querySelectorAll('.devtools_responsebuttons');
     for(let i = 0; i < responseToolElements.length; i++)
@@ -261,6 +264,7 @@ function toggleDevTools() {
     }
 }
 
+//dev tools UI 
 var currentNodeDisplay = document.getElementById('devmenu_currentnodedisplay');
 currentNodeDisplay.innerText = ("Current Node: " + currentDialogueNode);
 
@@ -293,9 +297,26 @@ clearButton.addEventListener('click', function() {
     clearAllDialogueElements();
 })
 
+const createNewNodeButton = document.getElementById('createnode_button');
+createNewNodeButton.addEventListener('click', function() {
+    let newNodeIndex = createNewNodeIndex();
+    let newNodeID = createNewNodeID();
+    createNewDialogueNode("Node " + newNodeIndex, "New Node: " + newNodeIndex + ", ID: " + newNodeID);
+})
+
 const saveTreeButton = document.getElementById('save_tree_button');
 saveTreeButton.addEventListener("click", function() {
     saveDialogueTree();
+})
+
+const addParagraphButton = document.getElementById('add_paragraph_button');
+addParagraphButton.addEventListener('click', function() {
+    createDialogueParagraph(true, null, (currentDialogueNode.paragraphs.length) + ": New Paragraph.");
+})
+
+const addResponseButton = document.getElementById('add_response_button');
+addResponseButton.addEventListener('click', function() {
+    createDialogueResponse(currentDialogueNode.responses.length + ": New Response", null);
 })
 
 //adding and editing nodes
@@ -316,6 +337,7 @@ function createDialogueParagraph(narrationBool, speakerName, textContent) {
         text: textContent
     }
     currentDialogueNode.paragraphs.push(newParagraph);
+    refreshDialogueNode();
 }
 
 function createDialogueResponse(textContent, nextNodeIndex) {
@@ -324,9 +346,26 @@ function createDialogueResponse(textContent, nextNodeIndex) {
         nextNode: nextNodeIndex
     }
     currentDialogueNode.responses.push(newResponse);
+    refreshDialogueNode();
 }
 
-function addNewDialogueNode(location, description) {
+function editDialogueParagraph(index, narrationBool, speakerName, textContent) {
+    currentDialogueNode.paragraphs[index].narration = narrationBool;
+    currentDialogueNode.paragraphs[index].speaker = speakerName;
+    currentDialogueNode.paragraphs[index].text = textContent;
+    refreshDialogueNode();
+}
+
+function editDialogueResponse(index, textContent) {
+    currentDialogueNode.responses[index].text = textContent;
+    refreshDialogueNode();
+}
+
+function editNextNode(responseIndex, nextNodeIndex) {
+    currentDialogueNode.responses[responseIndex].nextNode = nextNodeIndex;
+}
+
+function createNewDialogueNode(location, description) {
     if(location == null)
     {
         location = "New Node Location";
@@ -357,11 +396,6 @@ function addNewDialogueNode(location, description) {
     }
     console.log("Created new Node: " + newNode.nodeIndex + ", ID: " + newNode.nodeID);
     dialogueTree.nodes.push(newNode);
-}
-
-function addNewNextNode() {
-    //addNewDialogueNode()
-    //assign nextNode to the index of the new node
 }
 
 function saveDialogueTree() {

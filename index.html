@@ -14,9 +14,10 @@
         <div id="gamewindow" class="borderglow_default">
             <h2 id="dialogue_locationlabel">EVENT/LOCATION</h2>
             <button id="toggle_devmenu_button">Toggle Dev Tools</button>
-            <div id="devmenu">
+            <div id="devmenu_left" class="devmenu">
                 <p id="devmenu_currentnodedisplay">Current Node: 0</p>
                 <p id="devmenu_checkpointnodedisplay">Checkpoint: 0</p>
+                <hr>
                 <button id="checkpoint_button">Set Checkpoint</button>
                 <button id="reset_button">Reset</button>
                 <button id="refresh_button">Refresh</button>
@@ -24,11 +25,28 @@
                 <hr>
                 <button id="edit_location_button">Edit Location</button>
                 <button id="edit_description_button">Edit Description</button>
+                <hr>
+                <button id="createnode_button">Create New Node</button>
+                <button id="save_tree_button">Save Dialogue File</button>
+            </div>
+            <div id="devmenu_right" class="devmenu">
+                <p>Paragraphs: </p>
+                <p>Responses: </p>
+                <hr>
                 <button id="add_paragraph_button">Add Paragraph</button>
                 <button id="add_response_button">Add Response</button>
                 <hr>
-                <button id="addnode_button">Create New Node</button>
-                <button id="save_tree_button">Save Dialogue File</button>
+                <form action="GET" id="form_editparagraph">
+                    <label for="form_paragraph_index">Selected Paragraph: </label><br>
+                    <input type="number" id="form_paragraph_index"><br>
+                    <label for="narrationbool">Is narration: </label>
+                    <input type="checkbox" id="narrationbool"><br>
+                    <label for="form_paragraph_speakername">Speaker Name: </label><br>
+                    <input type="text" id="form_paragraph_speakername"><br>
+                    <label for="form_paragraph_text">Text: </label><br> 
+                    <input type="text" id="form_paragraph_text"><br>
+                    <input type="submit">
+                </form>
             </div>
             <div id="dialogue_textwindow">
 

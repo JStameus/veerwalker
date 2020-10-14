@@ -39,20 +39,28 @@ h3, p {
     box-shadow: 0 0 34px 8px rgb(205, 118, 92);
 }
 
-#devmenu {
+.devmenu {
     display: flex;
     flex-direction: column;
     background-color: var(--overlay-mid);
     border: 1px dotted var(--foreground-light);
     border-radius: 8px;
     position: absolute;
-    left: 0.5em;
-    width: 15em;
     top: 0.5em;
     bottom: 13.5em;
 }
 
-#devmenu button {
+#devmenu_left {
+    left: 0.5em;
+    width: 15em;
+}
+
+#devmenu_right {
+    right: 0.5em;
+    width: 15em;
+}
+
+.devmenu button {
     margin: 0.25rem 1rem;
 }
 
