@@ -23,8 +23,12 @@
                 <button id="refresh_button">Refresh</button>
                 <button id="clear_button">Clear</button>
                 <hr>
-                <button id="edit_location_button">Edit Location</button>
-                <button id="edit_description_button">Edit Description</button>
+                <label for="input_text_location">Location: </label>
+                <input type="text" id="input_text_location">
+                <button id="edit_location_button">Update Location</button>
+                <label for="input_text_description">Description: </label>
+                <input type="text" id="input_text_description">
+                <button id="edit_description_button">Update Description</button>
                 <hr>
                 <button id="createnode_button">Create New Node</button>
                 <button id="save_tree_button">Save Dialogue File</button>
@@ -53,10 +57,11 @@
                     <input type="number" id="form_response_index"><br>
                     <label for="form_response_text">Text: </label><br>
                     <input type="text" id="form_response_text"><br>
-                    <label for="form_response_nextnode">Next Node: </label><br>
-                    <input type="number" id="form_response_nextnode">
                 </form>
                 <button id="update_response_button">Update Response</button>
+                <label for="form_response_nextnode">Next Node: </label>
+                <input type="number" id="form_response_nextnode">
+                <button id="update_nextnode_button">Update NextNode</button>
             </div>
             <div id="dialogue_textwindow">
 

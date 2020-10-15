@@ -35,6 +35,16 @@ h3, p {
     font-family: 'Raleway';
 }
 
+label {
+    font-family: 'Raleway';
+    color: var(--foreground-light);
+}
+
+input {
+    background-color: var(--overlay-mid);
+    color: var(--foreground-light);
+}
+
 .borderglow_default {
     box-shadow: 0 0 34px 8px rgb(205, 118, 92);
 }

@@ -149,10 +149,10 @@ function displayResponseButtons() {
             newDiv.appendChild(newButton);
 
             //Creating the dev tools
-            let newAssignNextNodeButton = document.createElement('button');
-            let newAssignNextNodeButtonText = document.createTextNode("Assign nextNode");
-            newAssignNextNodeButton.appendChild(newAssignNextNodeButtonText);
-            newAssignNextNodeButton.className = ('devtools_responsebuttons');
+            let newClearNextNodeButton = document.createElement('button');
+            let newClearNextNodeButtonText = document.createTextNode("Clear nextNode");
+            newClearNextNodeButton.appendChild(newClearNextNodeButtonText);
+            newClearNextNodeButton.className = ('devtools_responsebuttons');
             let newCreateNextNodeButton = document.createElement('button');
             let newCreateNextNodeButtonText = document.createTextNode('Create new nextNode');
             newCreateNextNodeButton.appendChild(newCreateNextNodeButtonText);
@@ -163,7 +163,7 @@ function displayResponseButtons() {
             newNextNodeIndexDisplay.className = ('devtools_responsebuttons');
 
             //setting up the dev tools
-            newDiv.appendChild(newAssignNextNodeButton);
+            newDiv.appendChild(newClearNextNodeButton);
             newDiv.appendChild(newCreateNextNodeButton);
             newDiv.appendChild(newNextNodeIndexDisplay);
             newCreateNextNodeButton.addEventListener("click", function() {
@@ -178,6 +178,9 @@ function displayResponseButtons() {
                 {
                     console.warn("Cannot create new nextNode: " + currentDialogueNode.nodeIndex + ", ID: " + currentDialogueNode.nodeID + ": Response " + i + " already has a nextNode! Please assign it manually.");
                 }
+            })
+            newClearNextNodeButton.addEventListener('click', function() {
+                clearNextNode(i);
             })
 
             //Adding everything to the control panel
@@ -240,8 +243,9 @@ function checkLastNodeInfo() {
     console.log("Last Node: --" + lastNode.nodeIndex + ", ID: " + lastNode.nodeID + "--");
 }
 
-//dev menu buttons
+//toggle dev menu
 function toggleDevTools() {
+    let toolVisibility = true;
     let menuElements = document.querySelectorAll(".devmenu");
     for(let i = 0; i < menuElements.length; i++)
     {
@@ -335,6 +339,12 @@ updateResponseButton.addEventListener('click', function() {
     refreshDialogueNode();
 })
 
+const updateNextNodeButton = document.getElementById('update_nextnode_button');
+updateNextNodeButton.addEventListener('click', function() {
+    editNextNode();
+    refreshDialogueNode();
+})
+
 //adding and editing nodes
 function createNewNodeIndex() {
     let newIndex = (dialogueTree.nodes[dialogueTree.nodes.length - 1].nodeIndex + 1);
@@ -408,17 +418,42 @@ function editDialogueParagraph(index, narrationBool, speakerName, textContent) {
     }
     currentDialogueNode.paragraphs[index].narration = devToolNarrationToggle;
     refreshDialogueNode();
-    console.log("---UPDATED---");
 }
 
 function editDialogueResponse(index, textContent) {
-    // currentDialogueNode.responses[index].text = textContent;
-    // refreshDialogueNode();
-    console.log("Placeholder: Updating Response...");
+    let indexField = document.getElementById('form_response_index').value;
+    if(indexField != null) {
+        index = indexField;
+    }
+    let textField = document.getElementById('form_response_text').value;
+    if(textField != '') {
+        textContent = textField;
+        currentDialogueNode.responses[index].text = textContent;
+    } 
+    else {
+        textContent = "Empty Response";
+        currentDialogueNode.responses[index].text = textContent;
+    }
+    refreshDialogueNode();
+    console.log("Updating Response...");
 }
 
 function editNextNode(responseIndex, nextNodeIndex) {
-    currentDialogueNode.responses[responseIndex].nextNode = nextNodeIndex;
+    let indexField = document.getElementById('form_response_index').value;
+    if(indexField != null) {
+        responseIndex = indexField;
+    }
+    let nextNodeField = document.getElementById('form_response_nextnode').value;
+    if(nextNodeField != null) {
+        nextNodeIndex = nextNodeField;
+        currentDialogueNode.responses[responseIndex].nextNode = nextNodeIndex;
+    }
+}
+
+function clearNextNode(responseIndex) {
+    currentDialogueNode.responses[responseIndex].nextNode = null;
+    console.log("Cleared nextNode of response: " + responseIndex);
+    refreshDialogueNode();
 }
 
 function createNewDialogueNode(location, description) {
