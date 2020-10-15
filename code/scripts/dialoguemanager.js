@@ -15,6 +15,7 @@ function loadDialogueTree(fileURL) {
 function loadDialogueNode(nodeIndex) {
     if(dialogueTree != null)
     {
+        
         currentDialogueNode = dialogueTree.nodes[nodeIndex];
         let locationText = document.getElementById('dialogue_locationlabel');
         locationText.innerHTML = dialogueTree.nodes[nodeIndex].location;
@@ -26,11 +27,19 @@ function loadDialogueNode(nodeIndex) {
     {
         console.warn("Cannot load Dialogue Node: No Dialogue Tree has been loaded!");
     }
+    let paragraphDisplay = document.getElementById('display_paragraphs_amount');
+    let responseDisplay = document.getElementById('display_responses_amount');
+    paragraphDisplay.innerText = "Paragraphs: " + currentDialogueNode.paragraphs.length;
+    responseDisplay.innerText = "Responses: " + currentDialogueNode.responses.length;
 }
 
 function refreshDialogueNode() {
     clearAllDialogueElements();
     loadDialogueNode(currentDialogueNode.nodeIndex);
+    // let paragraphDisplay = document.getElementById('display_paragraphs_amount');
+    // let responseDisplay = document.getElementById('display_responses_amount');
+    // paragraphDisplay.innerText = "Paragraphs: " + currentDialogueNode.paragraphs.length;
+    // responseDisplay.innerText = "Responses " + currentDialogueNode.responses.length;
 }
 
 //functions for manipulating HTML content
@@ -340,6 +349,11 @@ createNewNodeButton.addEventListener('click', function() {
 const saveTreeButton = document.getElementById('save_tree_button');
 saveTreeButton.addEventListener("click", function() {
     saveDialogueTree();
+})
+
+const loadNodeButton = document.getElementById('load_node_button');
+loadNodeButton.addEventListener('click', function() {
+    loadDialogueNode(document.getElementById('load_node_index').value);
 })
 
 const addParagraphButton = document.getElementById('add_paragraph_button');
