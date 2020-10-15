@@ -15,7 +15,12 @@
                 {
                     "narration": true,
                     "speaker": "Jiub",
-                    "text": "The cowboy speaks"
+                    "text": "The cowboy speaks."
+                },
+                {
+                    "narration": false,
+                    "speaker": "Jiub",
+                    "text": "YEEHAW!"
                 }
             ],
             "responses": [
@@ -26,6 +31,10 @@
                 {
                     "text": "No, I don't think so. I want to stay in this room.",
                     "nextNode": 2
+                },
+                {
+                    "text": "Yeah man cool",
+                    "nextNode": 4
                 }
             ]
         },
@@ -122,6 +131,67 @@
                     "narration": false,
                     "speaker": "Testman",
                     "text": "Hey! This is some test text! Again! "
+                }
+            ],
+            "responses": [
+                {
+                    "text": "New Node Response",
+                    "nextNode": null
+                }
+            ]
+        },
+        {
+            "nodeIndex": 4,
+            "nodeID": 104,
+            "location": "Jiub's Cowboy House",
+            "description": "Oh boy he doing a devtools",
+            "paragraphs": [
+                {
+                    "narration": false,
+                    "speaker": "Jiub",
+                    "text": "You like it? I worked hard on my cowboy impression."
+                }
+            ],
+            "responses": [
+                {
+                    "text": "I can tell, it's coming along nicely.",
+                    "nextNode": "2"
+                },
+                {
+                    "text": "On second thought, it's shit.",
+                    "nextNode": "0"
+                }
+            ]
+        },
+        {
+            "nodeIndex": 5,
+            "nodeID": 105,
+            "location": "Node 5",
+            "description": "New Node: 5, ID: 105",
+            "paragraphs": [
+                {
+                    "narration": true,
+                    "speaker": null,
+                    "text": "The node lies quiet."
+                }
+            ],
+            "responses": [
+                {
+                    "text": "Wow, sure is quiet in here.",
+                    "nextNode": 6
+                }
+            ]
+        },
+        {
+            "nodeIndex": 6,
+            "nodeID": 106,
+            "location": "Node 6",
+            "description": "NextNode created from Node: 5",
+            "paragraphs": [
+                {
+                    "narration": true,
+                    "speaker": null,
+                    "text": "New Node Paragraph"
                 }
             ],
             "responses": [

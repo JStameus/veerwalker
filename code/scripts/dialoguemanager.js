@@ -320,6 +320,16 @@ clearButton.addEventListener('click', function() {
     clearAllDialogueElements();
 })
 
+const editLocationButton = document.getElementById('edit_location_button');
+editLocationButton.addEventListener('click', function() {
+    editNodeLocation();
+})
+
+const editDescriptionButton = document.getElementById('edit_description_button');
+editDescriptionButton.addEventListener('click', function() {
+    editNodeDescription();
+})
+
 const createNewNodeButton = document.getElementById('createnode_button');
 createNewNodeButton.addEventListener('click', function() {
     let newNodeIndex = createNewNodeIndex();
@@ -471,7 +481,18 @@ function editNextNode(responseIndex, nextNodeIndex) {
 
 function clearNextNode(responseIndex) {
     currentDialogueNode.responses[responseIndex].nextNode = null;
-    console.log("Cleared nextNode of response: " + responseIndex);
+    refreshDialogueNode();
+}
+
+function editNodeLocation() {
+    let textField = document.getElementById('input_text_location').value;
+    currentDialogueNode.location = textField;
+    refreshDialogueNode();
+}
+
+function editNodeDescription() {
+    let textField = document.getElementById('input_text_description').value;
+    currentDialogueNode.description = textField;
     refreshDialogueNode();
 }
 
