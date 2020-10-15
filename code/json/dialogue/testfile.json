@@ -13,9 +13,9 @@
                     "text": "This is the first message of the test scene."
                 },
                 {
-                    "narration": false,
-                    "speaker": "Big Steffe",
-                    "text": "This is some dialogue. Hello, Joseph! Let's go find the story, shall we?"
+                    "narration": true,
+                    "speaker": "Jiub",
+                    "text": "The cowboy speaks"
                 }
             ],
             "responses": [
@@ -39,12 +39,47 @@
                     "narration": false,
                     "speaker": "Big Steffe",
                     "text": "Well, here we are. Room 2. There's...nothing here. You need to write more dialogue, Joseph."
+                },
+                {
+                    "narration": true,
+                    "speaker": "null",
+                    "text": "A blocky, polygon-deprived Dark Elf entered the room, walking with a confident stride, yet clearly appearing as if he had shit his pants."
+                },
+                {
+                    "narration": false,
+                    "speaker": "Jiub",
+                    "text": "Well, not even last night's storm could wake you. I heard them say we've reached Morrowind, I'm sure they'll let us go."
+                },
+                {
+                    "narration": true,
+                    "speaker": "null",
+                    "text": "More paragraphs appeared on the page as if from thin air."
+                },
+                {
+                    "narration": false,
+                    "speaker": "Big Steffe",
+                    "text": "Joseph...are you...seriously making dev tools right now?"
+                },
+                {
+                    "narration": true,
+                    "speaker": "null",
+                    "text": "He was. And he was getting good at it, too. So good, in fact, that he had barely kept up with his own speed of learning. Two long hours of analysis paralysis and two sleepless nights later, an entire suite of dev tool goodness had magically been laid out on his HTML document. In fact, even this very paragraph was written with the dev tools!"
+                },
+                {
+                    "narration": false,
+                    "speaker": "Big Steffe",
+                    "text": "Dude. That's rad."
+                },
+                {
+                    "narration": false,
+                    "speaker": "Testman",
+                    "text": "Hey! This is some test text! "
                 }
             ],
             "responses": [
                 {
                     "text": "I'm trying, Steffe. Gimme a minute.",
-                    "nextNode": null
+                    "nextNode": 3
                 }
             ]
         },
@@ -68,6 +103,30 @@
             "responses": [
                 {
                     "text": "Of course I am! I just need to figure out how to do it without messing up all my code. Be patient.",
+                    "nextNode": null
+                }
+            ]
+        },
+        {
+            "nodeIndex": 3,
+            "nodeID": 103,
+            "location": "Node 3",
+            "description": "NextNode created from Node: 1",
+            "paragraphs": [
+                {
+                    "narration": true,
+                    "speaker": "null",
+                    "text": "The Testman follows."
+                },
+                {
+                    "narration": false,
+                    "speaker": "Testman",
+                    "text": "Hey! This is some test text! Again! "
+                }
+            ],
+            "responses": [
+                {
+                    "text": "New Node Response",
                     "nextNode": null
                 }
             ]

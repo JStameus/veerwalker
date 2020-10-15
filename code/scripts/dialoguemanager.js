@@ -264,7 +264,7 @@ function toggleDevTools() {
     }
 }
 
-//dev tools UI 
+//dev tools UI and buttons
 var currentNodeDisplay = document.getElementById('devmenu_currentnodedisplay');
 currentNodeDisplay.innerText = ("Current Node: " + currentDialogueNode);
 
@@ -319,6 +319,11 @@ addResponseButton.addEventListener('click', function() {
     createDialogueResponse(currentDialogueNode.responses.length + ": New Response", null);
 })
 
+const toggleNarrationButton = document.getElementById('toggle_narration_button');
+toggleNarrationButton.addEventListener('click', function() {
+    toggleNarrationBool();
+})
+
 const updateParagraphButton = document.getElementById('update_paragraph_button');
 updateParagraphButton.addEventListener('click', function() {
     editDialogueParagraph();
@@ -360,9 +365,24 @@ function createDialogueResponse(textContent, nextNodeIndex) {
     refreshDialogueNode();
 }
 
+var devToolNarrationToggle = false;
+
+function toggleNarrationBool() {
+    let boolDisplay = document.getElementById('narrationbool_display');
+    if(devToolNarrationToggle == false) {
+        devToolNarrationToggle = true;
+        boolDisplay.innerHTML = "Is Narration: " + devToolNarrationToggle;
+    }
+    else if(devToolNarrationToggle == true) {
+        devToolNarrationToggle = false;
+        boolDisplay.innerHTML = "Is Narration: " + devToolNarrationToggle;
+    }
+    console.log(devToolNarrationToggle);
+}
+
+
 function editDialogueParagraph(index, narrationBool, speakerName, textContent) {
     let indexField = document.getElementById('form_paragraph_index').value;
-    //let narrationBox = document.getElementById('form_paragraph_narrationbool').value;
     let nameField = document.getElementById('form_paragraph_speakername').value;
     let textField = document.getElementById('form_paragraph_text').value;
     
@@ -373,6 +393,9 @@ function editDialogueParagraph(index, narrationBool, speakerName, textContent) {
     {
         speakerName = nameField;
         currentDialogueNode.paragraphs[index].speaker = speakerName;
+    } 
+    else if(nameField == 'null') {
+        speakerName = null;
     }
 
     if(textField != '')
@@ -380,10 +403,12 @@ function editDialogueParagraph(index, narrationBool, speakerName, textContent) {
         textContent = textField;
         currentDialogueNode.paragraphs[index].text = textContent;
     } 
-    
+    else if(textField == 'null') {
+        textContent = "Empty Paragraph";
+    }
+    currentDialogueNode.paragraphs[index].narration = devToolNarrationToggle;
     refreshDialogueNode();
     console.log("---UPDATED---");
-    console.log("Narration: " + narrationBoxValue);
 }
 
 function editDialogueResponse(index, textContent) {
