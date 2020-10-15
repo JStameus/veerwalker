@@ -161,6 +161,19 @@ function displayResponseButtons() {
             let newNextNodeIndexText = document.createTextNode('nextNode: ' + currentDialogueNode.responses[i].nextNode);
             newNextNodeIndexDisplay.appendChild(newNextNodeIndexText);
             newNextNodeIndexDisplay.className = ('devtools_responsebuttons');
+            if(toolVisibility == true)
+            {
+                newClearNextNodeButton.style.display = "inline-block";
+                newCreateNextNodeButton.style.display = "inline-block";
+                newNextNodeIndexDisplay.style.display = "inline-block";
+            }
+            else if(toolVisibility == false)
+            {
+                newClearNextNodeButton.style.display = "none";
+                newCreateNextNodeButton.style.display = "none";
+                newNextNodeIndexDisplay.style.display = "none";
+            }
+            
 
             //setting up the dev tools
             newDiv.appendChild(newClearNextNodeButton);
@@ -243,29 +256,35 @@ function checkLastNodeInfo() {
     console.log("Last Node: --" + lastNode.nodeIndex + ", ID: " + lastNode.nodeID + "--");
 }
 
+let toolVisibility = true;
 //toggle dev menu
 function toggleDevTools() {
-    let toolVisibility = true;
     let menuElements = document.querySelectorAll(".devmenu");
-    for(let i = 0; i < menuElements.length; i++)
-    {
-        if(menuElements[i].style.display == "none") {
-            menuElements[i].style.display = "flex";
-        }
-        else {
+    let responseToolElements = document.querySelectorAll('.devtools_responsebuttons');
+    if(toolVisibility == true) {
+        for(let i = 0; i < menuElements.length; i++)
+        {
             menuElements[i].style.display = "none";
         }
-    }
-    let responseToolElements = document.querySelectorAll('.devtools_responsebuttons');
-    for(let i = 0; i < responseToolElements.length; i++)
-    {
-        if(responseToolElements[i].style.display == "none") {
-            responseToolElements[i].style.display = "inline-block";
-        }
-        else {
+        for(let i = 0; i < responseToolElements.length; i++)
+        {
             responseToolElements[i].style.display = "none";
         }
+        toolVisibility = false;
     }
+    else if(toolVisibility == false)
+    {
+        for(let i = 0; i < menuElements.length; i++)
+        {
+            menuElements[i].style.display = "flex";
+        }
+        for(let i = 0; i < responseToolElements.length; i++)
+        {
+            responseToolElements[i].style.display = "inline-block";
+        }
+        toolVisibility = true;
+    }
+    
 }
 
 //dev tools UI and buttons
