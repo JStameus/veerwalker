@@ -6,6 +6,7 @@ var dialogueTreeURL = '/code/json/dialogue/testfile.json';
 var dialogueTree = null;
 var currentDialogueNode =  null;
 var checkPointNode = 0;
+document.onload = loadDialogueTree(dialogueTreeURL);
 
 //functions for loading new trees and nodes
 function loadDialogueTree(fileURL) {
@@ -215,8 +216,6 @@ function displayResponseButtons() {
         console.warn("Cannot update Choice Buttons: No currentDialogueNode has been loaded!");
     }
 }
-
-document.onload = loadDialogueTree('/code/json/dialogue/testfile.json');
 
 //debugging functions 
 function checkNullNextNodes() {
@@ -564,3 +563,4 @@ function displayFormValues() {
     console.log("Name: " + nameField);
     console.log("Text: " + textField);
 }
+
