@@ -393,6 +393,19 @@ function createNewNodeIndex() {
     return newIndex;
 }
 
+function fixNodeIndexValues() {
+    let n = 0;
+    for(let i = 0; i < dialogueTree.nodes.length; i++)
+    {
+        if(dialogueTree.nodes[i].nodeIndex != i)
+        {
+            dialogueTree.nodes[i].nodeIndex = i;
+            n++;
+        }
+    }
+    console.log("Fixed " + n + " mismatched nodeIndex values.");
+}
+
 function createNewNodeID() {
     let newID = (dialogueTree.nodes[dialogueTree.nodes.length - 1].nodeID + 1);
     return newID;
@@ -429,7 +442,6 @@ function toggleNarrationBool() {
         devToolNarrationToggle = false;
         boolDisplay.innerHTML = "Is Narration: " + devToolNarrationToggle;
     }
-    console.log(devToolNarrationToggle);
 }
 
 

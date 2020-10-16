@@ -4,80 +4,13 @@
         {
             "nodeIndex": 0,
             "nodeID": 100,
-            "location": "Test Scene: Room 1",
-            "description": "A scene for testing different functions without messing up my main files.",
+            "decription": "First node.",
+            "location": "Testman's World: First Layer",
             "paragraphs": [
                 {
                     "narration": true,
                     "speaker": null,
-                    "text": "This is the first message of the test scene."
-                },
-                {
-                    "narration": true,
-                    "speaker": "Jiub",
-                    "text": "The cowboy speaks."
-                },
-                {
-                    "narration": false,
-                    "speaker": "Jiub",
-                    "text": "YEEHAW!"
-                }
-            ],
-            "responses": [
-                {
-                    "text": "Yes, I agree. Let's go to Room 2. I think the story is in there somewhere.",
-                    "nextNode": 1
-                },
-                {
-                    "text": "No, I don't think so. I want to stay in this room.",
-                    "nextNode": 2
-                },
-                {
-                    "text": "Yeah man cool",
-                    "nextNode": 4
-                }
-            ]
-        },
-        {
-            "nodeIndex": 1,
-            "nodeID": 101,
-            "location": "Test Scene: Room 2",
-            "description": "You went to Room 2, whatever that is.",
-            "paragraphs": [
-                {
-                    "narration": false,
-                    "speaker": "Big Steffe",
-                    "text": "Well, here we are. Room 2. There's...nothing here. You need to write more dialogue, Joseph."
-                },
-                {
-                    "narration": true,
-                    "speaker": "null",
-                    "text": "A blocky, polygon-deprived Dark Elf entered the room, walking with a confident stride, yet clearly appearing as if he had shit his pants."
-                },
-                {
-                    "narration": false,
-                    "speaker": "Jiub",
-                    "text": "Well, not even last night's storm could wake you. I heard them say we've reached Morrowind, I'm sure they'll let us go."
-                },
-                {
-                    "narration": true,
-                    "speaker": "null",
-                    "text": "More paragraphs appeared on the page as if from thin air."
-                },
-                {
-                    "narration": false,
-                    "speaker": "Big Steffe",
-                    "text": "Joseph...are you...seriously making dev tools right now?"
-                },
-                {
-                    "narration": true,
-                    "speaker": "null",
-                    "text": "He was. And he was getting good at it, too. So good, in fact, that he had barely kept up with his own speed of learning. Two long hours of analysis paralysis and two sleepless nights later, an entire suite of dev tool goodness had magically been laid out on his HTML document. In fact, even this very paragraph was written with the dev tools!"
-                },
-                {
-                    "narration": false,
-                    "speaker": "Big Steffe",
-                    "text": "Dude. That's rad."
+                    "text": "You are in Testman's world. Here, you will test all manner of dialogue. "
                 },
                 {
                     "narration": false,
@@ -87,50 +20,26 @@
             ],
             "responses": [
                 {
-                    "text": "I'm trying, Steffe. Gimme a minute.",
-                    "nextNode": 3
-                }
-            ]
-        },
-        {
-            "nodeIndex": 2,
-            "nodeID": 102,
-            "location": "Test Scene: Room 1",
-            "description": "You remained in Room 1.",
-            "paragraphs": [
-                {
-                    "narration": true,
-                    "speaker": null,
-                    "text": "Big Steffe looks around, and shrugs."
+                    "text": "Hey, that's pretty cool!",
+                    "nextNode": 1
                 },
                 {
-                    "narration": false,
-                    "speaker": "Big Steffe",
-                    "text": "Whatever, maybe there's a story in this room, too? Assuming you're going to write it?"
+                    "text": "That's...not super cool, actually.",
+                    "nextNode": 2
                 }
             ],
-            "responses": [
-                {
-                    "text": "Of course I am! I just need to figure out how to do it without messing up all my code. Be patient.",
-                    "nextNode": null
-                }
-            ]
+            "description": "Testman welcomes the player to the world."
         },
         {
             "nodeIndex": 3,
-            "nodeID": 103,
-            "location": "Node 3",
-            "description": "NextNode created from Node: 1",
+            "nodeID": 101,
+            "location": "Node 1",
+            "description": "NextNode created from Node: 0",
             "paragraphs": [
-                {
-                    "narration": true,
-                    "speaker": "null",
-                    "text": "The Testman follows."
-                },
                 {
                     "narration": false,
                     "speaker": "Testman",
-                    "text": "Hey! This is some test text! Again! "
+                    "text": "It is pretty cool, isn't it? I'm glad you think so."
                 }
             ],
             "responses": [
@@ -141,57 +50,43 @@
             ]
         },
         {
-            "nodeIndex": 4,
-            "nodeID": 104,
-            "location": "Jiub's Cowboy House",
-            "description": "Oh boy he doing a devtools",
+            "nodeIndex": 7,
+            "nodeID": 102,
+            "location": "Node 2",
+            "description": "NextNode created from Node: 0",
             "paragraphs": [
                 {
                     "narration": false,
-                    "speaker": "Jiub",
-                    "text": "You like it? I worked hard on my cowboy impression."
-                }
-            ],
-            "responses": [
-                {
-                    "text": "I can tell, it's coming along nicely.",
-                    "nextNode": "2"
+                    "speaker": "Testman",
+                    "text": "What? You don't like it? Aw man, I worked so hard on that test dialogue!"
                 },
                 {
-                    "text": "On second thought, it's shit.",
-                    "nextNode": "0"
-                }
-            ]
-        },
-        {
-            "nodeIndex": 5,
-            "nodeID": 105,
-            "location": "Node 5",
-            "description": "New Node: 5, ID: 105",
-            "paragraphs": [
-                {
                     "narration": true,
                     "speaker": null,
-                    "text": "The node lies quiet."
+                    "text": "Testman begins convulsing, and collapses on the floor, flailing around like a headless chicken."
                 }
             ],
             "responses": [
                 {
-                    "text": "Wow, sure is quiet in here.",
-                    "nextNode": 6
+                    "text": "I'm sorry! It's uh, it's pretty cool. Could use some work, but you're definitely on the right track! Now, could you please stop having a seizure?",
+                    "nextNode": "1"
+                },
+                {
+                    "text": "Aww, you gonna cry? Gonna shit and cum? Piss your pants, maybe?",
+                    "nextNode": 3
                 }
             ]
         },
         {
-            "nodeIndex": 6,
-            "nodeID": 106,
-            "location": "Node 6",
-            "description": "NextNode created from Node: 5",
+            "nodeIndex": 1,
+            "nodeID": 103,
+            "location": "Node 3",
+            "description": "NextNode created from Node: 2",
             "paragraphs": [
                 {
                     "narration": true,
                     "speaker": null,
-                    "text": "New Node Paragraph"
+                    "text": "Testman spontaneously combusts. This is probably your fault. Probably."
                 }
             ],
             "responses": [
