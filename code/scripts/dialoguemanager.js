@@ -563,6 +563,11 @@ function saveDialogueTree() {
     newWindowBody.appendChild(newDataText);
 }
 
+function drawDialogueTree() {
+    //draw the dialogue tree on a canvas in a new window/tab
+        
+}
+
 function displayFormValues() {
     let indexField = document.getElementById('form_paragraph_index').value;
     let narrationBox = document.getElementById('form_paragraph_narrationbool').value;
