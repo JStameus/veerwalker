@@ -1,9 +1,9 @@
 
 
-var nodeHeight = 50;
-var nodeWidth = 50;
-const originalAppendageHeight = 20;
-var currentAppendageHeight = 20;
+var height = 50;
+var width = 50;
+const shelfHeight = 20;
+var currentShelfHeight = 20;
 var circleSize = 5;
 var margin = 20;
 var fontSize = 20;
@@ -22,31 +22,31 @@ function drawNode(index, ID, x, y) {
     ctx.stroke();
     //Top right circle
     ctx.beginPath();
-    ctx.arc(x + nodeWidth, y, circleSize, 0, 2 * Math.PI);
+    ctx.arc(x + width, y, circleSize, 0, 2 * Math.PI);
     ctx.stroke();
     //Bottom left circle
     ctx.beginPath();
-    ctx.arc(x, y + nodeHeight, circleSize, 0, 2 * Math.PI);
+    ctx.arc(x, y + height, circleSize, 0, 2 * Math.PI);
     ctx.stroke();
     //Bottom right circle
     ctx.beginPath();
-    ctx.arc(x + nodeWidth, y + nodeHeight, circleSize, 0, 2 * Math.PI);
+    ctx.arc(x + width, y + height, circleSize, 0, 2 * Math.PI);
     ctx.stroke();
     //Top horizontal line
     ctx.moveTo(x, y);
-    ctx.lineTo(x + nodeWidth, y);
+    ctx.lineTo(x + width, y);
     ctx.stroke();
     //Bottom horizontal line
-    ctx.moveTo(x, y + nodeHeight);
-    ctx.lineTo(x + nodeWidth, y + nodeHeight);
+    ctx.moveTo(x, y + height);
+    ctx.lineTo(x + width, y + height);
     ctx.stroke();
     //Left vertical line
     ctx.moveTo(x, y);
-    ctx.lineTo(x, y+nodeHeight);
+    ctx.lineTo(x, y+height);
     ctx.stroke();
     //Right vertical line
-    ctx.moveTo(x + nodeWidth, y);
-    ctx.lineTo(x + nodeWidth, y + nodeHeight);
+    ctx.moveTo(x + width, y);
+    ctx.lineTo(x + width, y + height);
     ctx.stroke();
 
     //ADD TEXT
@@ -57,36 +57,56 @@ function drawNode(index, ID, x, y) {
 
 function drawNodeAppendage(nextNodeIndex) {
     //Left vertical line
-    ctx.moveTo(xCoordinate, yCoordinate + nodeHeight);
-    ctx.lineTo(xCoordinate, yCoordinate + nodeHeight + currentAppendageHeight);
+    ctx.moveTo(xCoordinate, yCoordinate + height);
+    ctx.lineTo(xCoordinate, yCoordinate + height + currentShelfHeight);
     ctx.stroke();
     //Right vertical line
-    ctx.moveTo(xCoordinate + nodeWidth, yCoordinate + nodeHeight);
-    ctx.lineTo(xCoordinate + nodeWidth, yCoordinate + nodeHeight + currentAppendageHeight);
+    ctx.moveTo(xCoordinate + width, yCoordinate + height);
+    ctx.lineTo(xCoordinate + width, yCoordinate + height + currentShelfHeight);
     ctx.stroke();
     //Horizntal line
-    ctx.moveTo(xCoordinate, yCoordinate + nodeHeight + currentAppendageHeight);
-    ctx.lineTo(xCoordinate + nodeWidth, yCoordinate + nodeHeight + currentAppendageHeight);
+    ctx.moveTo(xCoordinate, yCoordinate + height + currentShelfHeight);
+    ctx.lineTo(xCoordinate + width, yCoordinate + height + currentShelfHeight);
     ctx.stroke();
     //Add text
-    ctx.fillText("To: " + nextNodeIndex, xCoordinate + 5, yCoordinate + nodeHeight + (currentAppendageHeight - 5));
+    ctx.fillText("To: " + nextNodeIndex, xCoordinate + 5, yCoordinate + height + (currentShelfHeight - 5));
 }
 
 function drawDialogueTree() {
     fixNodeIndexValues();
-    let a = 0;
-    let b = 0;
-    for(a = 0; a < dialogueTree.nodes.length; a++)
+    // let a = 0;
+    // let b = 0;
+    // for(a = 0; a < dialogueTree.nodes.length; a++)
+    // {
+    //     console.log("Grabbed Node " + dialogueTree.nodes[a].nodeIndex);
+    //     drawNode(a, dialogueTree.nodes[a].nodeID, xCoordinate, yCoordinate);
+    //     for(b = 0; b < dialogueTree.nodes[a].responses.length; b++)
+    //     {
+    //         drawNodeAppendage(dialogueTree.nodes[a].responses[b].nextNode);
+    //         currentAppendageHeight += originalAppendageHeight;
+    //     }
+    //     xCoordinate += (margin + nodeWidth);
+    //     yCoordinate += (margin + nodeHeight);
+    //     currentAppendageHeight = originalAppendageHeight;
+    // }
+    drawNode(0, dialogueTree.nodes[0].nodeID, xCoordinate, yCoordinate);
+    //draw the first node
+    //move x coordinate
+    //loop through nextNodes linked from the last node drawn
+    //draw each node and move y coordinate for each
+    //repeat
+    xCoordinate += (width + margin);
+    yCoordinate -= (height + margin)
+    for(let i = 0; i < dialogueTree.nodes[0].responses.length; i++)
     {
-        console.log("Grabbed Node " + dialogueTree.nodes[a].nodeIndex);
-        drawNode(a, dialogueTree.nodes[a].nodeID, xCoordinate, yCoordinate);
-        for(b = 0; b < dialogueTree.nodes[a].responses.length; b++)
+        yCoordinate += (margin + height);
+        let nextNodeIndex = dialogueTree.nodes[0].responses[i].nextNode;
+        drawNode(nextNodeIndex, dialogueTree.nodes[nextNodeIndex].nodeID, xCoordinate, yCoordinate);
+        drawNodeAppendage(0);
+        for(let i = 0; i < dialogueTree.nodes[0].responses.length; i++)
         {
-            drawNodeAppendage(dialogueTree.nodes[a].responses[b].nextNode);
-            currentAppendageHeight += originalAppendageHeight;
+            yCoordinate += 30;
         }
-        xCoordinate += (margin + nodeWidth);
-        yCoordinate += (margin + nodeHeight);
-        currentAppendageHeight = originalAppendageHeight;
     }
+
 }
