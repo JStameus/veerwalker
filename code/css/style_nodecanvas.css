@@ -11,6 +11,6 @@ body {
 canvas {
     flex: 1;
     border: 2px solid wheat;
-    background-color: rgb(68, 68, 68);
+    background-color: rgb(155, 155, 155);
     margin: 10px;
 }

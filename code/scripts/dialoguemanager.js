@@ -563,9 +563,11 @@ function saveDialogueTree() {
     newWindowBody.appendChild(newDataText);
 }
 
-function drawDialogueTree() {
+function openTreeCanvas() {
     //draw the dialogue tree on a canvas in a new window/tab
-        
+    var newWindow = window.open("../code/html/nodecanvas.html");
+    
+
 }
 
 function displayFormValues() {
