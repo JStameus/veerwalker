@@ -31,7 +31,7 @@
             "description": "Testman welcomes the player to the world."
         },
         {
-            "nodeIndex": 3,
+            "nodeIndex": 1,
             "nodeID": 101,
             "location": "Node 1",
             "description": "NextNode created from Node: 0",
@@ -50,7 +50,7 @@
             ]
         },
         {
-            "nodeIndex": 7,
+            "nodeIndex": 2,
             "nodeID": 102,
             "location": "Node 2",
             "description": "NextNode created from Node: 0",
@@ -72,13 +72,13 @@
                     "nextNode": "1"
                 },
                 {
-                    "text": "Aww, you gonna cry? Gonna shit and cum? Piss your pants, maybe?",
+                    "text": "Aww, you gonna cry? Piss your pants, maybe?",
                     "nextNode": 3
                 }
             ]
         },
         {
-            "nodeIndex": 1,
+            "nodeIndex": 3,
             "nodeID": 103,
             "location": "Node 3",
             "description": "NextNode created from Node: 2",
