@@ -37,10 +37,6 @@ function loadDialogueNode(nodeIndex) {
 function refreshDialogueNode() {
     clearAllDialogueElements();
     loadDialogueNode(currentDialogueNode.nodeIndex);
-    // let paragraphDisplay = document.getElementById('display_paragraphs_amount');
-    // let responseDisplay = document.getElementById('display_responses_amount');
-    // paragraphDisplay.innerText = "Paragraphs: " + currentDialogueNode.paragraphs.length;
-    // responseDisplay.innerText = "Responses " + currentDialogueNode.responses.length;
 }
 
 //functions for manipulating HTML content
