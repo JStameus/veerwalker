@@ -84,10 +84,19 @@ input {
 
 .arena_field {
     display: flex;
-    border: 1px dotted var(--foreground-light);
+    flex-direction: column;
+    border: 1px solid var(--foreground-light);
     margin: 0.2rem;
 }
 
 #controlpanel {
 
+}
+
+.characteravatar {
+    margin: 0.5rem;
+    padding: 1rem;
+    background-color: var(--overlay-dark);
+    border: 2px dashed var(--foreground-light);
+    border-radius: 4px;
 }

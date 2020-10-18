@@ -10,9 +10,8 @@ function Character(name, HP, AP, ATK, DEF, DMG) {
 let playerCharacter = new Character("Player", 25, 10, 3, 14, 2);
 let enemyCharacter = new Character("Enemy", 20, 10, 2, 12, 1);
 
-function loadEncounter() {
-
-}
+let leftSide = document.getElementById("arena_leftside");
+let rightSide = document.getElementById("arena_rightside");
 
 function createCharacterAvatar(character, position) {
     let newName = document.createElement('h3');
@@ -48,10 +47,18 @@ function createCharacterAvatar(character, position) {
     newDiv.appendChild(newAttackDisplay);
     newDiv.appendChild(newDefenseDisplay);
     newDiv.appendChild(newDamageDisplay);
+    newDiv.className = "characteravatar";
 
     let arenaField = position;
     arenaField.appendChild(newDiv);
 }
 
-let leftSide = document.getElementById("arena_leftside");
-let rightSide = document.getElementById("arena_rightside");
+function loadEncounter() {
+    //in finished version, begin by loading an encounter "prefab" file!
+    //create avatars for all characters
+    //roll for initiative(just take a d20 for now)
+    //assign turn to winner of initiative roll(what is a turn?)
+    createCharacterAvatar(playerCharacter, leftSide);
+    createCharacterAvatar(enemyCharacter, rightSide);
+}
+
