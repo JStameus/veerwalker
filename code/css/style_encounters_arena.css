@@ -89,11 +89,7 @@ input {
     margin: 0.2rem;
 }
 
-#controlpanel {
-
-}
-
-.characteravatar {
+.characteravatar_display {
     margin: 0.5rem;
     padding: 1rem;
     background-color: var(--overlay-dark);
