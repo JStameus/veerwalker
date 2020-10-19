@@ -1,0 +1,22 @@
+{
+    "partyName": "Player Party",
+    "members":
+    [
+        {
+            "name": "BigSteffe",
+            "maxHP": 25,
+            "maxAP": 10,
+            "attack": 3,
+            "defense": 14,
+            "damage": 2
+        },
+        {
+            "name": "Testman",
+            "maxHP": 18,
+            "maxAP": 20,
+            "attack": 4,
+            "defense": 12,
+            "damage": 4
+        }
+    ]
+}
