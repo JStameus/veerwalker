@@ -51,13 +51,21 @@ class CombatCalculator {
         let damageRoll = this.dice.rollD6();
         let damageModifier = attacker.DMG;
         let damageTotal = damageRoll + damageModifier;
-        console.log(`${attacker.name} deals ${damageTotal} damage.`);
         return damageTotal;
     }
 
     dealDamage(target, damage) {
         target.HP -= damage;
-        console.log(target.name);
+        console.log(`${target.name} takes ${damage} damage!`);
+        let healthDisplay = document.getElementById("display_hp_" + target.name);
+        healthDisplay.innerHTML = "HP: " + target.HP;
+    }
+
+    rollInitiative(turnOrder) {
+        for(let i = 0; i < playerParty.members.length; i++)
+        {
+            
+        }
     }
 }
 

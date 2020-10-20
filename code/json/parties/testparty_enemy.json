@@ -4,19 +4,19 @@
     [
         {
             "name": "Goblin",
-            "maxHP": 15,
-            "maxAP": 10,
-            "attack": 3,
-            "defense": 13,
-            "damage": 1
+            "HP": 15,
+            "AP": 10,
+            "ATK": 3,
+            "DEF": 13,
+            "DMG": 1
         },
         {
             "name": "Shrek",
-            "maxHP": 30,
-            "maxAP": 5,
-            "attack": 2,
-            "defense": 15,
-            "damage": 2
+            "HP": 30,
+            "AP": 5,
+            "ATK": 2,
+            "DEF": 15,
+            "DMG": 2
         }
     ]
 }

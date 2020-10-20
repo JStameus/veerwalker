@@ -4,19 +4,19 @@
     [
         {
             "name": "BigSteffe",
-            "maxHP": 25,
-            "maxAP": 10,
-            "attack": 3,
-            "defense": 14,
-            "damage": 2
+            "HP": 25,
+            "AP": 10,
+            "ATK": 3,
+            "DEF": 14,
+            "DMG": 2
         },
         {
             "name": "Testman",
-            "maxHP": 18,
-            "maxAP": 20,
-            "attack": 4,
-            "defense": 12,
-            "damage": 4
+            "HP": 18,
+            "AP": 20,
+            "ATK": 12,
+            "DEF": 12,
+            "DMG": 20
         }
     ]
 }
