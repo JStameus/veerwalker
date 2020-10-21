@@ -67,6 +67,52 @@
 
 ***HISTORY***
 
-**The First Reunion:** The first humans arrive in Vornioss from beyond the Withersea, and are delivered to the Silent Stewards in their cities in Parndra.
+**0 FR - 150 FR**
 
-**The Worm War:** The Tuawik wage war on the Stewards, raze their cities and conquer their people. The war ends with the Tuawik murdering the Silent Stewards, and claiming total victory over the Convergence Quintet, and forming the Tuawik Dominion.
+- **The First Reunion:** The first humans arrive in Vornioss from beyond the Withersea, and are delivered to the Silent Stewards in their cities in Parndra.
+- **The Worm War:** The Tuawik wage war on the Stewards, raze their cities and conquer their people. The war ends with the Tuawik murdering the Silent Stewards, and claiming total victory over the Convergence Quintet, and forming the Tuawik Dominion.
+- **The Rover War:** Surviving human factions from the Worm War have regrouped, some into smaller settlements, some in the reclaimed ruins of the Stewards' cities. The old priest caste from northern Seyv wages a holy war against those who reject the legacy of the Stewards.
+
+**150 FR - 300 FR**
+
+- **The First Earthseers:** The Tuawik have begun to tap into the inner workings of the Worldly Machines, using their world-spanning communications network to speak to the earth and bend nature to their will. 
+- **The Abyssal Reclamation:** In Derva, a cataclysmic event seemingly triggered by the Tuawik's meddling with the Veins, swallows the city of Tharmet whole and sends the Phamanca on the run, and millions begin to migrate up the pillar into Parndra.
+- **Revolutions & The Rise of Magic:** The discovery of the Worldly Machines shakes the world's civilizations to their core, old kingdoms fall and new ones are born from the ashes, with mages as the new rulers. The mages society of Eezarno is founded, dedicated to the study and control of this newfound power.
+- **The Great Terrodunian Clan Wars:** The Clans of the Reach Worlds near Terrodun wage a bloody war for control of the last ancient human technology in the region, ending in the formation of an alliance of tribes which would eventually become the Empire of Iromeda.
+
+**300 FR - 400 FR**
+
+- **The Tuawik Dominion In Turmoil:** Spreading itself thin across Seyv and Yet Sur, plagued by internal conflicts between Hive Lords and rebellious Wonu, slave uprisings and the Moddawik in critical condition, the Tuawik Dominion loses ground on all fronts. 
+- **Natural Disasters:** As more and more mages tamper with the Wordly Machines, they become increasingly agitated. The world becomes increasingly hostile.
+- **Kadvaaro's Army:** Kadvaaro, a scholar studying the Silent Stewards, discovers a forbidden tome detailing the process of bending life to the will of the Machines. In secret, he uses his disciples to create cyborg "angels" and an army of mindless slaves.
+- **The War of the Heirs:** Kadvaaro's army of mechanical abominations meets the new generation of Wonu on the battlefields of Yet Sur, in a massive war that decimates both the Dominion and the alliance of Serpentsbane, Tahlanva and Eezarno. The Dominion is victorious, but just barely. 
+- **The Sahl United Cities:** Refugees from Yet Sur and Derva have formed a shaky alliance with the Tuawik Dominion as their common enemy. 
+
+**400 FR - 500 FR**
+
+- **The Spire of Eeza:** As the mages society of Eezarno grows in size and influence, they join forces with mages from all over the world and create the world's first magically constructed building: The Spire of Eeza, a massive tower meant as a sanctuary for study and practice for the most distinguished mages.
+- **The Golden Age:** The Terrodunians of Iromeda have begun building working air ships, and sail across the Reach Worlds and into the Pillarscape, where they usher in a new industrial revolution and install trade routes all across Parndra.
+- **Superstition & Persecution:** The arrival of the Terrodunians raises many questions about the true nature of the First Reunion, and the old remnants of the Convergence Quintet accuse the Terrodunians of being demonic invaders and heralds of destruction. 
+- **Cosmic Transmissions:** In the Spire of Eeza, a mysterious order of mages has risen to prominence, using a strange telescope to send transmissions beyond the Withersea, and it seems that they are being heard...
+- **Tensions Between Tahlanva and Iromedan Allies:** The Auburn Ring, the last remnant of the old Quintet Priesthood, publically denounce the Eezarnoan mages and the Iromedans as "demonic usurpers" of the Pillarscape, and threaten to declare war unless the Iromedans retreat to Terrodun. 
+- **The Auburn Ring Goes To War:** Having labeled the Iromedans as demons and their allies as heretics, the Auburn Ring goes to war. The conflict, however, is short-lived, as the Iromedan's allies are far too many and their technology far superior. The Terrodunians of Iromeda are here to stay. What remains of the Auburn Ring soon comes around, as there seems to be a lot of money in preaching Iromedan supremacy...
+- **Power Struggle On Terrodun:** The Greater Clans of Terrodun are stabbing each other in the back, sabotaging trade routes and diplomatic relations to claim mining and trading rights on the Pillarscape, hoping to get their fair share of the political and economic influence on Parndra and Yunir.
+
+**500 FR - 600 FR:**
+
+- **Karcibaul Declares Independence:** Formely a cornerstone of the Dominion's last remnant, the underworld nation of Karcibaul purges their Elder Councils of Tuawik, and secedes from "the rotting carcass of the old world order", declaring their independence from all other underworld nations. They quickly begin forming closer ties to Terrodunian Clans outside of the Empire of Iromeda.
+- **The Heraldry Is Born From The Ashes:** With the kingdom of Tahlanva is shambles, the Auburn Ring is absorbed into greater orders affiliated with Iromeda, and is reformed into the Heraldry, praising the Terrodunians as their long lost brothers and sisters, and declares the Second Reunion.
+
+**0 SR - 200 SR**
+
+- **Civil War In Sahl:** Amidst harsh winters, famine and rampant undead, Sahl finds itself in a brutal civil war. At the end of the war, the continent of Idenru is divided, and the city of Sahlenkree remains the last bastion of the standing army, crystallizing into an increasingly militaristic city-state.
+- **Echoes In The Heart:** Earthseers and druids all over the world experience strange telepathic transmissions from inside the Pillar. It speaks to them in an alien language, and beckons them to investigate. Thousands of druids journey to the uncharted depths of the Pillar, never to be heard from again.
+- **The Undercity Plague:** Below the city of Sahlenkree, a strange new disease has begun to spread. It travels through the aqueducts, carried by rats and other vermin, to the surface. The city closes its gates to contain the plague, but it has already begun to spread through the Veins and to the rest of Parndra.
+
+**200 SR - 297 SR, Present Day**
+
+- **The Procession of the Seers:** The telepathic messages from within the pillar have been deciphered: Uzira is alive, but not for much longer. She has called upon her witnesses to hear her last will and testament, and warn the mortals of the impending danger from beyond the Withersea. Caravans of pilgrims, scholars and scientists from all over the world flock to the pillar, and some make their way inside, where it is said the Uzira tried to give them the key to finish Vornioss' creation. What really happened on that day remains a mystery.
+- **A World On Fire:** Plagues, famine, revolutions, supernatural disasters and the ever looming threat from the Withersea has brought the world's greatest nations to their knees, and now the goddess Uzira has all but confirmed the gravity of the situation. Border skirmishes quickly escalate into full-scale war, and the Iromedans withdraw to Terrodun to watch the chaos unfold from afar, and fill their treasuries with untold riches from arming all sides with their modern weapons. 
+- **Iromeda Falls:** 
+
+ 
