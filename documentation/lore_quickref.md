@@ -7,6 +7,8 @@
 
 **Vornioss:** The entirety of the known world, the last bastion against the Withersea. Vornioss is comprised of the Reach Worlds, The Pillarscape, and The Observer.
 
+**The Withersea:** A dark, seemingly endless void that has swallowed all of the known universe. Now, it is home to eldritch horrors that circle around Vornioss like vultures, waiting for the shield to fall. No one knows if there is anything left of the galaxy out there.
+
 **The Reach Worlds:** The asteroid belts, planet fragments and moons orbiting the Pillarscape. Mostly barren, but there are a few large masses of habitable land.
 
 **The Pillarscape:** The "main" part of Vornioss, the unfinished sphere and the planes that constitute the landmass, bound together by a central Pillar. 
@@ -51,11 +53,27 @@
 
 ---
 
+***MATERIALS & TECH***
+
+**Whipper Engines:** The most common form of propulsion on all kinds of flying vessels. Uses artificial Tether nodes to create a localized gravity field, "whipping" the vessel in the desired direction. Looks like ghostly "tentacles" swimming through the air.
+
+**Boltslinger:** A magic-fuelled type of weapon that fires bolts of supercharged blood. A popular weapon for mages, since they can connect a Boltslinger to their bloodstream for a near-infinite supply of ammunition, providing they have the constitution for it.
+
+**Tarvanite Steel:** An alloy created from common minerals found in the Reach Worlds. Used in most modern machinery and armor plating. 
+
+**Blood Chitin:** A composite material synthesized from various chemicals and biological byproducts, invented by the Tuawik as a means to reduce waste when splicing new lifeforms. It is still used today by some, but is considered quite repulsive.
+
+**Wailer Ballista:** Mage-powered weapons that amplify the user's voice to direct their spellcasting capabilities with great precision and range. Often used with mages against their will, who are whipped into submission before being locked into the ballista.
+
+**Foci & Conduits:** Channeling the power of the Machines through one's own body is dangerous, and can lead to permanent damage or even death if not handled correctly. To mitigate the risks, mages often use either a Focus or a Conduit to ease the stress. Conduits are most commonly found in the form of staves, that hold a sample of the user's blood as a "battery", acting as an intermediary for the user's spellcasting. Foci, on the other hand, are directly connected to the user's bloodstream, focusing the energy flow into the device and collecting it for the user to manipulate without risking fatal energy buildups in their own body.
+
+----
+
 ***RACES*** 
 
 **Human:** Arrived in Vornioss in a fleet of shimmering vessels, and awakened in the cities of the Silent Stewards. Before their new utopia could be realized, the Tuawik tore down their walls and murdered the Stewards, leaving humanity scattered or enslaved for hundreds of years.
 
-**Tuawik:** Hive-dwelling ogres, born in the depths of Yunir by the mysterious creature known as Moddawik. They reproduce by splicing genes from other species and use their **biological** material to create new lifeforms. At the time of the First Reunion, they conqured the humans, enslaved them and used their genes to create the Wonu.
+**Tuawik:** Hive-dwelling ogres, born in the depths of Yunir by the mysterious creature known as Moddawik. They reproduce by splicing genes from other species and use their biological material to create new lifeforms. At the time of the First Reunion, they conqured the humans, enslaved them and used their genes to create the Wonu.
 
 **Wonu:** Elves, the descendants of the Tuawik. At the time of the Tuawik Dominion, the Wonu were destined to replace the Tuawik as the new champions of the Moddawik. But, due to internal conflicts and the subsequent fall of the Dominion, they were spread across Parndra and Yunir into many different nations. Some are more like their Tuawik ancestors, while others look more like humans.
 
@@ -65,11 +83,47 @@
 
 ---
 
+***MAJOR FACTIONS***
+
+**Sahlenkree:** A militaristic city-state in western Idenru. Comprised of mainly Phamanca and some Humans, it has played a key role in the many wars against the Tuawik Dominion in the past. Now, it has turned to its opposite, exerting its power over smaller independent settlements in the region in a constant struggle for control over resources and land.
+
+**Free Territories of Ronsarca:** The FTR is an amalgam of cities, smaller communities and villages across eastern Idenru collaborating via their People's Assemblies in an attempt to democratically plan production and distribution. They are constantly at war with Sahlenkree, and look to their uneasy alliance with the Bauvenhem for aid.
+
+**Karcibaul:** The largest nation of Yunir, Karcibaul is often mistrusted by their Parndran neighbors. Valuing their independence and endurance in the face of hardship above all else, the Underworld Wonu of Karcibaul are a proud people who still struggle to shake off the legacy of the Tuawik Dominion. 
+
+**The Bauvenhem:** Warriors, hunters and druids of northern Yet Sur, beyond the mountains of the Aegis Spine, gathered in massive fortresses whose walls tower above the clouds. For generations, they have been tempered by invasions, harsh climate, and gargantuan beasts. But throughout their trials, they have never lost their humility, and recognize that just as there is a time for heroics, there is a time for rest and contemplation. Many travel the world as sellswords for a time, but always return home to honor their comrades and kin with stories of their exploits.
+
+**Eezarno:** The largest remaining nation in the Kolvornan Desert region of northern Seyv, most well known for its early adoption of magic in construction and scientific pursuits. Having shaken off the old autocracy of mages, the people of Eezarno seek to atone for the sins of their forefathers by using what power they have left to rebuild the world.
+
+**Teshorav:** Spread across the Redmound Isles lies Teshorav, a nation of seafarers, explorers and poets. In the golden age when Iromeda first came to Parndra, Teshorav was a common binding point between the Reach Worlds and the Pillarscape. While it has remained relatively unscathed from the war, it has become increasingly isolated.
+
+**The Ashen Covenant:** A theocratic society occupying the ruins of Tereiva's old city in Rainwreath. Claiming to have recovered the long lost holy scriptures from Uzira during the Procession of the Seers, the Ashen Covenant is united in their common goal of resurrecting the Stewards and restoring order to Vornioss. Comprised almost exclusively of humans, they are deeply mistrustful of other civilizations and races.
+
+**The Burnhaven Sovereignty:** Once a major city under the rule of Iromeda, Burnhaven found indendence at the end of the war, and has now replaced Iromeda as the central authority on Terrodun. While they are nowhere near their old imperial cousin in military or economic might, they are the closest thing to proper civilization in the post-war Reach Worlds.
+
+---
+
+***MINOR FACTIONS***
+
+**The Vastrin Clan:** A large coven of witches and earthseers, living as nomads in Foil and the northern regions of Yet Sur. Many do not trust them, believing that they are servants of some lesser demon from the Withersea. While it is true that some Vastrin witches try to commune with beings of the void, they are not generally hostile to outsiders, unless provoked.
+
+**The Black Banshees:** A large fleet of pirates and raiders, infamous for kidnapping mages and using them in Wailer Ballistae to raid cargo ships between Terrodun and the Pillarscape.
+
+**The Withered Orphans:** The Withered Orphans have somehow persisted since the First Reunion, originally a gang of bandits from the old Convergence Quintet, they have carried on for generations, hell-bent on erasing evidence of the Stewards' existence.
+
+**The Order of the Boundless Bloom:** A nomadic druid circle, travelling the world on a quest to restore nature from the ravages of war and plague. Among them are healers, earthseers, spirit guides and bards.
+
+**The Starseer Cadet Guild:** Once a proud society of professional pilots and navigators funded by the Iromedan capitol, now the Cadet Guild is a shadow of its former self. But, in spite of the apocalypse and the regression of technological development, they stay dedicated to training a new generation of pilots.
+
+**The Malshaei Masonry:** A blacksmith's order of note located in The Daggerlands of Otevh. The order has long been suspicious of the many aspiring apprentices travelling from far away lands to train with them, as the heated debates between gunsmiths and traditional blacksmiths have often threatened to tear the Malshaei Masonry apart, and there is constant tension between the old world and the new within the order.
+
+---
+
 ***HISTORY***
 
 **0 FR - 150 FR**
 
-- **The First Reunion:** The first humans arrive in Vornioss from beyond the Withersea, and are delivered to the Silent Stewards in their cities in Parndra.
+- **The First Reunion:** The first humans arrive in Vornioss from beyond the Withersea, and are delivered to the Silent Stewards in their cities in Parndra. There, they formed the Convergence Quintet, a network of the five cities that would one day build the new world together.
 - **The Worm War:** The Tuawik wage war on the Stewards, raze their cities and conquer their people. The war ends with the Tuawik murdering the Silent Stewards, and claiming total victory over the Convergence Quintet, and forming the Tuawik Dominion.
 - **The Rover War:** Surviving human factions from the Worm War have regrouped, some into smaller settlements, some in the reclaimed ruins of the Stewards' cities. The old priest caste from northern Seyv wages a holy war against those who reject the legacy of the Stewards.
 
@@ -106,13 +160,24 @@
 **0 SR - 200 SR**
 
 - **Civil War In Sahl:** Amidst harsh winters, famine and rampant undead, Sahl finds itself in a brutal civil war. At the end of the war, the continent of Idenru is divided, and the city of Sahlenkree remains the last bastion of the standing army, crystallizing into an increasingly militaristic city-state.
-- **Echoes In The Heart:** Earthseers and druids all over the world experience strange telepathic transmissions from inside the Pillar. It speaks to them in an alien language, and beckons them to investigate. Thousands of druids journey to the uncharted depths of the Pillar, never to be heard from again.
+- **Echoes In The Heart:** Earthseers and druids all over the world experience strange telepathic transmissions from inside the Pillar. It speaks to them in an alien language, and beckons them to investigate. Thousands of druids journey to the uncharted depths of the Pillar, never to be heard from again.****
 - **The Undercity Plague:** Below the city of Sahlenkree, a strange new disease has begun to spread. It travels through the aqueducts, carried by rats and other vermin, to the surface. The city closes its gates to contain the plague, but it has already begun to spread through the Veins and to the rest of Parndra.
 
 **200 SR - 297 SR, Present Day**
 
 - **The Procession of the Seers:** The telepathic messages from within the pillar have been deciphered: Uzira is alive, but not for much longer. She has called upon her witnesses to hear her last will and testament, and warn the mortals of the impending danger from beyond the Withersea. Caravans of pilgrims, scholars and scientists from all over the world flock to the pillar, and some make their way inside, where it is said the Uzira tried to give them the key to finish Vornioss' creation. What really happened on that day remains a mystery.
 - **A World On Fire:** Plagues, famine, revolutions, supernatural disasters and the ever looming threat from the Withersea has brought the world's greatest nations to their knees, and now the goddess Uzira has all but confirmed the gravity of the situation. Border skirmishes quickly escalate into full-scale war, and the Iromedans withdraw to Terrodun to watch the chaos unfold from afar, and fill their treasuries with untold riches from arming all sides with their modern weapons. 
-- **Iromeda Falls:** 
+- **Iromeda Falls:** Having fulfilled Uzira's prophecy of the apocalypse, relations with Iromeda quickly soured when the people of Parndra realized that the Iromedans had sold them all out to one another. Even within the Empire itself, internal tensions rose to a boiling point as the subjugated classes remained in pitiful living conditions despite the booming trade. The Iromedan elite had grown further and further apart from its populace, and its greed and bloodlust only grew as the world burned. Rebels and revolutionaries had no shortage of allies from Parndra, who supplied them with weapons and troops in their revolutionary war. By 263 SR, Iromeda was brought low and disbanded, its iron grip on the world now shared among a myriad of Parndran and Yuniran nations seeking to rebuilt what was lost.
+
+---
+
+***PRESENT DAY***
+
+Much of the world still lies in ruins. The Machines are sick, unreliable and hostile towards mages who try to use them. If there is peace, it is a fickle one, where old grudges are laid aside only because both sides are busy recuperating from their losses. Revolutions have come and gone, some holding on to their gains, while others have fallen back into the harshest reaction from the once proud rulers of the former superpowers. Iromedan technology is a precious commodity, and reverse engineering is slow and costly. Those who still have a ship, hold on to it for dear life. The rest are confined to relying on beasts of burden, cobbled-together landcrawlers, crude gunsmithing, and dangerous, unstable magic. 
+
+But the world might yet heal. Although the true purpose of Vornioss, the promise of a safe haven from the Withersea, may never see the light of day, with time, the mortals may yet make a life for themselves here. But the road to peace and prosperity is long, and riddled with danger.
+
+Life goes on. After all, it survived the end of the universe, once.
+
 
  
