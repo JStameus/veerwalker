@@ -59,6 +59,10 @@ class CombatCalculator {
         console.log(`${target.name} takes ${damage} damage!`);
         let healthDisplay = document.getElementById("display_hp_" + target.name);
         healthDisplay.innerHTML = "HP: " + target.HP;
+        if(target.HP <= 0)
+        {
+            target.isDead = true;
+        }
     }
 
     rollInitiative(turnOrder) {

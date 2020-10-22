@@ -93,6 +93,19 @@ input {
     margin: 0.5rem;
     padding: 1rem;
     background-color: var(--overlay-dark);
-    border: 2px dashed var(--foreground-light);
-    border-radius: 4pxaa;
+    border: 2px solid var(--foreground-light);
+    border-radius: 4px;
+}
+
+.dead {
+    opacity: 0.5;
+    border: 2px dashed indianred;
+}
+
+.active {
+    border: 2px double var(--foreground-light);
+}
+
+.targeted {
+    border: 2px double orangered;
 }

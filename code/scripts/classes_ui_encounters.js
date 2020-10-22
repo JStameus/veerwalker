@@ -55,9 +55,11 @@ class EncounterUIManager {
         newDiv.appendChild(newLine2);
         newDiv.appendChild(newTargetSelectButton);
         newDiv.className = "characteravatar_display";
+        newDiv.id = ("characteravatar_" + character.name);
 
         let arenaField = position;
         arenaField.appendChild(newDiv);
+        console.log("Created Character Display for: " + character.name);
     }
 
     createPartyDisplays() {
@@ -74,5 +76,26 @@ class EncounterUIManager {
     clearAllCharacterDisplays() {
         document.querySelectorAll('.characteravatar_display').forEach(function(a){a.remove()});
     }
+
+    setRegularDisplay(character) {
+        let characterDiv = document.querySelector("#characteravatar_" + character.name);
+        characterDiv.className = "characteravatar_display";
+    }
+
+    setActiveDisplay(character) {
+        let characterDiv = document.querySelector("#characteravatar_" + character.name);
+        characterDiv.className = "characteravatar_display active";
+    }
+
+    setTargetedDisplay(character) {
+        let characterDiv = document.querySelector("#characteravatar_" + character.name);
+        characterDiv.className = "characteravatar_display targeted";
+    }
+
+    setDeadDisplay(character) {
+        let characterDiv = document.querySelector("#characteravatar_" + character.name);
+        characterDiv.className = "characteravatar_display dead";
+    }
+
 
 }

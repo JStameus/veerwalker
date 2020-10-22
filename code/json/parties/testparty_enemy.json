@@ -8,7 +8,9 @@
             "AP": 10,
             "ATK": 3,
             "DEF": 13,
-            "DMG": 1
+            "DMG": 1,
+            "isNPC": true,
+            "isDead": false
         },
         {
             "name": "Shrek",
@@ -16,7 +18,9 @@
             "AP": 5,
             "ATK": 2,
             "DEF": 15,
-            "DMG": 2
+            "DMG": 2,
+            "isNPC": true,
+            "isDead": false
         }
     ]
 }
