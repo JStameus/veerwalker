@@ -59,7 +59,6 @@ class EncounterUIManager {
 
         let arenaField = position;
         arenaField.appendChild(newDiv);
-        console.log("Created Character Display for: " + character.name);
     }
 
     createPartyDisplays() {

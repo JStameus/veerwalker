@@ -103,9 +103,11 @@ input {
 }
 
 .active {
-    border: 2px double var(--foreground-light);
+    border: 2px dotted var(--foreground-light);
+    box-shadow: 0 0 12px 2px goldenrod;
 }
 
 .targeted {
-    border: 2px double orangered;
+    border: 2px dotted orangered;
+    box-shadow: 0 0 12px 2px indianred;
 }

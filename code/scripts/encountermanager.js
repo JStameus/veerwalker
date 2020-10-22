@@ -19,12 +19,12 @@ let rightSide = document.getElementById("arena_rightside");
 
 let calc = new CombatCalculator();
 let ui = new EncounterUIManager();
+let ai = new AIManager();
 
 let turnOrder = [];
 let currentTurnIndex = 0;
 let currentAttacker = null;
 let currentTarget = null;
-let punchSound01 = new Audio("../../assets/sfx/combat/sfx_punch_01.wav"); 
 
 function displayTurnOrder() {
     console.log("Turn order: ");
@@ -33,6 +33,10 @@ function displayTurnOrder() {
         let n = i + 1;
         console.log(n + ": " + turnOrder[i].name);
     }
+}
+
+function selectTarget(target) {
+    ui.setTargetedDisplay(target);
 }
 
 function assignTurnOrder() {
@@ -52,64 +56,66 @@ function assignTurnOrder() {
 }
 
 function controlEnemyNPC() {
-    let selectionIndex = Math.floor(Math.random() * playerParty.members.length);
-    currentTarget = playerParty.members[selectionIndex];
+    let targetlist = ai.getTargetList(playerParty);
+    let selectionIndex = Math.floor(Math.random() * targetlist.length);
+    currentTarget = targetlist[selectionIndex];
     console.log(currentAttacker.name + "'s target: " + currentTarget.name);
     calc.attackTarget(currentAttacker, currentTarget);
-    punchSound01.play();
     endTurn();
 }
 
 function endTurn() {
-    checkDeadTargets();
+    ui.setRegularDisplay(currentAttacker);
+    cleanupTurnOrder();
+
+    //clears the target and goes to the next character's turn
     currentTarget = null;
     currentTurnIndex++;
     currentAttacker = turnOrder[currentTurnIndex];
+
+    //goes back to the start of the turn order
     if(currentTurnIndex >= turnOrder.length)
     {
         currentTurnIndex = 0;
         currentAttacker = turnOrder[currentTurnIndex];
         console.log("Looped back around!");
     }
+
     console.log(turnOrder[currentTurnIndex].name + "'s turn!");
+
+    //if the current character is an NPC, do AI stuff
     if(currentAttacker.isNPC == true)
     {
         controlEnemyNPC();
     }
+    ui.setActiveDisplay(currentAttacker);
 }
 
-function checkDeadTargets() {
-    for(let i = 0; i < playerParty.members.length; i++)
+//checks for dead characters in the turn order and removes them from play
+function cleanupTurnOrder() {
+    for(let i = 0; i < turnOrder.length; i++)
     {
-        if(playerParty.members[i].isDead == true)
+        if(turnOrder[i].isDead == true)
         {
-            console.log(playerParty.members[i].name + " is dead! Removing..."); 
-            ui.setDeadDisplay(playerParty.members[i]);
+            console.log(turnOrder[i].name + " is dead! Removing..."); 
+            ui.setDeadDisplay(turnOrder[i]);
+            turnOrder.splice(i, 1);
+            displayTurnOrder();
         }
     }
-    for(let i = 0; i < enemyParty.members.length; i++)
-    {
-        if(enemyParty.members[i].isDead == true)
-        {
-            console.log(enemyParty.members[i].name + " is dead! Removing..."); 
-            ui.setDeadDisplay(enemyParty.members[i]);
-        }
-    }
-    displayTurnOrder();
-
 }
 
 function loadEncounter() {
     ui.createPartyDisplays();
     assignTurnOrder();
+    ui.setActiveDisplay(currentAttacker);
 }
 
 
-
+//buttons 
 const attackButton = document.getElementById("button_attack");
 attackButton.addEventListener("click", function() {
     calc.attackTarget(currentAttacker, currentTarget)
-    punchSound01.play();
     endTurn();
 })
 
