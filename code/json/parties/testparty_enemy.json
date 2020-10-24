@@ -1,26 +1,18 @@
 {
-    "partyName": "Enemy Party",
+    "partyName": "Coastal Critters",
     "members": 
     [
         {
-            "name": "Goblin",
-            "HP": 15,
-            "AP": 10,
-            "ATK": 3,
-            "DEF": 13,
-            "DMG": 1,
-            "isNPC": true,
-            "isDead": false
+            "characterName": "Roundhog",
+            "filePath": "../json/enemies/char_enemy_roundhog.json"
         },
         {
-            "name": "Shrek",
-            "HP": 30,
-            "AP": 5,
-            "ATK": 2,
-            "DEF": 15,
-            "DMG": 2,
-            "isNPC": true,
-            "isDead": false
+            "characterName": "Roundhog",
+            "filePath": "../json/enemies/char_enemy_roundhog.json"
+        },
+        {
+            "characterName": "Serpent Crab",
+            "filePath": "../json/enemies/char_enemy_serpentcrab.json"
         }
     ]
 }
