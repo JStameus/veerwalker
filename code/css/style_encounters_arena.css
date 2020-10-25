@@ -82,9 +82,16 @@ input {
     flex: 1;
 }
 
+.teamlabel {
+    position: relative;
+    left: 40%;
+    top: 40%;
+    opacity: 0.1;
+}
+
 .arena_field {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     border: 1px solid var(--foreground-light);
     margin: 0.2rem;
 }

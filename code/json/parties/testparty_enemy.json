@@ -3,16 +3,28 @@
     "members": 
     [
         {
-            "characterName": "Roundhog",
-            "filePath": "../json/enemies/char_enemy_roundhog.json"
+            "name": "Roundhog1",
+            "HP": 15,
+            "AP": 5,
+            "ATK": 2,
+            "DEF": 13,
+            "DMG": 1
         },
         {
-            "characterName": "Roundhog",
-            "filePath": "../json/enemies/char_enemy_roundhog.json"
+            "name": "Roundhog2",
+            "HP": 15,
+            "AP": 5,
+            "ATK": 2,
+            "DEF": 13,
+            "DMG": 1
         },
         {
-            "characterName": "Serpent Crab",
-            "filePath": "../json/enemies/char_enemy_serpentcrab.json"
+            "name": "SerpentCrab",
+            "HP": 25,
+            "AP": 10,
+            "ATK": 2,
+            "DEF": 15,
+            "DMG": 3
         }
     ]
 }

@@ -1,4 +1,5 @@
 class EncounterUIManager {
+    
     updateHPDisplay(character) {
         let element = document.getElementById("display_ap_" + character.name);
         element.innerHTML = "HP: " + character.HP;
@@ -36,13 +37,12 @@ class EncounterUIManager {
         newDamageDisplay.appendChild(newDamageDisplayText);
 
         let newLine2 = document.createElement('hr');
-        let newTargetSelectButton = document.createElement('button');
-        let newTargetSelectButtonText = document.createTextNode('Select This Target');
-        newTargetSelectButton.appendChild(newTargetSelectButtonText);
-        newTargetSelectButton.addEventListener("click", function() {
-            currentTarget = character;
-            console.log("Target: " + character.name);
-        })
+        // let newTargetSelectButton = document.createElement('button');
+        // let newTargetSelectButtonText = document.createTextNode('Select This Target');
+        // newTargetSelectButton.appendChild(newTargetSelectButtonText);
+        // newTargetSelectButton.addEventListener("click", function() {
+        //     currentTarget = character;
+        // })
 
         let newDiv = document.createElement('div');
         newDiv.appendChild(newName);
@@ -53,7 +53,7 @@ class EncounterUIManager {
         newDiv.appendChild(newDefenseDisplay);
         newDiv.appendChild(newDamageDisplay);
         newDiv.appendChild(newLine2);
-        newDiv.appendChild(newTargetSelectButton);
+        // newDiv.appendChild(newTargetSelectButton);
         newDiv.className = "characteravatar_display";
         newDiv.id = ("characteravatar_" + character.name);
 
@@ -62,13 +62,13 @@ class EncounterUIManager {
     }
 
     createPartyDisplays() {
-        for(let i = 0; i < playerParty.members.length; i++)
+        for(let i = 0; i < playerTeam.length; i++)
         {
-            this.createCharacterDisplay(playerParty.members[i], leftSide);
+            this.createCharacterDisplay(playerTeam[i], leftSide);
         }
-        for(let i = 0; i < enemyParty.members.length; i++)
+        for(let i = 0; i < enemyTeam.length; i++)
         {
-            this.createCharacterDisplay(enemyParty.members[i], rightSide);
+            this.createCharacterDisplay(enemyTeam[i], rightSide);
         }
     }
 
@@ -96,12 +96,29 @@ class EncounterUIManager {
         characterDiv.className = "characteravatar_display dead";
     }
 
+    refreshDisplays() {
+        for(let i = 0; i < playerTeam.length; i++)
+        {
+            this.setRegularDisplay(playerTeam[i]);
+        }
+        for(let i = 0; i < enemyTeam.length; i++)
+        {
+            this.setRegularDisplay(enemyTeam[i]);
+        }
+        this.setActiveDisplay(activeCharacter);
+        if(currentTarget != null)
+        {
+            this.setTargetedDisplay(currentTarget);
+        }
+    }
+
 
 }
 
 class CombatCalculator {
     constructor(dice) {
-        this.dice = new Diceroller();
+        this.dice = new Diceroller;
+        this.ui = new EncounterUIManager;
     }
 
     rollInitiative(character) {
@@ -110,12 +127,20 @@ class CombatCalculator {
     }
 
     attackTarget(attacker, target) {
-        let attackRoll = this.rollAttack(attacker, target);
-        if(attackRoll == true) 
+        if(target != null)
         {
-            let damageRoll = this.rollDamage(attacker);
-            this.dealDamage(target, damageRoll);
+            let attackRoll = this.rollAttack(attacker, target);
+            if(attackRoll == true) 
+            {
+                let damageRoll = this.rollDamage(attacker);
+                this.dealDamage(target, damageRoll);
+            }
         }
+        else
+        {
+            console.warn("Cannot attack: No target selected!");
+        }
+        
     }
 
     rollAttack(attacker, target) {
@@ -151,11 +176,12 @@ class CombatCalculator {
         if(target.HP <= 0)
         {
             target.isDead = true;
+            this.ui.setDeadDisplay(target);
         }
     }
 
     rollInitiative(turnOrder) {
-        for(let i = 0; i < playerParty.members.length; i++)
+        for(let i = 0; i < playerTeam.length; i++)
         {
             
         }
@@ -167,7 +193,14 @@ class TargetManager {
         this.ui = new EncounterUIManager;
     }
 
-    selectTarget(characterAvatar) {
+    clearTarget() {
+        currentTarget = null;
+    }
 
+    selectTarget(characterAvatar) {
+        this.clearTarget();
+        console.log("Target: " + characterAvatar.name);
+        currentTarget = characterAvatar;
+        this.ui.refreshDisplays();
     }
 }
