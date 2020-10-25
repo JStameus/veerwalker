@@ -148,7 +148,9 @@ function loadPlayerPartyData() {
 function createCharacterAvatars() {
     for(let i = 0; i < playerPartyData.members.length; i++)
     {
-        //make avatars
+        let char = playerPartyData.members[i];
+        playerTeam[i] = new CharacterAvatar(char.name, char.HP, char.AP, char.ATK, char.DEF, char.DMG, false);
+        console.log("Create avatar for: " + char.name);
     }
 }
 
@@ -156,8 +158,18 @@ let fileManager = new FileManager();
 let dice = new Diceroller();
 let calc = new CombatCalculator();
 
-let playerTeam = [];
-let enemyTeam = [];
+let player01 = null;
+let player02 = null;
+let player03 = null;
+let player04 = null;
+
+let enemy01 = null;
+let enemy02 = null;
+let enemy03 = null;
+let enemy04 = null;
+
+let playerTeam = [player01, player02, player03, player04];
+let enemyTeam = [enemy01, enemy02, enemy03, enemy04];
 let turnOrder = [];
 
 function assignTurnOrder() {
