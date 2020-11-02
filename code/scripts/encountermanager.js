@@ -1,130 +1,3 @@
-// var playerPartyURL = '/code/json/parties/testparty_player.json';
-// var playerParty = null;
-// var enemyPartyURL = '/code/json/parties/testparty_enemy.json';
-// var enemyParty = null;
-
-// function loadPlayerParty(fileURL) {
-//     fetch(fileURL).then(response => response.json()).then(json => {playerParty = json});
-// }
-
-// function loadEnemyParty(fileURL) {
-//     fetch(fileURL).then(response => response.json()).then(json => {enemyParty = json});
-// }
-
-// document.onload = loadPlayerParty(playerPartyURL);
-// document.onload = loadEnemyParty(enemyPartyURL);
-
-// let leftSide = document.getElementById("arena_leftside");
-// let rightSide = document.getElementById("arena_rightside");
-
-// let calc = new CombatCalculator();
-// let ui = new EncounterUIManager();
-// let ai = new AIManager();
-
-// let turnOrder = [];
-// let currentTurnIndex = 0;
-// let currentAttacker = null;
-// let currentTarget = null;
-
-// function displayTurnOrder() {
-//     console.log("Turn order: ");
-//     for(let i = 0; i < turnOrder.length; i++)
-//     {
-//         let n = i + 1;
-//         console.log(n + ": " + turnOrder[i].name);
-//     }
-// }
-
-// function selectTarget(target) {
-//     ui.setTargetedDisplay(target);
-// }
-
-// function assignTurnOrder() {
-//     turnOrder.length = 0;
-//     for(let i = 0; i < playerParty.members.length; i++)
-//     {
-//         turnOrder.push(playerParty.members[i]);  
-//     }
-//     for(let i = 0; i < enemyParty.members.length; i++)
-//     {
-//         turnOrder.push(enemyParty.members[i]);
-//     }
-//     currentTurnIndex = 0;
-//     currentAttacker = turnOrder[currentTurnIndex];
-//     displayTurnOrder();
-//     console.log(turnOrder[currentTurnIndex].name + "'s turn!");
-// }
-
-// function controlEnemyNPC() {
-//     let targetlist = ai.getTargetList(playerParty);
-//     let selectionIndex = Math.floor(Math.random() * targetlist.length);
-//     currentTarget = targetlist[selectionIndex];
-//     console.log(currentAttacker.name + "'s target: " + currentTarget.name);
-//     calc.attackTarget(currentAttacker, currentTarget);
-//     endTurn();
-// }
-
-// function endTurn() {
-//     ui.setRegularDisplay(currentAttacker);
-//     cleanupTurnOrder();
-
-//     //clears the target and goes to the next character's turn
-//     currentTarget = null;
-//     currentTurnIndex++;
-//     currentAttacker = turnOrder[currentTurnIndex];
-
-//     //goes back to the start of the turn order
-//     if(currentTurnIndex >= turnOrder.length)
-//     {
-//         currentTurnIndex = 0;
-//         currentAttacker = turnOrder[currentTurnIndex];
-//         console.log("Looped back around!");
-//     }
-
-//     console.log(turnOrder[currentTurnIndex].name + "'s turn!");
-
-//     //if the current character is an NPC, do AI stuff
-//     if(currentAttacker.isNPC == true)
-//     {
-//         controlEnemyNPC();
-//     }
-//     ui.setActiveDisplay(currentAttacker);
-// }
-
-// //checks for dead characters in the turn order and removes them from play
-// function cleanupTurnOrder() {
-//     for(let i = 0; i < turnOrder.length; i++)
-//     {
-//         if(turnOrder[i].isDead == true)
-//         {
-//             console.log(turnOrder[i].name + " is dead! Removing..."); 
-//             ui.setDeadDisplay(turnOrder[i]);
-//             turnOrder.splice(i, 1);
-//             displayTurnOrder();
-//         }
-//     }
-// }
-
-// function loadEncounter() {
-//     ui.createPartyDisplays();
-//     assignTurnOrder();
-//     ui.setActiveDisplay(currentAttacker);
-// }
-
-
-// //buttons 
-// const attackButton = document.getElementById("button_attack");
-// attackButton.addEventListener("click", function() {
-//     calc.attackTarget(currentAttacker, currentTarget)
-//     endTurn();
-// })
-
-// const resetEncounterButton = document.getElementById("button_reset");
-// resetEncounterButton.addEventListener("click", function() {
-//     ui.clearAllCharacterDisplays();
-//     loadEncounter();
-// })
-
 //sets variables for encounter file, enemy and player parties and loads them
 let encounterURL = "../json/encounters/encounter_test.json";
 var encounterData = null;
@@ -156,6 +29,7 @@ let dice = new Diceroller();
 let combatCalc = new CombatCalculator();
 let uiManager = new EncounterUIManager();
 let targetManager = new TargetManager();
+let aiManager = new AIManager();
 
 //arrays for keeping track of characters in the scene
 let playerTeam = [];
@@ -176,15 +50,14 @@ function createCharacterAvatars() {
     for(let i = 0; i < playerPartyData.members.length; i++)
     {
         let data = playerPartyData.members[i];
-        let newChar = new CharacterAvatar(data.name, data.HP, data.AP, data.ATK, data.DEF, data.DMG, false);
-        console.log("Created Avatar for: " + data.name);
+        let newChar = new CharacterAvatar(data.name, data.HP, data.AP, data.ATK, data.DEF, data.DMG, false, null);
         playerTeam.push(newChar);
     }
     for(let i = 0; i < enemyPartyData.members.length; i++)
     {
         let data = enemyPartyData.members[i];
         let newEnemy = new CharacterAvatar(data.name, data.HP, data.AP, data.ATK, data.DEF, data.DMG, false);
-        console.log("Created Avatar for: " + data.name);
+        newEnemy.isNPC = true;
         enemyTeam.push(newEnemy);
     }
 }
@@ -200,13 +73,12 @@ function assignTurnOrder() {
     {
         turnOrder.push(enemyTeam[i]);
     }
-    console.log("Turn Order:");
-    for(let i = 0; i < turnOrder.length; i++)
-    {
-        console.log((i + 1) + ": " + turnOrder[i].name);
-    }
+    console.log('%c Characters & Turn Order is set up!', 'color: green; font-weight: bold;');
+    console.table(turnOrder);
+    
 }
 
+//removes dead characters from turn order
 function cleanupDeadTargets() {
     for(let i = 0; i < turnOrder.length; i++)
     {
@@ -216,10 +88,10 @@ function cleanupDeadTargets() {
 }
 
 //refreshes everything, checks game status and sets next active character
-//called every time someone attacks(finishes their turn)
+//called every time someone finishes their turn(after spending their action/making their move)
 function nextTurn() {
     turnIndex++;
-    if(turnIndex > turnOrder.length)
+    if(turnIndex > (turnOrder.length -1))
     {
         turnIndex = 0;
         console.log("Looped back around!");
@@ -229,7 +101,23 @@ function nextTurn() {
     activeCharacter = turnOrder[turnIndex];
     uiManager.refreshDisplays();
     console.log(turnOrder[turnIndex].name + "'s turn!");
+    if(activeCharacter.isNPC == true)
+    {
+        controlNPCTurn();
+    }
+}
 
+function controlNPCTurn() {
+    targets = aiManager.getTargetList(playerTeam);
+    setTimeout(() => {
+        targetManager.selectRandomTarget(targets);
+    }, 1000);
+    setTimeout(() => {
+        combatCalc.attackTarget(activeCharacter, currentTarget);
+    }, 2500);
+    setTimeout(() => {
+        nextTurn();
+    }, 3000);
 }
 
 //calls all functions needed to setup an encounter
@@ -246,7 +134,7 @@ function initializeEncounter() {
         assignTurnOrder();
     }, 300);
     setTimeout(() => {
-        console.log("Starting Encounter!");
+        console.log("Starting Encounter...");
         console.log(turnOrder[turnIndex].name + "'s turn!");
         activeCharacter = turnOrder[turnIndex];
         uiManager.setActiveDisplay(activeCharacter);
@@ -256,7 +144,7 @@ function initializeEncounter() {
 const attackButton = document.getElementById('button_attack');
 attackButton.addEventListener("click", function() {
     combatCalc.attackTarget(activeCharacter, currentTarget);
-})
+});
 
 const resetButton = document.getElementById('button_reset');
 resetButton.addEventListener("click", function() {
@@ -265,4 +153,4 @@ resetButton.addEventListener("click", function() {
     turnOrder = [];
     uiManager.clearAllCharacterDisplays();
     initializeEncounter();
-})
+});

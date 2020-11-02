@@ -97,19 +97,37 @@ class EncounterUIManager {
     }
 
     refreshDisplays() {
+        //creates a list of all characters on the board
+        let characterList = [];
         for(let i = 0; i < playerTeam.length; i++)
         {
-            this.setRegularDisplay(playerTeam[i]);
+            characterList.push(playerTeam[i]);
         }
         for(let i = 0; i < enemyTeam.length; i++)
         {
-            this.setRegularDisplay(enemyTeam[i]);
+            characterList.push(enemyTeam[i]);
         }
+
+        //goes through all characters and assigns regular or dead display
+        for(let i = 0; i < characterList.length; i++)
+        {
+            if(characterList[i].isDead == false)
+            {
+                this.setRegularDisplay(characterList[i]);
+            }
+            else if(characterList[i].isDead == true)
+            {
+                this.setDeadDisplay(characterList[i]);
+            }
+        }
+
+        //sets displays for active character and target
         this.setActiveDisplay(activeCharacter);
         if(currentTarget != null)
         {
             this.setTargetedDisplay(currentTarget);
         }
+        // console.log('%c REFRESHING DIV DISPLAYS', 'color: orange; font-weight: bold;');
     }
 
 
@@ -195,6 +213,7 @@ class TargetManager {
 
     clearTarget() {
         currentTarget = null;
+        this.ui.refreshDisplays();
     }
 
     selectTarget(characterAvatar) {
@@ -202,5 +221,10 @@ class TargetManager {
         console.log("Target: " + characterAvatar.name);
         currentTarget = characterAvatar;
         this.ui.refreshDisplays();
+    }
+
+    selectRandomTarget(targetList) {
+        let index = Math.floor(Math.random() * targetList.length);
+        this.selectTarget(targetList[index]);
     }
 }

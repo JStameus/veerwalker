@@ -1,12 +1,12 @@
 class AIManager {
-    getTargetList(party) {
+    getTargetList(targetTeam) {
         let targetList = [];
-        for(let i = 0; i < party.members.length; i++)
+        for(let i = 0; i < targetTeam.length; i++)
         {
-            if(party.members[i].isDead == false)
+            if(targetTeam[i].isDead == false)
             {
-                targetList.push(party.members[i]);
-                console.log("Added " + party.members.name + " to target list.");
+                targetList.push(targetTeam[i]);
+                console.log("Added " + targetTeam[i].name + " to target list.");
             }
         }
         return targetList;
