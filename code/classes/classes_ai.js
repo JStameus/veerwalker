@@ -6,7 +6,6 @@ class AIManager {
             if(targetTeam[i].isDead == false)
             {
                 targetList.push(targetTeam[i]);
-                console.log("Added " + targetTeam[i].name + " to target list.");
             }
         }
         return targetList;

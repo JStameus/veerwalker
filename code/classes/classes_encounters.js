@@ -224,6 +224,7 @@ class TargetManager {
     }
 
     selectRandomTarget(targetList) {
+        //[TO DO]can currently select dead targets, it's kinda janky
         let index = Math.floor(Math.random() * targetList.length);
         this.selectTarget(targetList[index]);
     }

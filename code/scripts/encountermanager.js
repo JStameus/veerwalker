@@ -64,7 +64,7 @@ function createCharacterAvatars() {
 
 //rolls initiative and populates the turnOrder array
 function assignTurnOrder() {
-    //make sure to implement initiative rolls later!
+    //[TO DO]make sure to implement initiative rolls later!
     for(let i = 0; i < playerTeam.length; i++)
     {
         turnOrder.push(playerTeam[i]);
@@ -73,7 +73,7 @@ function assignTurnOrder() {
     {
         turnOrder.push(enemyTeam[i]);
     }
-    console.log('%c Characters & Turn Order is set up!', 'color: green; font-weight: bold;');
+    console.log('%cCharacters & Turn Order is set up!', 'color: green; font-weight: bold;');
     console.table(turnOrder);
     
 }
@@ -87,26 +87,64 @@ function cleanupDeadTargets() {
     }
 }
 
+//checks if either team has won, and returns a boolean value
+function checkGameOver() {
+    //[TO DO]clean this up, implementation is wonky right now
+    let alivePlayerCharacters = [];
+    for(let i = 0; i < playerTeam.length; i++)
+    {
+        if(playerTeam[i].isDead == false)
+        {
+            alivePlayerCharacters.push(playerTeam[i]);
+        }
+    }
+    if(alivePlayerCharacters.length <= 0)
+    {
+        return true;
+    }
+    let aliveEnemyCharacters = [];
+    for(let i = 0; i < enemyTeam.length; i++)
+    {
+        if(enemyTeam[i].isDead == false)
+        {
+            aliveEnemyCharacters.push(enemyTeam[i]);
+        }
+    }
+    if(aliveEnemyCharacters.length <= 0)
+    {
+        return true;
+    }
+    return false;
+}
+
 //refreshes everything, checks game status and sets next active character
 //called every time someone finishes their turn(after spending their action/making their move)
 function nextTurn() {
-    turnIndex++;
-    if(turnIndex > (turnOrder.length -1))
+    if(checkGameOver() == false)
     {
-        turnIndex = 0;
-        console.log("Looped back around!");
+        cleanupDeadTargets();
+        turnIndex++;
+        if(turnIndex > (turnOrder.length -1))
+        {
+            turnIndex = 0;
+            console.log("Looped back around!");
+        }
+        targetManager.clearTarget();
+        activeCharacter = turnOrder[turnIndex];
+        uiManager.refreshDisplays();
+        console.log(turnOrder[turnIndex].name + "'s turn!");
+        if(activeCharacter.isNPC == true)
+        {
+            controlNPCTurn();
+        }
     }
-    cleanupDeadTargets();
-    targetManager.clearTarget();
-    activeCharacter = turnOrder[turnIndex];
-    uiManager.refreshDisplays();
-    console.log(turnOrder[turnIndex].name + "'s turn!");
-    if(activeCharacter.isNPC == true)
+    else if(checkGameOver() == true)
     {
-        controlNPCTurn();
+        endEncounter();
     }
 }
 
+//goes through an enemy's actions when it's their turn
 function controlNPCTurn() {
     targets = aiManager.getTargetList(playerTeam);
     setTimeout(() => {
@@ -139,6 +177,20 @@ function initializeEncounter() {
         activeCharacter = turnOrder[turnIndex];
         uiManager.setActiveDisplay(activeCharacter);
     }, 400);
+}
+
+//resets turn order and sets active character and target to null
+function cancelTurnOrder() {
+    turnIndex = 0;
+    activeCharacter = null;
+    currentTarget = null;
+    console.log("Canceling turn order...");
+}
+
+//cancels everything and displays a game over message
+function endEncounter() {
+    console.log("Game Over");
+    cancelTurnOrder();
 }
 
 const attackButton = document.getElementById('button_attack');
