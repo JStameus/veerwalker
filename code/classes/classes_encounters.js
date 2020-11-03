@@ -127,7 +127,24 @@ class EncounterUIManager {
         {
             this.setTargetedDisplay(currentTarget);
         }
-        // console.log('%c REFRESHING DIV DISPLAYS', 'color: orange; font-weight: bold;');
+    }
+
+    //displays a message on the combat log
+    logCombatMessage(message) {
+        let combatLog = document.getElementById('combatlog')
+        let newMessage = document.createElement('p');
+        let newMessageText = document.createTextNode(message);
+        newMessage.className = "combatlog_message";
+
+        // let previousMessages = combatLog.getElementsByTagName('p');
+        // if(previousMessages.length >= 5)
+        // {
+        //     previousMessages.splice(0, 1);
+        // }
+
+        newMessage.appendChild(newMessageText);
+        combatLog.appendChild(newMessage);
+        combatLog.scrollTop = combatLog.scrollHeight;
     }
 
 
@@ -170,11 +187,13 @@ class CombatCalculator {
         if(attackTotal >= target.DEF)
         {
             console.log("Hit!");
+            this.ui.logCombatMessage(`${attacker.name}'s Attack Roll: ${attackTotal}. Hit!`);
             return true;
         }
         else 
         {
             console.log("Miss!");
+            this.ui.logCombatMessage(`${attacker.name}'s Attack Roll: ${attackTotal}. Miss!`);
             return false;    
         }
     }
@@ -188,11 +207,13 @@ class CombatCalculator {
 
     dealDamage(target, damage) {
         target.HP -= damage;
-        console.log(`${target.name} takes ${damage} damage!`);
+        console.log(`${target.name} takes ${damage} damage.`);
+        this.ui.logCombatMessage(`${target.name} takes ${damage} damage.`)
         let healthDisplay = document.getElementById("display_hp_" + target.name);
         healthDisplay.innerHTML = "HP: " + target.HP;
         if(target.HP <= 0)
         {
+            this.ui.logCombatMessage(target.name + " is dead!");
             target.isDead = true;
             this.ui.setDeadDisplay(target);
         }
@@ -218,7 +239,6 @@ class TargetManager {
 
     selectTarget(characterAvatar) {
         this.clearTarget();
-        console.log("Target: " + characterAvatar.name);
         currentTarget = characterAvatar;
         this.ui.refreshDisplays();
     }

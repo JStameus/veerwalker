@@ -82,6 +82,20 @@ input {
     flex: 1;
 }
 
+#combatlog {
+    overflow-y: scroll;
+    border: 2px solid var(--foreground-light);
+    background-color: var(--overlay-mid);
+    width: 35rem;
+    height: 15rem;
+}
+
+.combatlog_message {
+    background-color: var(--overlay-dark);
+    border: 2px dotted var(--foreground-dark);
+    margin-top: 0.3rem;
+}
+
 .teamlabel {
     position: relative;
     left: 40%;

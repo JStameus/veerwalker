@@ -40,6 +40,7 @@ let turnOrder = [];
 let turnIndex = 0;
 let activeCharacter = null;
 let currentTarget = null;
+let clickTargetingEnabled = false;
 
 //visual elements representing the "board"
 let leftSide = document.getElementById("arena_leftside");
@@ -59,6 +60,22 @@ function createCharacterAvatars() {
         let newEnemy = new CharacterAvatar(data.name, data.HP, data.AP, data.ATK, data.DEF, data.DMG, false);
         newEnemy.isNPC = true;
         enemyTeam.push(newEnemy);
+    }
+}
+
+//creates event listeners for enemy divs so they can be selected by clicking 
+function createTargetSelectors() {
+    let enemyTeamField = document.getElementById('arena_rightside');
+    let enemyDivs = enemyTeamField.getElementsByTagName('div');
+    for(let i = 0; i < enemyDivs.length; i++)
+    {
+        console.log(enemyDivs[i].id);
+        enemyDivs[i].addEventListener("click", function() {
+            if(clickTargetingEnabled)
+            {
+                targetManager.selectTarget(enemyTeam[i]);
+            }
+        })
     }
 }
 
@@ -132,10 +149,15 @@ function nextTurn() {
         targetManager.clearTarget();
         activeCharacter = turnOrder[turnIndex];
         uiManager.refreshDisplays();
-        console.log(turnOrder[turnIndex].name + "'s turn!");
+        // console.log(turnOrder[turnIndex].name + "'s turn!");
         if(activeCharacter.isNPC == true)
         {
             controlNPCTurn();
+            disableTargetSelection();
+        }
+        else if(activeCharacter.isNPC == false)
+        {
+            enableTargetSelection();
         }
     }
     else if(checkGameOver() == true)
@@ -158,6 +180,16 @@ function controlNPCTurn() {
     }, 3000);
 }
 
+//[TO DO] should this be somewhere else?
+//makes the div elements on the enemy team clickable for target selection
+function enableTargetSelection() {
+    clickTargetingEnabled = true;
+}
+
+function disableTargetSelection() {
+    clickTargetingEnabled = false;
+}
+
 //calls all functions needed to setup an encounter
 function initializeEncounter() {
     loadAllData();
@@ -172,10 +204,15 @@ function initializeEncounter() {
         assignTurnOrder();
     }, 300);
     setTimeout(() => {
+        createTargetSelectors();
         console.log("Starting Encounter...");
         console.log(turnOrder[turnIndex].name + "'s turn!");
         activeCharacter = turnOrder[turnIndex];
         uiManager.setActiveDisplay(activeCharacter);
+        if(activeCharacter.isNPC == false)
+        {
+            enableTargetSelection();
+        }
     }, 400);
 }
 
@@ -196,7 +233,14 @@ function endEncounter() {
 const attackButton = document.getElementById('button_attack');
 attackButton.addEventListener("click", function() {
     combatCalc.attackTarget(activeCharacter, currentTarget);
+    //[TO DO] check if current character has actions remaining, when that is implemented
+    nextTurn();
 });
+
+const skipButton = document.getElementById('button_skip');
+skipButton.addEventListener("click", function() {
+    nextTurn();
+})
 
 const resetButton = document.getElementById('button_reset');
 resetButton.addEventListener("click", function() {
