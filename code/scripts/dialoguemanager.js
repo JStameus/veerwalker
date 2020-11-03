@@ -106,6 +106,7 @@ function displayDialogueParagraphs() {
         newParagraph.appendChild(newParagraphText);
         newDiv.appendChild(newParagraph);
         dialogueWindow.appendChild(newDiv);
+        dialogueWindow.scrollTop = dialogueWindow.scrollHeight;
     }
 }
 
