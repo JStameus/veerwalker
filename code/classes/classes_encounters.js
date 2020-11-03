@@ -135,13 +135,7 @@ class EncounterUIManager {
         let newMessage = document.createElement('p');
         let newMessageText = document.createTextNode(message);
         newMessage.className = "combatlog_message";
-
-        // let previousMessages = combatLog.getElementsByTagName('p');
-        // if(previousMessages.length >= 5)
-        // {
-        //     previousMessages.splice(0, 1);
-        // }
-
+        
         newMessage.appendChild(newMessageText);
         combatLog.appendChild(newMessage);
         combatLog.scrollTop = combatLog.scrollHeight;
