@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Unica+One&display=swap');
+
+:root {
+    --background-dark: rgb(46, 45, 43);
+    --background-mid: rgb(57, 65, 61);
+    --background-light: rgb(80, 94, 97);
+    --foreground-dark: rgb(122, 122, 122);
+    --foreground-light: rgb(226, 203, 177);
+    --overlay-dark: rgba(0, 0, 0, 0.25);
+    --overlay-mid: rgb(0, 0, 0, 0.1);
+    --overlay-light:  rgba(241, 232, 215, 0.11);
+    --highlight-blue: rgb(158, 192, 212);
+    --highlight-orange: rgb(223, 165, 126);
+    --highlight-silver: rgb(183, 203, 206);
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background-color: black;
+}
+
+h1, h2 {
+    color: var(--foreground-light);
+    font-family: 'Unica One';
+    font-size: 2rem;
+}
+
+h3, p {
+    color: var(--foreground-light);
+    font-family: 'Raleway';
+}
+
+label {
+    font-family: 'Raleway';
+    color: var(--foreground-light);
+}
+
+input {
+    background-color: var(--overlay-mid);
+    color: var(--foreground-light);
+}
+
+.borderglow_default {
+    box-shadow: 0 0 34px 8px rgb(205, 118, 92);
+}
+
+#gamewindow {
+    border: 2px solid var(--foreground-light);
+    margin: 1.4rem;
+    background-color: var(--background-light);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#playarea {
+    margin: 0.5rem;
+    border: 2px solid black;
+    background-color: var(--overlay-dark);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 98%;
+    height: 65%;
+}
+
+#arena_leftside, #arena_rightside {
+    flex: 6;
+}
+
+#arena_center {
+    flex: 1;
+}
+
+#combatlog {
+    overflow-y: scroll;
+    border: 2px solid var(--foreground-light);
+    background-color: var(--overlay-mid);
+    width: 35rem;
+    height: 15rem;
+}
+
+.combatlog_message {
+    background-color: var(--overlay-dark);
+    border: 2px dotted var(--foreground-dark);
+    margin-top: 0.3rem;
+}
+
+.teamlabel {
+    position: relative;
+    left: 40%;
+    top: 40%;
+    opacity: 0.1;
+}
+
+.arena_field {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid var(--foreground-light);
+    margin: 0.2rem;
+}
+
+.characteravatar_display {
+    height: 8rem;
+    width: 6rem;
+    margin: 0.5rem;
+    padding: 1rem;
+    background-color: var(--overlay-dark);
+    border: 2px solid var(--foreground-light);
+    border-radius: 4px;
+}
+
+.dead {
+    opacity: 0.5;
+    border: 2px dashed indianred;
+}
+
+.active {
+    border: 2px dotted var(--foreground-light);
+    box-shadow: 0 0 12px 2px goldenrod;
+}
+
+.targeted {
+    border: 2px dotted orangered;
+    box-shadow: 0 0 12px 2px indianred;
+}

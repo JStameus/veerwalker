@@ -2,7 +2,7 @@
 var playerName = 'Joseph';
 
 //Which dialogue tree and node is currently active
-var dialogueTreeURL = '/code/json/dialogue/testfile.json';
+var dialogueTreeURL = '/code/json/dialogue/dialogue_demo_escapepod.json';
 var dialogueTree = null;
 var currentDialogueNode =  null;
 var checkPointNode = 0;

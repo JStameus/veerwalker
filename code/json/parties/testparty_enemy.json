@@ -1,0 +1,30 @@
+{
+    "partyName": "Coastal Critters",
+    "members": 
+    [
+        {
+            "name": "Roundhog1",
+            "HP": 15,
+            "AP": 5,
+            "ATK": 2,
+            "DEF": 13,
+            "DMG": 1
+        },
+        {
+            "name": "Roundhog2",
+            "HP": 15,
+            "AP": 5,
+            "ATK": 2,
+            "DEF": 13,
+            "DMG": 1
+        },
+        {
+            "name": "SerpentCrab",
+            "HP": 25,
+            "AP": 10,
+            "ATK": 2,
+            "DEF": 15,
+            "DMG": 3
+        }
+    ]
+}

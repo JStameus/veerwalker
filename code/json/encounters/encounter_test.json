@@ -1,0 +1,6 @@
+{
+    "location": "Suthev Coast",
+    "music": null,
+    "background": null,
+    "enemyParty": "../json/parties/testparty_enemy.json"
+}
