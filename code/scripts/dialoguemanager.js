@@ -19,6 +19,8 @@ function loadDialogueNode(nodeIndex) {
     {
         
         currentDialogueNode = dialogueTree.nodes[nodeIndex];
+        //[TO DO] execute story rules here before loading the rest of the node
+        //if currentDialogueNode is a triggerNode, do the thing 
         let locationText = document.getElementById('dialogue_locationlabel');
         locationText.innerHTML = dialogueTree.nodes[nodeIndex].location;
         currentNodeDisplay.innerText = ("Current Node: " + nodeIndex + ", ID: " + dialogueTree.nodes[nodeIndex].nodeID);
@@ -576,6 +578,7 @@ function createNewDialogueNode(location, description) {
 
 //opens a window with the new JSON string of the edited file, so it can be saved
 function saveDialogueTree() {
+    //[TO DO] remove triggerNode property before doing this!
     newDialogueTree = JSON.stringify(dialogueTree);
     var newWindow = window.open();
     newWindow.document.title = dialogueTreeURL;
