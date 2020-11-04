@@ -1,6 +1,6 @@
 //this is temporary, should be stored somewhere else later
-var playerName = 'Joseph';
-
+let playerName = 'Joseph';
+let money = 22;
 //Which dialogue tree and node is currently active
 var dialogueTreeURL = '/code/json/dialogue/dialogue_demo_escapepod.json';
 var dialogueTree = null;
@@ -19,10 +19,9 @@ function loadDialogueNode(nodeIndex) {
     {
         
         currentDialogueNode = dialogueTree.nodes[nodeIndex];
-        //[TO DO] execute story rules here before loading the rest of the node
-        //if currentDialogueNode is a triggerNode, do the thing 
+        executeStoryRules(escapePodRules);
         let locationText = document.getElementById('dialogue_locationlabel');
-        locationText.innerHTML = dialogueTree.nodes[nodeIndex].location;
+        locationText.innerText = dialogueTree.nodes[nodeIndex].location;
         currentNodeDisplay.innerText = ("Current Node: " + nodeIndex + ", ID: " + dialogueTree.nodes[nodeIndex].nodeID);
         displayDialogueParagraphs();
         displayResponseButtons();
@@ -40,7 +39,13 @@ function loadDialogueNode(nodeIndex) {
 //clears the dialogue window and reloads it
 function refreshDialogueNode() {
     clearAllDialogueElements();
-    loadDialogueNode(currentDialogueNode.nodeIndex);
+    displayDialogueParagraphs();
+    displayResponseButtons();
+    let locationText = document.getElementById('dialogue_locationlabel');
+    locationText.innerText = currentDialogueNode.location;
+    currentNodeDisplay.innerText = ("Current Node: " + currentDialogueNode.nodeIndex + ", ID: " + currentDialogueNode.nodeID);
+    //[TO DO] Decouple the loadDialogueNode function from this function, add the necessary commands individually
+    // loadDialogueNode(currentDialogueNode.nodeIndex);
 }
 
 //adds the player's chosen response to the message log
@@ -427,23 +432,27 @@ function fixNodeIndexValues() {
 
 //adds a new dialogue paragraph to the current node
 function createDialogueParagraph(narrationBool, speakerName, textContent) {
-    var newParagraph = {
+    let newParagraph = {
         narration: narrationBool,
         speaker: speakerName,
         text: textContent
     }
     currentDialogueNode.paragraphs.push(newParagraph);
-    refreshDialogueNode();
+    if(toolVisibility == true) {
+        refreshDialogueNode();
+    }
 }
 
 //adds a new response to the current node
 function createDialogueResponse(textContent, nextNodeIndex) {
-    var newResponse = {
+    let newResponse = {
         text: textContent,
         nextNode: nextNodeIndex
     }
     currentDialogueNode.responses.push(newResponse);
-    refreshDialogueNode();
+    if(toolVisibility == true) {
+        refreshDialogueNode();
+    }
 }
 
 var devToolNarrationToggle = false;

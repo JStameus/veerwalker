@@ -1,109 +1,89 @@
 //STORY MANAGER REQUIRES dialoguemanager.js TO RUN! 
 
-//checks a condition which evaluates to true or false
-function StoryFact(name, condition, description) {
+//checked when a dialoguenode loads, and does something depending on the value of a "fact" variable
+//rules describe the behaviour of people and events in the story
+function StoryRule(name, description, targetNode, operation) {
+    //the name of the rule, for quick identification
     this.name = name;
-    this.condition = condition;
+    //a short description of what the rule does
     this.description = description;
-}
-
-//checks a fact, and performs an anonymous function when player enters the triggerNode
-function StoryRule(name, fact, operation, triggerNode, description) {
-    this.name = name;
-    this.fact = fact;
+    //which node triggers the rule
+    this.targetNode = targetNode;
+    //an anonymous function that the rule calls when triggered
     this.operation = operation;
-    this.triggerNode = triggerNode;
-    this.description = description;
 }
 
-//searches for the specified fact in an array and returns it
-function searchFactByName(storyObject, factName) {
-    factList = storyObject.facts;
-    if(factList != null)
+//checks if the current node has any rules associated with it, and executes them
+function executeStoryRules(ruleSet) {
+    for(let i = 0; i < ruleSet.length; i++)
     {
-        for(let i = 0; i < factList.length; i++) 
+        if(currentDialogueNode.nodeIndex == ruleSet[i].targetNode)
         {
-            if(factList[i].name === factName) {
-                return factList[i];
-            }
-            else {
-                console.warn(`searchFactByName failed: cannot find '${factName}'`);
-                return null;
-            }
+            console.log("Found a target node, calling rule function...");
+            ruleSet[i].operation();
+            break;
         }
     }
 }
 
-//searches for the specified rule in an array and returns it
-function searchRuleByName(storyObject, ruleName) {
-    ruleList = storyObject.rules;
-    if(ruleList != null)
+//displays a list of all nodes that are being targeted by storyrules
+function getTriggerNodeList(ruleSet) {
+    for(let i = 0; i < ruleSet.length; i++)
     {
-        for(let i = 0; i < ruleList.length; i++)
-        {
-            if(ruleList[i].name == ruleName) {
-                return ruleList[i];
-            } 
-            else {
-                console.warn(`searchRuleByName failed: cannot find '${ruleName}'`);
-                return null;
-            }
-        }
+        console.log("EEEE");
     }
 }
 
-//calls the function of the specified story rule
-function executeStoryRule(storyObject, rule) {
-    if(storyObject != null) {
-        if(rule != null) {
-            rule.operation();
-            console.log("Executed operation successfully!");
-        }
-        else {
-            console.error(`Cannot execute '${rule.name}': Rule not found in ${storyObject}!`);
-        }
-    }
-    else {
-        console.error(`Cannot execute '${rule.name}': ${storyObject} not found!`);
-    }
-}
+//STORY FACTS
+let barrelPumpIsActive = true;
+let playerHasPowerCoupling = false;
+let boatRideCost = 25;
+let testManSummoned = false;
 
-var storyObjectGlobal = {
-    sceneName: "All Scenes",
-}
-
-var storyObjectEscapePod = {
-    sceneName: "dialogue_demo_escapepod",
-    facts: [
-        new StoryFact("storageRoomPumpIsOn", true, "Is the storage room pump-barrel turned on?"),
-        new StoryFact("hasPowerCoupling", false, "Does the player have the power coupling from the supply locker?")
-    ],
-    rules: [
-        rule01 = new StoryRule("switchStorageRoomPower", searchFactByName(storyObjectEscapePod, "storageRoomPumpIsOn"), () => {
-            if(fact.condition == true) {
-                console.log("Switching storage room lights on.");
-            }
-            else {
-                console.log("Switching storage room lights off.");
-            }
-        }, 9, "Switches the lights in the storage room on and off."),
-        rule02 = new StoryRule("unlockCockpitSystems", searchFactByName("hasPowerCoupling"), () => {
-            console.log("EEEEEEEEEEEEEEEEEEE");
-            console.log(this.fact.description);
-        }, 14, "Grants access to cockpit controls when power is restored."),
-    ]
-}
+//RULES: Escape Pod 
+let escapePodRules = [
+    new StoryRule("barrelPumpSwitch", "Toggles the barrel pump on and off.", 9, () => {
+        if(barrelPumpIsActive == true) {
+            console.log(`Rule: barrelPumpSwitch executed successfully!`);
+            console.log("Switching off barrel pump...");
+            barrelPumpIsActive = false;
+        } else {
+            console.log("Switching on barrel pump...");
+            barrelPumpIsActive = true;
+        }
+    }),
+    new StoryRule("summonTestman", "Summons Testman when the player whines for too long", 2, () => {
+        if(testManSummoned == false) {
+            console.log("Summoned testman on node 6");
+            let newParagraph01 = {
+                narration: true,
+                speaker: null,
+                text: "Your whining has created a rupture in the space-time continuum, summoning Testman from another script through the sheer power of code."
+            };
+            dialogueTree.nodes[6].paragraphs.push(newParagraph01);
+            let newParagraph02 = {
+                narration: false,
+                speaker: "Testman",
+                text: "What is that I smell? A freshly written anonymous function, called from line 57 of the infamous 'storymanager.js' script? Tell me, mortal, why have you summoned me?"
+            };
+            dialogueTree.nodes[6].paragraphs.push(newParagraph02);
+            let newResponse = {
+                text: "I uhhh...",
+                nextNode: null
+            };
+            dialogueTree.nodes[6].responses.push(newResponse);
+            testManSummoned = true;
+        }
+    }),
+]
 
 
 //------------------------------------------------------------------------------------------------
-//when should the story facts be read? Every time a new dialogue node loads? Yeah probably
+//when should the story facts be checked? Every time a new dialogue node loads? Yeah probably
 
 //when player enters node 9
 //trigger the fact and then execute the story rule
 //make sure there's no hitching when changing stuff around!
 
-//when the document loads
-//load story manager
-//create a list of triggerNodes 
-//go through the entire tree and add triggerNode property (number/null) to all dialogue nodes
-//[TO DO] also create a function to remove the triggerNode property when saving the tree
+//------------------------------------------------------------------------------------------------
+
