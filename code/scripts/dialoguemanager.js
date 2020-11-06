@@ -20,25 +20,34 @@ let activeRules = [
 //loads the dialogue file, which represents the current "scene"
 function loadDialogueTree(fileURL) {
     fetch(fileURL).then(response => response.json()).then(json => {dialogueTree = json});
+    console.log(`Loaded Dialogue Tree from file: ${dialogueTreeURL}`);
 }
 
 //reads the name of the tree's rulesets, searches for them in the storymanager, and adds them
 function loadRuleSets() {
-    //begins searching for each ruleset that the tree wants
-    for(let a = 0; a < dialogueTree.ruleSets.length; a++) {
-        //going through the list of rulesets
-        for(let b = 0; b < storyRules.length; b++) {
-            //found a match? Loop through it and add its rules to the activeRules 
-            if(storyRules[b].name == dialogueTree.ruleSets[a])
-            {
-                let list = storyRules[b].rules;
-                for(let c = 0; c < list.length; c++) {
-                    activeRules.push(list[c]);
+    if(dialogueTree.ruleSets.length > 0) 
+    {
+        //begins searching for each ruleset that the tree wants
+        for(let a = 0; a < dialogueTree.ruleSets.length; a++) {
+            //going through the list of rulesets
+            for(let b = 0; b < storyRules.length; b++) {
+                //found a match? Loop through it and add its rules to the activeRules 
+                if(storyRules[b].name == dialogueTree.ruleSets[a])
+                {
+                    let list = storyRules[b].rules;
+                    for(let c = 0; c < list.length; c++) {
+                        activeRules.push(list[c]);
+                    }
+                    console.log(`Loaded StoryRules from '${storyRules[b].name}'`);
                 }
-                console.log(`Loaded rules from '${storyRules[b].name}'`);
             }
         }
     }
+    else 
+    {
+        console.log(`Dialogue Tree has no rule sets, activeRules is empty.`);
+    }
+    
 }
 
 //clears the activeRules, for testing purposes
