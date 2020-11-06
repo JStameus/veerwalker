@@ -324,6 +324,15 @@ function checkLastNodeInfo() {
     console.log("Last Node: --" + lastNode.nodeIndex + ", ID: " + lastNode.nodeID + "--");
 }
 
+//lists all the nodes in the current scene that trigger a StoryRule
+function logTriggerNodeList() {
+    if(activeRules.length > 0) {
+        for(let i = 0; i < activeRules.length; i++) {
+            console.log(`Node ${activeRules[i].triggerNode}: '${activeRules[i].name}'`);
+        }
+    }
+}
+
 //DEV TOOLS
 //toggle dev menu
 let toolVisibility = true;

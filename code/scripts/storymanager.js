@@ -26,14 +26,6 @@ function executeStoryRules(ruleSet) {
     }
 }
 
-//displays a list of all nodes that are being targeted by storyrules
-function logTriggerNodeList(ruleSet) {
-    for(let i = 0; i < ruleSet.length; i++)
-    {
-        console.log(`${ruleSet[i].triggerNode}: ${ruleSet[i].name}`);
-    }
-}
-
 //STORY FACTS (variables specifically created to keep track of story events)
 let barrelPumpIsActive = true;
 let playerHasPowerCoupling = false;
