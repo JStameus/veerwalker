@@ -1,5 +1,8 @@
 {
     "sceneDescription": "The player wakes up inside some kind of pod without any memory of how they got there.",
+    "ruleSets": [
+        "ruleset_escapepod"
+    ],
     "nodes": 
     [
         { "nodeIndex": 0,
