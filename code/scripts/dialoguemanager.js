@@ -1,16 +1,61 @@
 //this is temporary, should be stored somewhere else later
-var playerName = 'Joseph';
+let playerName = 'Joseph';
+let money = 22;
 
 //Which dialogue tree and node is currently active
-var dialogueTreeURL = '/code/json/dialogue/dialogue_demo_escapepod.json';
-var dialogueTree = null;
-var currentDialogueNode =  null;
-var checkPointNode = 0;
+let dialogueTreeURL = '/code/json/dialogue/dialogue_demo_escapepod.json';
+let dialogueTree = null;
+let currentDialogueNode =  null;
+let checkPointNode = 0;
 document.onload = loadDialogueTree(dialogueTreeURL);
+document.onload = setTimeout(() => {
+   loadRuleSets(); 
+}, 200);
+
+//an array for storing all the rules that are currently in the scene
+let activeRules = [
+
+]
 
 //loads the dialogue file, which represents the current "scene"
 function loadDialogueTree(fileURL) {
     fetch(fileURL).then(response => response.json()).then(json => {dialogueTree = json});
+    console.log(`Loaded Dialogue Tree from file: ${dialogueTreeURL}`);
+}
+
+//reads the name of the tree's rulesets, searches for them in the storymanager, and adds them
+function loadRuleSets() {
+    if(dialogueTree.ruleSets.length > 0) 
+    {
+        //begins searching for each ruleset that the tree wants
+        for(let a = 0; a < dialogueTree.ruleSets.length; a++) {
+            //going through the list of rulesets
+            for(let b = 0; b < storyRules.length; b++) {
+                //found a match? Loop through it and add its rules to the activeRules 
+                if(storyRules[b].name == dialogueTree.ruleSets[a])
+                {
+                    let list = storyRules[b].rules;
+                    for(let c = 0; c < list.length; c++) {
+                        activeRules.push(list[c]);
+                    }
+                    console.log(`Loaded StoryRules from '${storyRules[b].name}'`);
+                }
+            }
+        }
+    }
+    else 
+    {
+        console.log(`Dialogue Tree has no rule sets, activeRules is empty.`);
+    }
+    
+}
+
+//clears the activeRules, for testing purposes
+function unloadRuleSets() {
+    console.log(`Unloading active StoryRules...`);
+    const amount = activeRules.length;
+    activeRules = [];
+    console.log(`Cleared ${amount} rules. activeRules is now empty.`);
 }
 
 //loads a dialogue node, jumping to a specific point in the scene
@@ -19,8 +64,9 @@ function loadDialogueNode(nodeIndex) {
     {
         
         currentDialogueNode = dialogueTree.nodes[nodeIndex];
+        executeStoryRules(activeRules);
         let locationText = document.getElementById('dialogue_locationlabel');
-        locationText.innerHTML = dialogueTree.nodes[nodeIndex].location;
+        locationText.innerText = dialogueTree.nodes[nodeIndex].location;
         currentNodeDisplay.innerText = ("Current Node: " + nodeIndex + ", ID: " + dialogueTree.nodes[nodeIndex].nodeID);
         displayDialogueParagraphs();
         displayResponseButtons();
@@ -38,7 +84,13 @@ function loadDialogueNode(nodeIndex) {
 //clears the dialogue window and reloads it
 function refreshDialogueNode() {
     clearAllDialogueElements();
-    loadDialogueNode(currentDialogueNode.nodeIndex);
+    displayDialogueParagraphs();
+    displayResponseButtons();
+    let locationText = document.getElementById('dialogue_locationlabel');
+    locationText.innerText = currentDialogueNode.location;
+    currentNodeDisplay.innerText = ("Current Node: " + currentDialogueNode.nodeIndex + ", ID: " + currentDialogueNode.nodeID);
+    //[TO DO] Decouple the loadDialogueNode function from this function, add the necessary commands individually
+    // loadDialogueNode(currentDialogueNode.nodeIndex);
 }
 
 //adds the player's chosen response to the message log
@@ -272,6 +324,15 @@ function checkLastNodeInfo() {
     console.log("Last Node: --" + lastNode.nodeIndex + ", ID: " + lastNode.nodeID + "--");
 }
 
+//lists all the nodes in the current scene that trigger a StoryRule
+function logTriggerNodeList() {
+    if(activeRules.length > 0) {
+        for(let i = 0; i < activeRules.length; i++) {
+            console.log(`Node ${activeRules[i].triggerNode}: '${activeRules[i].name}'`);
+        }
+    }
+}
+
 //DEV TOOLS
 //toggle dev menu
 let toolVisibility = true;
@@ -425,23 +486,27 @@ function fixNodeIndexValues() {
 
 //adds a new dialogue paragraph to the current node
 function createDialogueParagraph(narrationBool, speakerName, textContent) {
-    var newParagraph = {
+    let newParagraph = {
         narration: narrationBool,
         speaker: speakerName,
         text: textContent
     }
     currentDialogueNode.paragraphs.push(newParagraph);
-    refreshDialogueNode();
+    if(toolVisibility == true) {
+        refreshDialogueNode();
+    }
 }
 
 //adds a new response to the current node
 function createDialogueResponse(textContent, nextNodeIndex) {
-    var newResponse = {
+    let newResponse = {
         text: textContent,
         nextNode: nextNodeIndex
     }
     currentDialogueNode.responses.push(newResponse);
-    refreshDialogueNode();
+    if(toolVisibility == true) {
+        refreshDialogueNode();
+    }
 }
 
 var devToolNarrationToggle = false;
@@ -576,6 +641,7 @@ function createNewDialogueNode(location, description) {
 
 //opens a window with the new JSON string of the edited file, so it can be saved
 function saveDialogueTree() {
+    //[TO DO] remove triggerNode property before doing this!
     newDialogueTree = JSON.stringify(dialogueTree);
     var newWindow = window.open();
     newWindow.document.title = dialogueTreeURL;

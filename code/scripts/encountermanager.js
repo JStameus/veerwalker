@@ -230,6 +230,7 @@ function endEncounter() {
     cancelTurnOrder();
 }
 
+//BUTTONS FOR INTERACTIVITY AND TESTING
 const attackButton = document.getElementById('button_attack');
 attackButton.addEventListener("click", function() {
     combatCalc.attackTarget(activeCharacter, currentTarget);
