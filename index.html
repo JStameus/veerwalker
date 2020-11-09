@@ -13,6 +13,7 @@
         <!-- <canvas id="game_canvas" width="1600" height="900"></canvas> -->
         <div id="gamewindow" class="borderglow_default">
             <h2 id="dialogue_locationlabel">EVENT/LOCATION</h2>
+            <!-- #region DEVTOOLS-->
             <button id="toggle_devmenu_button">Toggle Dev Tools</button>
             <div id="devmenu_left" class="devmenu">
                 <p id="devmenu_currentnodedisplay">Current Node: 0</p>
@@ -67,6 +68,8 @@
                 <input type="number" id="form_response_nextnode">
                 <button id="update_nextnode_button">Update NextNode</button>
             </div>
+            <!-- #endregion -->
+            
             <div id="dialogue_textwindow">
 
             </div>
@@ -101,8 +104,12 @@
             </div>
         </div>
     </div>
+    <script src="/code/classes/classes_dicerolls.js"></script>
+    <script src="/code/classes/classes_encounters.js"></script>
+    <script src="/code/classes/classes_ai.js"></script>
     <script src="/code/scripts/dialoguemanager.js"></script>
     <script src="/code/scripts/storymanager.js"></script>
+    <script src="/code/scripts/encountermanager.js"></script>
 </body>
 
 </html>

@@ -13,6 +13,7 @@
     --highlight-blue: rgb(158, 192, 212);
     --highlight-orange: rgb(223, 165, 126);
     --highlight-silver: rgb(183, 203, 206);
+    --glow-warm : rgb(205, 118, 92);
 }
 
 * {
@@ -46,7 +47,7 @@ input {
 }
 
 .borderglow_default {
-    box-shadow: 0 0 34px 8px rgb(205, 118, 92);
+    box-shadow: 0 0 34px 8px var(--glow-warm);
 }
 
 .devmenu {
@@ -163,6 +164,12 @@ input {
     margin: 0.1rem 0;
     padding: 0.4rem;
     border: 1px solid var(--overlay-mid);
+    transition: 1.2s;
+}
+
+.newparagraph {
+    box-shadow: 0 0 6px 1px var(--glow-warm);
+    transition: 0.2s;
 }
 
 .paragraph_narration {

@@ -1,5 +1,12 @@
 //STORY MANAGER REQUIRES dialoguemanager.js TO RUN! 
 
+
+/**
+ * @param {string} name
+ * @param {string} description
+ * @param {number} triggerNode
+ * @param {function} operation
+ */
 //checked when a dialoguenode loads, and does something depending on the value of a "fact" variable
 //rules describe the behaviour of people and events in the story
 function StoryRule(name, description, triggerNode, operation) {
@@ -14,6 +21,9 @@ function StoryRule(name, description, triggerNode, operation) {
 }
 
 //checks if the current node has any rules associated with it, and executes them
+/**
+ * @param {array} ruleSet
+ */
 function executeStoryRules(ruleSet) {
     for(let i = 0; i < ruleSet.length; i++)
     {
@@ -38,11 +48,7 @@ let storyRules = [
     globalRules = {
         name: "ruleset_global",
         rules: [
-            new StoryRule("dogBork", "Allows the dog to bork if you have enough schleems.", 12, () => {
-                if(schleems >= 5) {
-                    console.log("Bork! Bork bork!");
-                }
-            })
+            
         ]
     },
     escapePodRules = {
@@ -81,6 +87,9 @@ let storyRules = [
                     testManSummoned = true;
                 }
             }),
+            new StoryRule("startEncounter", "Starts the encounter in the escape pod(?)", 12, () => {
+                encounterURL = "../json/encounters/encounter_test.json";
+            })
         ]
     }
 ];

@@ -92,7 +92,6 @@ function assignTurnOrder() {
     }
     console.log('%cCharacters & Turn Order is set up!', 'color: green; font-weight: bold;');
     console.table(turnOrder);
-    
 }
 
 //removes dead characters from turn order
@@ -192,6 +191,7 @@ function disableTargetSelection() {
 
 //calls all functions needed to setup an encounter
 function initializeEncounter() {
+    //[TO DO] show the game board
     loadAllData();
     console.log("Creating Avatars...");
     setTimeout(() => {
@@ -231,23 +231,23 @@ function endEncounter() {
 }
 
 //BUTTONS FOR INTERACTIVITY AND TESTING
-const attackButton = document.getElementById('button_attack');
-attackButton.addEventListener("click", function() {
-    combatCalc.attackTarget(activeCharacter, currentTarget);
-    //[TO DO] check if current character has actions remaining, when that is implemented
-    nextTurn();
-});
+// const attackButton = document.getElementById('button_attack');
+// attackButton.addEventListener("click", function() {
+//     combatCalc.attackTarget(activeCharacter, currentTarget);
+//     //[TO DO] check if current character has actions remaining, when that is implemented
+//     nextTurn();
+// });
 
-const skipButton = document.getElementById('button_skip');
-skipButton.addEventListener("click", function() {
-    nextTurn();
-})
+// const skipButton = document.getElementById('button_skip');
+// skipButton.addEventListener("click", function() {
+//     nextTurn();
+// })
 
-const resetButton = document.getElementById('button_reset');
-resetButton.addEventListener("click", function() {
-    enemyTeam = [];
-    playerTeam = [];
-    turnOrder = [];
-    uiManager.clearAllCharacterDisplays();
-    initializeEncounter();
-});
+// const resetButton = document.getElementById('button_reset');
+// resetButton.addEventListener("click", function() {
+//     enemyTeam = [];
+//     playerTeam = [];
+//     turnOrder = [];
+//     uiManager.clearAllCharacterDisplays();
+//     initializeEncounter();
+// });
