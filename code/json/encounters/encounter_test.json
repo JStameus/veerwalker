@@ -3,5 +3,5 @@
     "music": null,
     "background": null,
     "enemyParty": "/code/json/parties/testparty_enemy.json",
-    "exitNode": 4
+    "exitNode": 1
 }

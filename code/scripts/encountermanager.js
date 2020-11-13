@@ -240,6 +240,7 @@ function initializeEncounter() {
 //cancels everything and displays a game over message
 function endEncounter() {
     console.log("Game Over");
+    clearResponseButtons();
     cancelTurnOrder();
     removeCharacterAvatars();
     gameBoard.style.display = "none";

@@ -170,6 +170,11 @@ class EncounterUIManager {
             nextTurn();
         });
     }
+
+    //[TO DO] create and use this instead of clearResponseButtons
+    //clearEncounterActionButtons() {
+    //
+    //}
 }
 
 class CombatCalculator {
