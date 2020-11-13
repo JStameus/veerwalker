@@ -61,6 +61,10 @@ input {
     bottom: 13.5em;
 }
 
+.hidden {
+    display: none;
+}
+
 #devmenu_left {
     left: 0.5em;
     width: 15em;
@@ -123,7 +127,7 @@ input {
     background-color: var(--overlay-dark);
 }
 
-#controlpanel_choices {
+#controlpanel_actions {
     flex: 4;
     overflow-y: scroll;
 }
@@ -194,4 +198,77 @@ input {
 
 .paragraph_response h3 {
     color: var(--highlight-blue);
+}
+
+/* ENCOUNTERS */
+#encounter_board {
+    margin: 0.5rem;
+    border: 2px solid black;
+    background-color: var(--overlay-dark);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 95%;
+    height: 65%;
+}
+
+#arena_leftside, #arena_rightside {
+    flex: 6;
+}
+
+#arena_center {
+    flex: 1;
+}
+
+#combatlog {
+    overflow-y: scroll;
+    border: 2px solid var(--foreground-light);
+    background-color: var(--overlay-mid);
+    width: 35rem;
+    height: 15rem;
+}
+
+.combatlog_message {
+    background-color: var(--overlay-dark);
+    border: 2px dotted var(--foreground-dark);
+    margin-top: 0.3rem;
+}
+
+.teamlabel {
+    position: relative;
+    left: 40%;
+    top: 40%;
+    opacity: 0.1;
+}
+
+.arena_field {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid var(--foreground-light);
+    margin: 0.2rem;
+}
+
+.characteravatar_display {
+    height: 8rem;
+    width: 6rem;
+    margin: 0.5rem;
+    padding: 1rem;
+    background-color: var(--overlay-dark);
+    border: 2px solid var(--foreground-light);
+    border-radius: 4px;
+}
+
+.dead {
+    opacity: 0.5;
+    border: 2px dashed indianred;
+}
+
+.active {
+    border: 2px dotted var(--foreground-light);
+    box-shadow: 0 0 12px 2px goldenrod;
+}
+
+.targeted {
+    border: 2px dotted orangered;
+    box-shadow: 0 0 12px 2px indianred;
 }

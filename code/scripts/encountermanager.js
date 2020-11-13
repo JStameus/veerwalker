@@ -1,18 +1,22 @@
 //sets variables for encounter file, enemy and player parties and loads them
-let encounterURL = "../json/encounters/encounter_test.json";
+
+//the encounter prefab containing an enemy party, background, music etc
+let encounterURL = "/code/json/encounters/encounter_test.json";
 var encounterData = null;
 function loadEncounterData() {
     fetch(encounterURL).then(response => response.json()).then(json => {encounterData = json});
 }
 
+//a set of enemies to be loaded into the encounter
 var enemyPartyData = null;
 function loadEnemyPartyData() {
     fetch(encounterData.enemyParty).then(response => response.json()).then(json => {enemyPartyData = json});
 }
 
+//the player's party and characters
 var playerPartyData = null;
 function loadPlayerPartyData() {
-    fetch("../json/parties/testparty_player.json").then(response => response.json()).then(json => {playerPartyData = json});
+    fetch("/code/json/parties/testparty_player.json").then(response => response.json()).then(json => {playerPartyData = json});
 }
 
 function loadAllData() {
@@ -43,8 +47,9 @@ let currentTarget = null;
 let clickTargetingEnabled = false;
 
 //visual elements representing the "board"
-let leftSide = document.getElementById("arena_leftside");
-let rightSide = document.getElementById("arena_rightside");
+let gameBoard = document.getElementById("encounter_board");
+let leftSide = document.getElementById("board_leftside");
+let rightSide = document.getElementById("board_rightside");
 
 //creates character avatars based on party data
 function createCharacterAvatars() {
@@ -63,13 +68,18 @@ function createCharacterAvatars() {
     }
 }
 
+function removeCharacterAvatars() {
+    leftSide.querySelectorAll('.characteravatar_display').forEach(function(a){a.remove()})
+    rightSide.querySelectorAll('.characteravatar_display').forEach(function(a){a.remove()})
+}
+
+
 //creates event listeners for enemy divs so they can be selected by clicking 
 function createTargetSelectors() {
-    let enemyTeamField = document.getElementById('arena_rightside');
+    let enemyTeamField = document.getElementById('board_rightside');
     let enemyDivs = enemyTeamField.getElementsByTagName('div');
     for(let i = 0; i < enemyDivs.length; i++)
     {
-        console.log(enemyDivs[i].id);
         enemyDivs[i].addEventListener("click", function() {
             if(clickTargetingEnabled)
             {
@@ -189,13 +199,23 @@ function disableTargetSelection() {
     clickTargetingEnabled = false;
 }
 
+//resets turn order and sets active character and target to null
+function cancelTurnOrder() {
+    turnIndex = 0;
+    activeCharacter = null;
+    currentTarget = null;
+    console.log("Canceling turn order...");
+}
+
 //calls all functions needed to setup an encounter
 function initializeEncounter() {
-    //[TO DO] show the game board
+    dialogueWindow.style.display = "none";
+    gameBoard.style.display = "flex";
     loadAllData();
     console.log("Creating Avatars...");
     setTimeout(() => {
         createCharacterAvatars();
+        clearResponseButtons();
     }, 200);
     console.log("Creating character displays...");
     setTimeout(() => {
@@ -204,6 +224,7 @@ function initializeEncounter() {
         assignTurnOrder();
     }, 300);
     setTimeout(() => {
+        uiManager.displayEncounterActionButtons();
         createTargetSelectors();
         console.log("Starting Encounter...");
         console.log(turnOrder[turnIndex].name + "'s turn!");
@@ -216,18 +237,19 @@ function initializeEncounter() {
     }, 400);
 }
 
-//resets turn order and sets active character and target to null
-function cancelTurnOrder() {
-    turnIndex = 0;
-    activeCharacter = null;
-    currentTarget = null;
-    console.log("Canceling turn order...");
-}
-
 //cancels everything and displays a game over message
 function endEncounter() {
     console.log("Game Over");
     cancelTurnOrder();
+    removeCharacterAvatars();
+    gameBoard.style.display = "none";
+    dialogueWindow.style.display = "block";
+    loadDialogueNode(encounterData.exitNode);
+    playerTeam = [];
+    enemyTeam = [];
+    encounterData = null;
+    enemyPartyData = null;
+    playerPartyData = null;
 }
 
 //BUTTONS FOR INTERACTIVITY AND TESTING

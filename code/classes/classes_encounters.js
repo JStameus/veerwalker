@@ -1,7 +1,7 @@
 class EncounterUIManager {
     
     updateHPDisplay(character) {
-        let element = document.getElementById("display_ap_" + character.name);
+        let element = document.getElementById("display_hp_" + character.name);
         element.innerHTML = "HP: " + character.HP;
     }
     
@@ -141,7 +141,35 @@ class EncounterUIManager {
         combatLog.scrollTop = combatLog.scrollHeight;
     }
 
+    displayEncounterActionButtons() {
+        let attackButtonDiv = document.createElement('div');
+        let attackButton = document.createElement('button');
+        let attackButtonText = document.createTextNode('Attack!');
+        attackButton.appendChild(attackButtonText);
+        attackButtonDiv.appendChild(attackButton);
+        attackButtonDiv.className = 'dialogue_choice_container';
+        attackButton.className = 'dialogue_choice_button';
 
+        let skipButtonDiv = document.createElement('div');
+        let skipButton = document.createElement('button');
+        let skipButtonText = document.createTextNode('Skip Turn');
+        skipButton.appendChild(skipButtonText);
+        skipButtonDiv.appendChild(skipButton);
+        skipButtonDiv.className = 'dialogue_choice_container';
+        skipButton.className = 'dialogue_choice_button';
+
+        let actionsWindow = document.getElementById('controlpanel_actions');
+        actionsWindow.appendChild(attackButtonDiv);
+        actionsWindow.appendChild(skipButtonDiv);
+        
+        attackButton.addEventListener('click', () => {
+            combatCalc.attackTarget(activeCharacter, currentTarget);
+            nextTurn();
+        });
+        skipButton.addEventListener('click', () => {
+            nextTurn();
+        });
+    }
 }
 
 class CombatCalculator {
@@ -169,7 +197,6 @@ class CombatCalculator {
         {
             console.warn("Cannot attack: No target selected!");
         }
-        
     }
 
     rollAttack(attacker, target) {
@@ -181,13 +208,13 @@ class CombatCalculator {
         if(attackTotal >= target.DEF)
         {
             console.log("Hit!");
-            this.ui.logCombatMessage(`${attacker.name}'s Attack Roll: ${attackTotal}. Hit!`);
+            //this.ui.logCombatMessage(`${attacker.name}'s Attack Roll: ${attackTotal}. Hit!`);
             return true;
         }
         else 
         {
             console.log("Miss!");
-            this.ui.logCombatMessage(`${attacker.name}'s Attack Roll: ${attackTotal}. Miss!`);
+            //this.ui.logCombatMessage(`${attacker.name}'s Attack Roll: ${attackTotal}. Miss!`);
             return false;    
         }
     }
@@ -202,12 +229,12 @@ class CombatCalculator {
     dealDamage(target, damage) {
         target.HP -= damage;
         console.log(`${target.name} takes ${damage} damage.`);
-        this.ui.logCombatMessage(`${target.name} takes ${damage} damage.`)
+        //this.ui.logCombatMessage(`${target.name} takes ${damage} damage.`)
         let healthDisplay = document.getElementById("display_hp_" + target.name);
         healthDisplay.innerHTML = "HP: " + target.HP;
         if(target.HP <= 0)
         {
-            this.ui.logCombatMessage(target.name + " is dead!");
+            //this.ui.logCombatMessage(target.name + " is dead!");
             target.isDead = true;
             this.ui.setDeadDisplay(target);
         }

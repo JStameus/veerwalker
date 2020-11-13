@@ -10,12 +10,11 @@
 
 <body>
     <div id="site_container">
-        <!-- <canvas id="game_canvas" width="1600" height="900"></canvas> -->
         <div id="gamewindow" class="borderglow_default">
             <h2 id="dialogue_locationlabel">EVENT/LOCATION</h2>
             <!-- #region DEVTOOLS-->
             <button id="toggle_devmenu_button">Toggle Dev Tools</button>
-            <div id="devmenu_left" class="devmenu">
+            <div id="devmenu_left" class="devmenu" style="display: none;">
                 <p id="devmenu_currentnodedisplay">Current Node: 0</p>
                 <p id="devmenu_checkpointnodedisplay">Checkpoint: 0</p>
                 <hr>
@@ -38,7 +37,7 @@
                 <input type="number" id="load_node_index">
                 <button id="load_node_button">Jump To Node</button>
             </div>
-            <div id="devmenu_right" class="devmenu">
+            <div id="devmenu_right" class="devmenu" style="display: none;">
                 <p id="display_paragraphs_amount">Paragraphs: </p>
                 <p id="display_responses_amount">Responses: </p>
                 <hr>
@@ -70,6 +69,19 @@
             </div>
             <!-- #endregion -->
             
+            <div id="encounter_board" style="display: none;">
+                <div id="board_leftside" class="board_field">
+                    <h2 class="teamlabel">Player Party</h2>
+                    
+                </div>
+                <div id="board_center" class="board_field">
+
+                </div>
+                <div id="board_rightside" class="board_field">
+                    <h2 class="teamlabel">Enemy Party</h2>
+                </div>
+            </div>
+            
             <div id="dialogue_textwindow">
 
             </div>
@@ -93,7 +105,7 @@
                         <h3>Map</h3>
                     </div>
                 </div>
-                <div id="controlpanel_choices" class="controlpanel_item">
+                <div id="controlpanel_actions" class="controlpanel_item">
              
                 </div>
                 <div id="controlpanel_enemies" class="controlpanel_item">
@@ -104,6 +116,7 @@
             </div>
         </div>
     </div>
+    <script src="/code/classes/classes_characters.js"></script>
     <script src="/code/classes/classes_dicerolls.js"></script>
     <script src="/code/classes/classes_encounters.js"></script>
     <script src="/code/classes/classes_ai.js"></script>

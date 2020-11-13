@@ -2,5 +2,6 @@
     "location": "Suthev Coast",
     "music": null,
     "background": null,
-    "enemyParty": "../json/parties/testparty_enemy.json"
+    "enemyParty": "/code/json/parties/testparty_enemy.json",
+    "exitNode": 4
 }

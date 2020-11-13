@@ -17,6 +17,9 @@ let activeRules = [
 
 ]
 
+let dialogueWindow = document.getElementById('dialogue_textwindow');
+let actionButtons = document.getElementById('controlpanel_actions');
+
 /**
  * @param {string} fileURL
  */
@@ -276,8 +279,8 @@ function displayResponseButtons() {
             })
 
             //Adding everything to the control panel
-            let responsesWindow = document.getElementById("controlpanel_choices");
-            responsesWindow.appendChild(newDiv);
+            let actionsWindow = document.getElementById("controlpanel_actions");
+            actionsWindow.appendChild(newDiv);
         }
     }
     else 

@@ -88,7 +88,7 @@ let storyRules = [
                 }
             }),
             new StoryRule("startEncounter", "Starts the encounter in the escape pod(?)", 12, () => {
-                encounterURL = "../json/encounters/encounter_test.json";
+                initializeEncounter();                
             })
         ]
     }
