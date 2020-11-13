@@ -1,7 +1,7 @@
 //sets variables for encounter file, enemy and player parties and loads them
 
 //the encounter prefab containing an enemy party, background, music etc
-let encounterURL = "/code/json/encounters/encounter_test.json";
+let encounterURL = "../json/encounters/encounter_test.json";
 var encounterData = null;
 function loadEncounterData() {
     fetch(encounterURL).then(response => response.json()).then(json => {encounterData = json});
@@ -16,7 +16,7 @@ function loadEnemyPartyData() {
 //the player's party and characters
 var playerPartyData = null;
 function loadPlayerPartyData() {
-    fetch("/code/json/parties/testparty_player.json").then(response => response.json()).then(json => {playerPartyData = json});
+    fetch("../json/parties/testparty_player.json").then(response => response.json()).then(json => {playerPartyData = json});
 }
 
 function loadAllData() {

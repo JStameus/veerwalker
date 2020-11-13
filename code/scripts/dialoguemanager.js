@@ -3,7 +3,7 @@ let playerName = 'Joseph';
 let money = 22;
 
 //Which dialogue tree and node is currently active
-let dialogueTreeURL = '/code/json/dialogue/dialogue_demo_escapepod.json';
+let dialogueTreeURL = '../json/dialogue/dialogue_demo_escapepod.json';
 let dialogueTree = null;
 let currentDialogueNode =  null;
 let checkPointNode = 0;
