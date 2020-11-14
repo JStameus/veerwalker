@@ -2,6 +2,6 @@
     "location": "Suthev Coast",
     "music": null,
     "background": null,
-    "enemyParty": "/code/json/parties/testparty_enemy.json",
+    "enemyParty": "https://jstameus.github.io/veerwalker/code/json/parties/testparty_enemy.json",
     "exitNode": 1
 }
