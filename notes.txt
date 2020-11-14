@@ -1,46 +1,9 @@
-----24/9, 2020----
-[Canvas]
-Canvas doesn't scale with screen, is that possible to do? Would be sweet. 
+TO DO
 
-----25/9, 2020----
-[Characters]
-I can create new Character objects, but how will I store them later, and where?
+- Change checkGameOver() implementation so that the function itself can end an encounter,
+  so that the nextTurn() doesn't have to. That way it can also decide which team won.
 
-----27/9, 2020----
-[Getting Started]
-I'll try the dialogues first. I'll leave the encounters for now and just focus
-on making simple dialogues. I just need to figure out how to switch between dialogues
-and encounters later on, without having to reload the page.
+- Change the control panel so that "actions" and "responses" are treated the same.
 
-----28/9, 2020----
-[Making Progress & dialogueNodes]
-I'm starting to make sense of things. I have objects called dialogueNode(s) that contain
-some text and scene information, as well as references to possible responses. However,
-there is one problem: dialogueNodes and dialogueChoices are trying to access properties of
-one another before they are initialized. If I move one further up in the code, something else breaks.
-How do I get around this? 
-
-[Changing let to var]
-Changing the "nodes" and dialogue options to use var instead of let at their declaration fixed the issue,
-but I'm not sure if it is the optimal solution? 
-
-----1/10, 2020----
-[DialogueNode Constructors]
-Is there a way to specify that a DialogueResponse needs a DialogueNode in the
-first parameter or do I just have to keep track of that myself?
-
-Also, I should create DialogueResponsed INSIDE the DialogueNodes. That way they 
-won't clutter up my code and I won't have to keep track of the parent nodes, not 
-to mention how much easier it will be to name them since they'll be confined
-within the individual dialogue nodes.
-
-[Script Communicaition]
-How do I ensure that all my scripts can communicate with one another? I want to be able to divide
-all my scripts as much as possible to avoid cluttered code. 
-
-[Tips From Anders]
-    - Look up how to use json files to store large amounts of data.
-    - Try other ways to construct objects and save them(json!).
-
-----3/10, 2020----
-
+- Restructure the dialoguemanager to divide it into classes, and take the encounterUIManager
+  and make it into a universal UI manager script

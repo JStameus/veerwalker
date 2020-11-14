@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Unica+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative&display=swap');
+
+:root {
+    --background-dark: rgb(46, 45, 43);
+    --background-mid: rgb(57, 65, 61);
+    --background-light: rgb(80, 94, 97);
+    --foreground-dark: rgb(122, 122, 122);
+    --foreground-light: rgb(226, 203, 177);
+    --overlay-dark: rgba(0, 0, 0, 0.25);
+    --overlay-mid: rgb(0, 0, 0, 0.1);
+    --overlay-light:  rgba(241, 232, 215, 0.11);
+    --highlight-blue: rgb(158, 192, 212);
+    --highlight-orange: rgb(223, 165, 126);
+    --highlight-silver: rgb(183, 203, 206);
+    --glow-warm : rgb(205, 118, 92);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: var(--background-light);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    font-family: 'Cinzel Decorative';
+    color: var(--foreground-light);
+    font-size: 4rem;
+    margin: 2rem;
+    margin-bottom: 10rem;
+}
+
+h2 {
+    font-family: 'Unica One';
+    font-size: 2.5rem;
+    color: var(--foreground-light);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 6rem;
+}
+
+section {
+    border: 1px solid var(--foreground-light);
+    border-radius: 8px;
+    width: 80%;
+    padding: 1rem;
+    margin: 1rem;
+    background-color: var(--overlay-mid);
+}
+
+footer {
+    
+}
+
+p {
+    padding: 1rem;
+}
+
+p, li, a {
+    font-family: 'Raleway';
+    font-size: 1.2rem;
+    color: var(--foreground-light);
+}
+
+a {
+    margin: 0.4rem;
+    padding: 0.4rem;
+    font-size: 1.6rem;
+    border: 1px solid var(--foreground-light);
+    border-radius: 4px;
+    width: 20rem;
+    text-align: center;
+    background-color: var(--overlay-mid);
+}
+
+a:hover {
+    box-shadow: 0 0 6px 2px var(--glow-warm);
+}
+
+ul {
+    margin: 0 4rem;
+}
+
+#mainmenu_infoboxes {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.section_infobox {
+    height: 16rem;
+}

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veerwalker: Game</title>
+    <link rel="stylesheet" href="../css/style_game.css">
+</head>
+
+<body>
+    <div id="site_container">
+        <div id="gamewindow" class="borderglow_default">
+            <h2 id="dialogue_locationlabel">EVENT/LOCATION</h2>
+            <!-- #region DEVTOOLS-->
+            <button id="toggle_devmenu_button">Toggle Dev Tools</button>
+            <div id="devmenu_left" class="devmenu" style="display: none;">
+                <p id="devmenu_currentnodedisplay">Current Node: 0</p>
+                <p id="devmenu_checkpointnodedisplay">Checkpoint: 0</p>
+                <hr>
+                <button id="checkpoint_button">Set Checkpoint</button>
+                <button id="reset_button">Reset</button>
+                <button id="refresh_button">Refresh</button>
+                <button id="clear_button">Clear</button>
+                <hr>
+                <label for="input_text_location">Location: </label>
+                <input type="text" id="input_text_location">
+                <button id="edit_location_button">Update Location</button>
+                <label for="input_text_description">Description: </label>
+                <input type="text" id="input_text_description">
+                <button id="edit_description_button">Update Description</button>
+                <hr>
+                <button id="createnode_button">Create New Node</button>
+                <button id="save_tree_button">Save Dialogue File</button>
+                <hr>
+                <label for="load_node_index">Selected Node: </label>
+                <input type="number" id="load_node_index">
+                <button id="load_node_button">Jump To Node</button>
+            </div>
+            <div id="devmenu_right" class="devmenu" style="display: none;">
+                <p id="display_paragraphs_amount">Paragraphs: </p>
+                <p id="display_responses_amount">Responses: </p>
+                <hr>
+                <button id="add_paragraph_button">Add Paragraph</button>
+                <button id="add_response_button">Add Response</button>
+                <hr>
+                <form action="GET" id="form_editparagraph">
+                    <label for="form_paragraph_index">Selected Paragraph: </label><br>
+                    <input type="number" id="form_paragraph_index"><br>
+                    <label for="form_paragraph_speakername">Speaker Name: </label><br>
+                    <input type="text" id="form_paragraph_speakername"><br>
+                    <label for="form_paragraph_text">Text: </label><br> 
+                    <input type="text" id="form_paragraph_text"><br>
+                </form>
+                <p id="narrationbool_display">Is Narration: true</p>
+                <button id="toggle_narration_button">Narration True/False</button>
+                <button id="update_paragraph_button">Update Paragraph</button>
+                <hr>
+                <form action="GET" id="form_editresponse">
+                    <label for="form_response_index">Selected Response: </label><br>
+                    <input type="number" id="form_response_index"><br>
+                    <label for="form_response_text">Text: </label><br>
+                    <input type="text" id="form_response_text"><br>
+                </form>
+                <button id="update_response_button">Update Response</button>
+                <label for="form_response_nextnode">Next Node: </label>
+                <input type="number" id="form_response_nextnode">
+                <button id="update_nextnode_button">Update NextNode</button>
+            </div>
+            <!-- #endregion -->
+            
+            <div id="encounter_board" style="display: none;">
+                <div id="board_leftside" class="board_field">
+                    <h2 class="teamlabel">Player Party</h2>
+                    
+                </div>
+                <div id="board_center" class="board_field">
+                    <p>
+                        Click on an "enemy" to target them, and click "Attack" to attack.
+                    </p>
+                    <p>
+                        A character highlighed in YELLOW means it's their turn.
+                    </p>
+                    <p>
+                        A character highlighed in RED means that they are currently being targeted.
+                    </p>
+                </div>
+                <div id="board_rightside" class="board_field">
+                    <h2 class="teamlabel">Enemy Party</h2>
+                </div>
+            </div>
+            
+            <div id="dialogue_textwindow">
+
+            </div>
+            <div id="game_controlpanel">
+                <div id="controlpanel_party" class="controlpanel_item">
+                    <div>
+                        <h3>Player Party</h3>
+                    </div>
+                </div>
+                <div id="controlpanel_menus" class="controlpanel_item">
+                    <div id="menubutton_inventory" class="menubutton">
+                        <h3>Inventory</h3>
+                    </div>
+                    <div id="menubutton_charactersheet" class="menubutton">
+                        <h3>Character Sheet</h3>
+                    </div>
+                    <div id="menubutton_journal" class="menubutton">
+                        <h3>Journal</h3>
+                    </div>
+                    <div id="menubutton_map" class="menubutton">
+                        <h3>Map</h3>
+                    </div>
+                </div>
+                <div id="controlpanel_actions" class="controlpanel_item">
+             
+                </div>
+                <div id="controlpanel_enemies" class="controlpanel_item">
+                        <div>
+                            <h3>Enemy Party</h3>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <audio src="../../assets/music/music_generic_ambient_01.mp3"></audio>
+    <script src="../classes/classes_characters.js"></script>
+    <script src="../classes/classes_dicerolls.js"></script>
+    <script src="../classes/classes_encounters.js"></script>
+    <script src="../classes/classes_ai.js"></script>
+    <script src="../scripts/dialoguemanager.js"></script>
+    <script src="../scripts/storymanager.js"></script>
+    <script src="../scripts/encountermanager.js"></script>
+</body>
+
+</html>

@@ -3,7 +3,7 @@ let playerName = 'Joseph';
 let money = 22;
 
 //Which dialogue tree and node is currently active
-let dialogueTreeURL = '/code/json/dialogue/dialogue_demo_escapepod.json';
+let dialogueTreeURL = '../json/dialogue/dialogue_demo_escapepod.json';
 let dialogueTree = null;
 let currentDialogueNode =  null;
 let checkPointNode = 0;
@@ -17,8 +17,14 @@ let activeRules = [
 
 ]
 
+let dialogueWindow = document.getElementById('dialogue_textwindow');
+let actionButtons = document.getElementById('controlpanel_actions');
+
+/**
+ * @param {string} fileURL
+ */
 //loads the dialogue file, which represents the current "scene"
-function loadDialogueTree(fileURL) {
+ function loadDialogueTree(fileURL) {
     fetch(fileURL).then(response => response.json()).then(json => {dialogueTree = json});
     console.log(`Loaded Dialogue Tree from file: ${dialogueTreeURL}`);
 }
@@ -58,6 +64,9 @@ function unloadRuleSets() {
     console.log(`Cleared ${amount} rules. activeRules is now empty.`);
 }
 
+/**
+ * @param {number} nodeIndex
+ */
 //loads a dialogue node, jumping to a specific point in the scene
 function loadDialogueNode(nodeIndex) {
     if(dialogueTree != null)
@@ -93,8 +102,11 @@ function refreshDialogueNode() {
     // loadDialogueNode(currentDialogueNode.nodeIndex);
 }
 
+/**
+ * @param {number} responseIndex
+ */
 //adds the player's chosen response to the message log
-function displayResponseParagraphs(responseIndex) {
+ function displayResponseParagraphs(responseIndex) {
     if(currentDialogueNode != null)
     {
         if (playerName != null)
@@ -147,13 +159,19 @@ function displayDialogueParagraphs() {
         {
             newLabel.appendChild(newLabelText);
             newDiv.appendChild(newLabel);
-            newDiv.className = "dialogue_paragraph_container paragraph_dialogue"
+            newDiv.className = "dialogue_paragraph_container paragraph_dialogue newparagraph";
+            setTimeout(() => {
+               newDiv.className = "dialogue_paragraph_container paragraph_dialogue" 
+            }, 300);
         }
         else 
         {
             newLabelText.remove;
             newLabel.remove;
-            newDiv.className = "dialogue_paragraph_container paragraph_narration"
+            newDiv.className = "dialogue_paragraph_container paragraph_narration newparagraph";
+            setTimeout(() => {
+               newDiv.className = "dialogue_paragraph_container paragraph_narration"; 
+            }, 300);
         }
         newParagraph.appendChild(newParagraphText);
         newDiv.appendChild(newParagraph);
@@ -261,8 +279,8 @@ function displayResponseButtons() {
             })
 
             //Adding everything to the control panel
-            let responsesWindow = document.getElementById("controlpanel_choices");
-            responsesWindow.appendChild(newDiv);
+            let actionsWindow = document.getElementById("controlpanel_actions");
+            actionsWindow.appendChild(newDiv);
         }
     }
     else 
@@ -289,6 +307,9 @@ function checkNullNextNodes() {
     }
 }
 
+/**
+ * @param {number} nodeIndex
+ */
 //checks a specific node for all its available connections
 function checkAdjacentNodes(nodeIndex) {
     console.log("--Node: " + dialogueTree.nodes[nodeIndex].nodeIndex + " ID: " + dialogueTree.nodes[nodeIndex].nodeID + "--");
@@ -299,18 +320,27 @@ function checkAdjacentNodes(nodeIndex) {
     }
 }
 
+/**
+ * @param {number} nodeIndex
+ */
 //logs the selected node's description
 function checkNodeDescription(nodeIndex) {
     console.log("--Node: " + dialogueTree.nodes[nodeIndex].nodeIndex + " ID: " + dialogueTree.nodes[nodeIndex].nodeID + "--");
     console.log(dialogueTree.nodes[nodeIndex].description);
 }
 
+/**
+ * @param {number} nodeIndex
+ */
 //logs the selected node's amount of paragraphs
 function checkParagraphCount(nodeIndex) {
     console.log("--Node: " + dialogueTree.nodes[nodeIndex].nodeIndex + " ID: " + dialogueTree.nodes[nodeIndex].nodeID + "--");
     console.log("Has " + dialogueTree.nodes[nodeIndex].paragraphs.length + " paragraphs.");
 }
 
+/**
+ * @param {number} nodeIndex
+ */
 //logs the selected node's amount of responses
 function checkResponseCount(nodeIndex) {
     console.log("--Node: " + dialogueTree.nodes[nodeIndex].nodeIndex + " ID: " + dialogueTree.nodes[nodeIndex].nodeID + "--");
@@ -484,6 +514,11 @@ function fixNodeIndexValues() {
     console.log("Fixed " + n + " mismatched nodeIndex values.");
 }
 
+/**
+ * @param {boolean} narrationBool
+ * @param {string} speakerName
+ * @param {string} textContent
+ */
 //adds a new dialogue paragraph to the current node
 function createDialogueParagraph(narrationBool, speakerName, textContent) {
     let newParagraph = {
@@ -497,6 +532,10 @@ function createDialogueParagraph(narrationBool, speakerName, textContent) {
     }
 }
 
+/**
+ * @param {string} textContent
+ * @param {number} nextNodeIndex
+ */
 //adds a new response to the current node
 function createDialogueResponse(textContent, nextNodeIndex) {
     let newResponse = {
@@ -523,8 +562,13 @@ function toggleNarrationBool() {
     }
 }
 
+/**
+ * @param {number} index
+ * @param {string} speakerName
+ * @param {string} textContent
+ */
 //changes the content of the selected paragraph on the current node
-function editDialogueParagraph(index, narrationBool, speakerName, textContent) {
+function editDialogueParagraph(index, speakerName, textContent) {
     let indexField = document.getElementById('form_paragraph_index').value;
     let nameField = document.getElementById('form_paragraph_speakername').value;
     let textField = document.getElementById('form_paragraph_text').value;
@@ -553,6 +597,10 @@ function editDialogueParagraph(index, narrationBool, speakerName, textContent) {
     refreshDialogueNode();
 }
 
+/**
+ * @param {number} index
+ * @param {string} textContent
+ */
 //changes the content of the selected response on the current node
 function editDialogueResponse(index, textContent) {
     let indexField = document.getElementById('form_response_index').value;
@@ -572,6 +620,10 @@ function editDialogueResponse(index, textContent) {
     console.log("Updating Response...");
 }
 
+/**
+ * @param {number} responseIndex
+ * @param {number} nextNodeIndex
+ */
 //sets a new nextNode to the selected response of the current node
 function editNextNode(responseIndex, nextNodeIndex) {
     let indexField = document.getElementById('form_response_index').value;
@@ -585,6 +637,9 @@ function editNextNode(responseIndex, nextNodeIndex) {
     }
 }
 
+/**
+ * @param {number} responseIndex
+ */
 //clears the nextNode of the selected response of the current node
 function clearNextNode(responseIndex) {
     currentDialogueNode.responses[responseIndex].nextNode = null;
@@ -605,6 +660,10 @@ function editNodeDescription() {
     refreshDialogueNode();
 }
 
+/**
+ * @param {string} location
+ * @param {string} description
+ */
 //creates a new dialogue node at the end of the file
 function createNewDialogueNode(location, description) {
     if(location == null)
