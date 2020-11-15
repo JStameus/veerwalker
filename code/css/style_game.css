@@ -128,7 +128,8 @@ input {
 }
 
 #controlpanel_actions {
-    flex: 4;
+    flex: 6;
+    height: 12.4rem;
     overflow-y: scroll;
 }
 

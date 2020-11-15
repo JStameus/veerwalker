@@ -91,5 +91,11 @@ let storyRules = [
                 initializeEncounter();                
             })
         ]
+    },
+    chapter01Rules= {
+        name: "ruleset_chapter01",
+        rules: [
+            
+        ]
     }
 ];

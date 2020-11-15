@@ -1,24 +1,304 @@
 {
     "sceneDescription": "Veerwalker Demo",
-    "nodes": 
-    [
-        {   
+    "ruleSets": [
+        "ruleset_global",
+        "ruleset_chapter01"
+    ],
+    "nodes": [
+        {
             "nodeIndex": 0,
-            "nodeID": 101,
-            "location": "Train",
-            "description": "The player wakes up on the train to Fort Skalver.",
-            "paragraphs":
-            [
+            "nodeID": 0,
+            "location": "Veerwalker",
+            "description": "Intro tutorial message.",
+            "paragraphs": [
+                {
+                    "narration": false,
+                    "speaker": "[Game Message]",
+                    "text": "Welcome to Veerwalker! This is a very early prototype of the game, containing only the most basic functionality: text-based dialogue. In this demo, you'll play through a few short scenes, which will probably take around 20 minutes to finish."
+                },
+                {
+                    "narration": false,
+                    "speaker": "Joseph, the Developer",
+                    "text": "While everything is still a prototype and subject to change, I want to know what you think about it so far. If something is boring, difficult to understand, or just not engaging, let me know!"
+                },
+                {
+                    "narration": false,
+                    "speaker": "[How To Play]",
+                    "text": "The top of the screen shows where you currently are. In the middle is the message log, which is where all game information, dialogue and narration is displayed. At the bottom is the control panel. Currently, it only has your dialogue options and choices. Everything else, such as the map, character sheet and party menu, are planned features for future versions of the game."
+                },
+                {
+                    "narration": true,
+                    "speaker": "",
+                    "text": "Click [Continue] to begin the game."
+                }
+            ],
+            "responses": [
+                {
+                    "text": "[Continue]",
+                    "nextNode": 1
+                }
+            ]
+        },
+        {
+            "nodeIndex": 1,
+            "nodeID": 1,
+            "location": "Node 1",
+            "description": "NextNode created from Node: 0",
+            "paragraphs": [
                 {
                     "narration": true,
                     "speaker": null,
-                    "text": "It's been a long night. Rise and shine!"
+                    "text": "For two days, you've been on the move, heading south on a rickety old train along the eastern side of the Aegis Spine, watching the snow-capped peaks pass by and the frostbitten tundra recede into the frozen desert beyond. For you, and your fellow passengers, this is the furthest from home you've ever been."
+                },
+                {
+                    "narration": true,
+                    "speaker": null,
+                    "text": "On the first leg of your journey, villages and camps dotted the landscape, marked by black chimney smoke and dimly lit huts. Now, there's nothing for miles but snow, and the creaking old railroad track carrying you to your destination."
+                },
+                {
+                    "narration": true,
+                    "speaker": null,
+                    "text": "How did you end up here?"
                 }
             ],
-            "responses": 
-            [
+            "responses": [
                 {
-                    "text": "Yes, I agree!",
+                    "text": "I volunteered for the job. A lone outpost like Fort Skalver needs all the help it can get around here, and I figured my skills could be useful.",
+                    "nextNode": 2
+                },
+                {
+                    "text": "I had nothing to lose. There was little in my old life I cared to hold on to, so when I heard that they were rounding up workers for a season out on the frontier, I knew it was better than waiting around for a miracle.",
+                    "nextNode": "2"
+                },
+                {
+                    "text": "I was conscripted. The decision was not up to me, and when all was said and done, my papers were stamped, my bags packed, and my future decided. ",
+                    "nextNode": "2"
+                }
+            ]
+        },
+        {
+            "nodeIndex": 2,
+            "nodeID": 2,
+            "location": "Node 2",
+            "description": "NextNode created from Node: 1",
+            "paragraphs": [
+                {
+                    "narration": true,
+                    "speaker": null,
+                    "text": "Well, in any case, there's no turning back now. Had you wanted to, you might have had your chance to slip between the cracks and disappear back in that port town you passed through four days ago. But, no use dwelling on such things now. "
+                },
+                {
+                    "narration": true,
+                    "speaker": null,
+                    "text": "You awaken to the rumbling of gears and pistons beneath the floorboards, rocking the train car left and right. Despite the commotion, you seem to have slept through most of the day, and as you come to, you can see the warm orange glow of the setting sun through the window slits about your bunk. And you're not alone, it seems. A sturdy hand grabs your leg and shakes you, and from the hallway you hear a low mumble."
+                },
+                {
+                    "narration": false,
+                    "speaker": "Yura",
+                    "text": "Brought food. Thought you want, but if not, tell me and it not go to waste."
+                }
+            ],
+            "responses": [
+                {
+                    "text": "Uh...",
+                    "nextNode": 3
+                },
+                {
+                    "text": "What? Ah, thanks.",
+                    "nextNode": "3"
+                },
+                {
+                    "text": "Couldn't you just have let me sleep? ",
+                    "nextNode": 4
+                }
+            ]
+        },
+        {
+            "nodeIndex": 3,
+            "nodeID": 3,
+            "location": "Node 3",
+            "description": "NextNode created from Node: 2",
+            "paragraphs": [
+                {
+                    "narration": true,
+                    "speaker": null,
+                    "text": "Before you get a chance to turn over and respond, he has already moved on. "
+                },
+                {
+                    "narration": true,
+                    "speaker": null,
+                    "text": "It's hard not to recognize that voice. Yura, a young Wonu from the Bauvenhem. You've hardly had a chance to get acquainted, both on account of his late arrival to the expedition, and that he appears to be hard to get acquainted with in general. Any conversations you've had have been short, devoid of any real substance besides the need-to-knows about meal schedules and crew meetings. But it's true that you've overslept. Perhaps he's looking out for you, in his own way. "
+                }
+            ],
+            "responses": [
+                {
+                    "text": "[Eat the soup]",
+                    "nextNode": "5"
+                },
+                {
+                    "text": "[Go back to sleep]",
+                    "nextNode": "6"
+                }
+            ]
+        },
+        {
+            "nodeIndex": 4,
+            "nodeID": 4,
+            "location": "Node 4",
+            "description": "The player asks Yura why he couldn't have let them continue sleeping.",
+            "paragraphs": [
+                {
+                    "narration": true,
+                    "speaker": null,
+                    "text": "Already on his way out, Yura suddenly stops and peeks into the cabin."
+                },
+                {
+                    "narration": false,
+                    "speaker": "Yura",
+                    "text": "You turn the day around when you sleep so long. Not so good for krovasta. Please, eat."
+                },
+                {
+                    "narration": true,
+                    "speaker": null,
+                    "text": "And with that said, he disappears into the hallway, leaving behind a steaming bowl of some unidentifiable red soup."
+                },
+                {
+                    "narration": true,
+                    "speaker": null,
+                    "text": "TO DO: Tell about Yura"
+                }
+            ],
+            "responses": [
+                {
+                    "text": "[Eat the soup]",
+                    "nextNode": 5
+                },
+                {
+                    "text": "[Go back to sleep]",
+                    "nextNode": 6
+                }
+            ]
+        },
+        {
+            "nodeIndex": 5,
+            "nodeID": 5,
+            "location": "Node 5",
+            "description": "The player eats the soup.",
+            "paragraphs": [
+                {
+                    "narration": true,
+                    "speaker": "Sticky, pungent and a little bit too hot, but it's hard to be picky on an empty stomach when you're this far from proper civilization. ",
+                    "text": "Sticky, pungent and a little bit too hot, but it's hard to be picky on an empty stomach when you're this far from proper civilization. Careful not to spill anything while the train rocks back and forth, you get the soup down, spoon by spoon. It can hardly be considered a culinary masterpiece, but the invigorating effect is hard to deny. You feel warmer now, from the inside and out."
+                }
+            ],
+            "responses": [
+                {
+                    "text": "[Get up and explore]",
+                    "nextNode": 9
+                }
+            ]
+        },
+        {
+            "nodeIndex": 6,
+            "nodeID": 6,
+            "location": "Node 6",
+            "description": "The player decides to go back to sleep, and spills the soup.",
+            "paragraphs": [
+                {
+                    "narration": true,
+                    "speaker": null,
+                    "text": "You decide to leave the soup on the table and go back to sleep. The day is almost done anyway, might as well wait for the next one."
+                },
+                {
+                    "narration": true,
+                    "speaker": null,
+                    "text": "You turn around and close your eyes. Your body is heavy, the bed linens soft and warm. As you begin to fall into a deep sleep, you are rudely awakened by a hot, burning sensation in your neck. Jolting back to life, you hit your head on the bunk above you, and tracing your fingers down to the source of the pain, you notice a thick, sticky coating - soup. Not only did it burn you, but it has spilled all over the bed sheets as well."
+                }
+            ],
+            "responses": [
+                {
+                    "text": "Damn it, that hurts...",
+                    "nextNode": 7
+                },
+                {
+                    "text": "[Try to clean up the soup]",
+                    "nextNode": 8
+                }
+            ]
+        },
+        {
+            "nodeIndex": 7,
+            "nodeID": 7,
+            "location": "Node 7",
+            "description": "The player complains about soup injuries.",
+            "paragraphs": [
+                {
+                    "narration": true,
+                    "speaker": null,
+                    "text": "Yura peeks into the cabin, no doubt having heard the commotion, and gives you a disappointed look. He throws his hands up and sighs."
+                },
+                {
+                    "narration": false,
+                    "speaker": "Yura",
+                    "text": "Am I right, am I wrong, is not matter? Nobody listen to me. Clean up your bunk, or it smell terrible. You never get Hjedje soup out of room if you wait. Devdin, ai ai..."
+                },
+                {
+                    "narration": true,
+                    "speaker": null,
+                    "text": "He storms out, heading back the way he came, to the front of the train."
+                }
+            ],
+            "responses": [
+                {
+                    "text": "[Get up and explore]",
+                    "nextNode": null
+                }
+            ]
+        },
+        {
+            "nodeIndex": 8,
+            "nodeID": 8,
+            "location": "Node 8",
+            "description": "NextNode created from Node: 6",
+            "paragraphs": [
+                {
+                    "narration": true,
+                    "speaker": null,
+                    "text": "Using a spare towel from your bag, you try to get the soup out of your bed linens to the best of your ability. As you work, you hear footsteps coming down the hall, and a knock on the door. "
+                },
+                {
+                    "narration": false,
+                    "speaker": "Yura",
+                    "text": "At least you have good wisdom to clean mess. Sad to see waste of soup, devdin. You clean up now. Bad smell if you do not."
+                },
+                {
+                    "narration": true,
+                    "speaker": null,
+                    "text": "And with that, he's gone again, heading back the way he came, to the front of the train."
+                }
+            ],
+            "responses": [
+                {
+                    "text": "[Get up and explore]",
+                    "nextNode": null
+                }
+            ]
+        },
+        {
+            "nodeIndex": 9,
+            "nodeID": 9,
+            "location": "Node 9",
+            "description": "NextNode created from Node: 5",
+            "paragraphs": [
+                {
+                    "narration": true,
+                    "speaker": null,
+                    "text": "New Node Paragraph"
+                }
+            ],
+            "responses": [
+                {
+                    "text": "New Node Response",
                     "nextNode": null
                 }
             ]
