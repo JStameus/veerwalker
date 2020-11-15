@@ -3,7 +3,7 @@ let playerName = 'Player';
 let money = 22;
 
 //Which dialogue tree and node is currently active
-let dialogueTreeURL = 'https://jstameus.github.io/veerwalker/code/json/dialogue_dialogue_demo_escapepod.json';
+let dialogueTreeURL = "/code/json/dialogue/dialogue_demo.json";
 let dialogueTree = null;
 let currentDialogueNode =  null;
 let checkPointNode = 0;
